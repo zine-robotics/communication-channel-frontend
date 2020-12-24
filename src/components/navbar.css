@@ -1,0 +1,16 @@
+.user{
+    align-self: center;
+    color: white;
+    font-weight: 800;  
+   
+}
+.project{
+    color: white;
+    font-weight: 800;
+    margin-left: 500px;
+}
+.logout{
+    color: white;
+    font-weight: 800;
+    margin-left: 10px;
+}

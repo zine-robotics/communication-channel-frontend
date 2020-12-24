@@ -1,5 +1,7 @@
 import React from 'react';
-import LoginForm from './LoginForm'
+import LoginForm from './components/LoginForm';
+//import Chat from "./components/Main"
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
