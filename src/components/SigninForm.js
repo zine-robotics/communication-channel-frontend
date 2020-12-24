@@ -1,8 +1,7 @@
 import React from 'react';
 import './LoginForm.css';
-import { BrowserRouter,Link, Switch, Route } from 'react-router-dom';
 
-class LoginForm extends React.Component{
+class SigninForm extends React.Component{
     render(){
         return(
             <div className={'authBox'}>
@@ -14,12 +13,18 @@ class LoginForm extends React.Component{
                 </div>
                 <div className={'rightBox'}>
                     <div className={'box'}>
-                        <div className={'titleAuth'}>Log into Zine chat</div>
+                        <div className={'titleAuth'}>Singn in to Zine chat</div>
                         <div className={'inputSBox'}>
                             <input className={'inputS'} type={'text'} placeholder={'Username'} />
                         </div>
                         <div className={'inputSBox'}>
                             <input className={'inputS'} type={'password'} placeholder={'Password'} />
+                        </div>
+                        <div className={'inputSBox'}>
+                            <input className={'inputS'} type={'email'} placeholder={'Email'} />
+                        </div>
+                        <div className={'inputSBox'}>
+                            <input className={'inputS'} type={'text'} placeholder={'College ID'} />
                         </div>
                         <div className={'contentBox'}>
                             <div className={'checkboxBox'}>
@@ -28,11 +33,10 @@ class LoginForm extends React.Component{
                             </div>
                             <div className={'text1'}>Forgot Password</div>
                         </div>
-                        <div className={'btnAuth'}>Login</div>
+                        <div className={'btnAuth'}>Sign in</div>
                         <div className={'borderBox'}>
                             <div className={'line'} />       
                         </div>
-                        <div className="signLink">Create a new account</div>
                     </div>
                 </div>
             </div>
@@ -40,4 +44,4 @@ class LoginForm extends React.Component{
     }
 }
 
-export default LoginForm;
+export default SigninForm;
