@@ -15,8 +15,11 @@ const Signup = () => {
       <div className="container-login100">
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
-            <img src={Logo}   salt="img" />
+            <img src={Logo}   alt="img" />
+            <p>
+            <br/>
               <div className="welcome">Welcome <br></br>to<br></br> Zine Comuunication Channel</div>
+            </p>
           </div>
 
           <form className="login100-form validate-form">
