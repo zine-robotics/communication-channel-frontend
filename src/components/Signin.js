@@ -14,7 +14,6 @@ const Signin = () => {
       <div className="container-login100">
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
-            {/* <img src="images/img-01.png" alt="IMG" /> */}
             <img src={Logo} alt="img" />
           </div>
 
