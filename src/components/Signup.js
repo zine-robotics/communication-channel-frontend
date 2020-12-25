@@ -6,6 +6,7 @@ import "./vendor/select2/select2.min.css";
 import "./css/util.css";
 import "./css/main.css";
 import React from "react";
+import Logo from "./images/zinelogo.jpg";
 
 const Signup = () => {
   return (
@@ -13,11 +14,11 @@ const Signup = () => {
       <div className="container-login100">
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
-            <img src="images/img-01.png" alt="IMG" />
+          <img src={Logo} alt="img" />
           </div>
 
           <form className="login100-form validate-form">
-            <span className="login100-form-title">Member Signup</span>
+            <span className="login100-form-title">Signin to Zine chat</span>
             <div className="wrap-input100 validate-input">
               <input
                 className="input100"
@@ -120,7 +121,7 @@ const Signup = () => {
               <label for="ip">Image Processing</label>
               <br />
               <input type="radio" id="ml" name="interest" value="ml" />
-              <label for="ml">Data Analysis and Machine Learning</label>
+              <label for="ml">Machine Learning</label>
               <br />
               <input type="radio" id="pcb" name="interest" value="pcb" />
               <label for="pcb">PCB Design</label>

@@ -17,7 +17,7 @@ const Signin = () => {
           </div>
 
           <form className="login100-form validate-form">
-            <span className="login100-form-title">Member Login</span>
+            <span className="login100-form-title">Login to Zine chat</span>
 
             <div
               className="wrap-input100 validate-input"
