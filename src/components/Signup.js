@@ -7,6 +7,7 @@ import "./css/util.css";
 import "./css/main.css";
 import React from "react";
 import Logo from "./images/zinelogo.jpg";
+import Dropdown from "./Dropdown";
 
 const Signup = () => {
   return (
@@ -14,7 +15,7 @@ const Signup = () => {
       <div className="container-login100">
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
-          <img src={Logo} alt="img" />
+            <img src={Logo} alt="img" />
           </div>
 
           <form className="login100-form validate-form">
@@ -106,32 +107,7 @@ const Signup = () => {
             <br />
 
             <div className="wrap-input100 validate-input">
-              <h5>Domain of Interest:</h5>
-              <br />
-              <input type="radio" id="web" name="interest" value="web" />
-              <label for="web">Web Development</label>
-              <br />
-              <input type="radio" id="app" name="interest" value="app" />
-              <label for="app">App Development</label>
-              <br />
-              <input type="radio" id="cad" name="interest" value="cad" />
-              <label for="cad">Cad Modelling</label>
-              <br />
-              <input type="radio" id="ip" name="interest" value="ip" />
-              <label for="ip">Image Processing</label>
-              <br />
-              <input type="radio" id="ml" name="interest" value="ml" />
-              <label for="ml">Machine Learning</label>
-              <br />
-              <input type="radio" id="pcb" name="interest" value="pcb" />
-              <label for="pcb">PCB Design</label>
-              <br />
-              <input type="radio" id="algo" name="interest" value="algo" />
-              <label for="algo">Algorithm</label>
-              <br />
-              <input type="radio" id="casestudy" name="interest" value="casestudy" />
-              <label for="casestudy">Robotics Case Study</label>
-              <br />
+                <Dropdown />
             </div>
 
             <div className="container-login100-form-btn">
