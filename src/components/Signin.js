@@ -14,11 +14,11 @@ const Signin = () => {
       <div className="container-login100">
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
-            <img src={Logo} alt="img" />
+            <img width="150px" height="100px"src={Logo} alt="img" />
           </div>
 
           <form className="login100-form validate-form">
-            <span className="login100-form-title">Login to Zine chat</span>
+            <span className="login100-form-title">Login</span>
 
             <div
               className="wrap-input100 validate-input"

@@ -15,11 +15,12 @@ const Signup = () => {
       <div className="container-login100">
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
-            <img src={Logo} alt="img" />
+            <img src={Logo}   salt="img" />
+              <div className="welcome">Welcome <br></br>to<br></br> Zine Comuunication Channel</div>
           </div>
 
           <form className="login100-form validate-form">
-            <span className="login100-form-title">Sign In to Zine chat</span>
+            <span className="login100-form-title">Sign In</span>
             <div className="wrap-input100 validate-input">
               <input
                 className="input100"
@@ -46,19 +47,7 @@ const Signup = () => {
               </span>
             </div>
 
-            <div className="wrap-input100 validate-input">
-              <input
-                className="input100"
-                type="text"
-                name="rollNumber"
-                placeholder="Roll Number"
-              />
-              <span className="focus-input100"></span>
-              <span className="symbol-input100">
-                <i className="fa fa-info" aria-hidden="true"></i>
-              </span>
-            </div>
-
+            
             <div
               className="wrap-input100 validate-input"
               data-validate="Valid email is required: ex@abc.xyz"
@@ -95,6 +84,20 @@ const Signup = () => {
               <input
                 className="input100"
                 type="text"
+                name="rollNumber"
+                placeholder="CollegeID"
+              />
+              <span className="focus-input100"></span>
+              <span className="symbol-input100">
+                <i className="fa fa-info" aria-hidden="true"></i>
+              </span>
+            </div>
+
+
+            <div className="wrap-input100 validate-input">
+              <input
+                className="input100"
+                type="text"
                 name="interest"
                 placeholder="Domain of Interest"
               />
@@ -114,7 +117,7 @@ const Signup = () => {
               <button className="login100-form-btn">Sign Up</button>
             </div>
 
-            <div className="text-center p-t-136">
+            <div className="text-center p-t-56">
               <a className="txt2" href="/">
                 Login
                 <i
