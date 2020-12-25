@@ -5,6 +5,7 @@ import "./vendor/css-hamburgers/hamburgers.min.css";
 import "./vendor/select2/select2.min.css";
 import "./css/util.css";
 import "./css/main.css";
+import Logo from "./images/zinelogo.jpg";
 import React from "react";
 
 const Signin = () => {
@@ -13,7 +14,8 @@ const Signin = () => {
       <div className="container-login100">
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
-            <img src="images/img-01.png" alt="IMG" />
+            {/* <img src="images/img-01.png" alt="IMG" /> */}
+            <img src={Logo} alt="img" />
           </div>
 
           <form className="login100-form validate-form">

@@ -18,7 +18,7 @@ const Signup = () => {
           </div>
 
           <form className="login100-form validate-form">
-            <span className="login100-form-title">Signin to Zine chat</span>
+            <span className="login100-form-title">Sign In to Zine chat</span>
             <div className="wrap-input100 validate-input">
               <input
                 className="input100"

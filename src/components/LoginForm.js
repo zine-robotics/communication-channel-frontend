@@ -1,5 +1,6 @@
 import React from 'react';
 import './LoginForm.css';
+import Logo from "./images/zinelogo.jpg";
 import { BrowserRouter,Link, Switch, Route } from 'react-router-dom';
 
 class LoginForm extends React.Component{
