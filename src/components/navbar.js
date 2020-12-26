@@ -12,13 +12,13 @@ function Navbar() {
       <ul>
         <li>
           <a href="#">
-            Project
+            Project Name
           </a>
         </li>
+        <li></li>
         <li>
           <a href="#">Username</a>
         </li>
-
         <li>
           <a className="active" href="/">
             Logout
