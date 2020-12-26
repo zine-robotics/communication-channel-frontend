@@ -7,7 +7,7 @@ import "./css/util.css";
 import "./css/main.css";
 import React from "react";
 import Logo from "./images/zinelogo.jpeg";
-import Dropdown from "./newDropdown";
+import Dropdown from "./Dropdown";
 import { BrowserRouter as Link } from "react-router-dom";
 import Tilt from "react-tilt";
 
