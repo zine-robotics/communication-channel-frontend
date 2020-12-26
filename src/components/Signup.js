@@ -6,7 +6,7 @@ import "./vendor/select2/select2.min.css";
 import "./css/util.css";
 import "./css/main.css";
 import React from "react";
-import Logo from "./images/zinelogo.jpg";
+import Logo from "./images/zinelogo.jpeg";
 import Dropdown from "./Dropdown";
 import {BrowserRouter as Link} from 'react-router-dom';
 

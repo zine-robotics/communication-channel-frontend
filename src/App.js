@@ -7,13 +7,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      {/* <Router>
+      <Router>
         <Switch>
           <Route exact path="/" component={Signin} />
           <Route path="/signup" component={Signup} />
           <Route path="/chat" component={Chat} />
         </Switch>
-      </Router> */}
+      </Router>
       <Chat/>
     </div>
   );
