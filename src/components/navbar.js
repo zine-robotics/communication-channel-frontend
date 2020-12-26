@@ -13,8 +13,8 @@ function Navbar(){
     <div className="navbar-nav project">
       
     </div>
-    <div className="user">
-      
+    <div className="project">
+      Project
     </div>
     <div  className="logout">
       Logout

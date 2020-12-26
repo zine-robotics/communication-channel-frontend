@@ -9,7 +9,6 @@ function Chat(){
     <Navbar />
     <div className="chat_body">
        <Sidebar />
-       {/*React Router-> Chat Screen*/}
     </div>
    </div>
 

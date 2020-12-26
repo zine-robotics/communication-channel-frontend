@@ -7,6 +7,7 @@ import "./css/util.css";
 import "./css/main.css";
 import Logo from "./images/zinelogo.jpeg";
 import React from "react";
+import Tilt from 'react-tilt';
 
 const Signin = () => {
   return (
@@ -14,7 +15,11 @@ const Signin = () => {
       <div className="container-login100">
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
+          <Tilt className="Tilt" options={{ max : 55 }} style={{ height: 250, width: 250 }} >
+ <div className="Tilt-inner">
             <img width="150px" height="100px"src={Logo} alt="img" />
+            </div>
+</Tilt>
           </div>
           
           <form className="login100-form validate-form">
@@ -54,7 +59,7 @@ const Signin = () => {
             
             <div className="container-login100-form-btn">
             
-            <button className="login100-form-btn">Login</button>
+            <button className="login100-form-btn"><a href="/chat">Login</a></button>
             </div>
 
             <div className="text-center p-t-136">

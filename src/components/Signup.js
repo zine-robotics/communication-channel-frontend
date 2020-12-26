@@ -9,6 +9,7 @@ import React from "react";
 import Logo from "./images/zinelogo.jpeg";
 import Dropdown from "./Dropdown";
 import {BrowserRouter as Link} from 'react-router-dom';
+import Tilt from 'react-tilt';
 
 const Signup = () => {
   return (
@@ -16,7 +17,11 @@ const Signup = () => {
       <div className="container-login100">
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
+          <Tilt className="Tilt" options={{ max : 55 }} style={{ height: 250, width: 250 }} >
+ <div className="Tilt-inner">
             <img src={Logo} alt="img" />
+            </div>
+</Tilt>
             <p>
               <br />
               <div className="welcome">
@@ -105,7 +110,7 @@ const Signup = () => {
             </div>
 
             <div className="container-login100-form-btn">
-              <button className="login100-form-btn">Sign Up</button>
+              <button className="login100-form-btn"><a href="/chat">Sign Up</a></button>
             </div>
 
             <div className="text-center p-t-56">
