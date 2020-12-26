@@ -63,7 +63,7 @@ const Signin = () => {
 
             <div className="container-login100-form-btn">
               <button className="login100-form-btn">
-                <a href="/chat" className="remove">Login</a>
+                <a className="remove" href="/chat" >Login</a>
               </button>
             </div>
 

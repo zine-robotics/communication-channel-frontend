@@ -212,6 +212,15 @@ iframe {
   padding: 70px 110px 30px 95px;
 }
 
+.remove{
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+a{
+  all: unset;
+}
+
 /*------------------------------------------------------------------
 [  ]*/
 .login100-pic {
@@ -222,14 +231,6 @@ iframe {
   max-width: 100%;
 }
 
-.remove{
-  color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
-}
-
-a{
-  all: unset;
-}
 
 /*------------------------------------------------------------------
 [  ]*/

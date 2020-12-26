@@ -115,7 +115,7 @@ const Signup = () => {
 
             <div className="container-login100-form-btn">
               <button className="login100-form-btn">
-                <a href="/chat" className="remove">Sign Up</a>
+                <a  className="remove" href="/chat">Sign Up</a>
               </button>
             </div>
 
