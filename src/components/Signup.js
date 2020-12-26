@@ -8,6 +8,7 @@ import "./css/main.css";
 import React from "react";
 import Logo from "./images/zinelogo.jpg";
 import Dropdown from "./Dropdown";
+import {BrowserRouter as Link} from 'react-router-dom';
 
 const Signup = () => {
   return (
@@ -96,7 +97,7 @@ const Signup = () => {
                 <i className="fa fa-info" aria-hidden="true"></i>
               </span>
             </div>
-            
+
             <br />
 
             <div className="wrap-input100 validate-input">

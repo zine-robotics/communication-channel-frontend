@@ -7,6 +7,7 @@ import "./css/util.css";
 import "./css/main.css";
 import Logo from "./images/zinelogo.jpg";
 import React from "react";
+import {BrowserRouter as Link} from 'react-router-dom';
 
 const Signin = () => {
   return (
@@ -16,7 +17,7 @@ const Signin = () => {
           <div className="login100-pic js-tilt" data-tilt>
             <img width="150px" height="100px"src={Logo} alt="img" />
           </div>
-
+          
           <form className="login100-form validate-form">
             <span className="login100-form-title">Login</span>
 
@@ -51,9 +52,10 @@ const Signin = () => {
                 <i className="fa fa-lock" aria-hidden="true"></i>
               </span>
             </div>
-
+            
             <div className="container-login100-form-btn">
-              <button className="login100-form-btn">Login</button>
+            
+            <button className="login100-form-btn">Login</button>
             </div>
 
             <div className="text-center p-t-136">
