@@ -11,12 +11,12 @@ function Navbar(){
   </button>
   <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div className="navbar-nav project">
-      Project Name
+      
     </div>
     <div className="user">
-      User name
+      
     </div>
-    <div className="logout">
+    <div  className="logout">
       Logout
     </div>
   </div>

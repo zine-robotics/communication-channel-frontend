@@ -12,5 +12,6 @@
 .logout{
     color: white;
     font-weight: 800;
-    margin-left: 10px;
+    align: right;
+    
 }
