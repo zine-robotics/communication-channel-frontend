@@ -15,10 +15,12 @@ const Signup = () => {
       <div className="container-login100">
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
-            <img src={Logo}   alt="img" />
+            <img src={Logo} alt="img" />
             <p>
-            <br/>
-              <div className="welcome">Welcome <br></br>to<br></br> Zine Comuunication Channel</div>
+              <br />
+              <div className="welcome">
+                Welcome <br></br>to<br></br> Zine Comuunication Channel
+              </div>
             </p>
           </div>
 
@@ -50,7 +52,6 @@ const Signup = () => {
               </span>
             </div>
 
-            
             <div
               className="wrap-input100 validate-input"
               data-validate="Valid email is required: ex@abc.xyz"
@@ -95,25 +96,11 @@ const Signup = () => {
                 <i className="fa fa-info" aria-hidden="true"></i>
               </span>
             </div>
-
-
-            <div className="wrap-input100 validate-input">
-              <input
-                className="input100"
-                type="text"
-                name="interest"
-                placeholder="Domain of Interest"
-              />
-              <span className="focus-input100"></span>
-              <span className="symbol-input100">
-                <i className="fa fa-info" aria-hidden="true"></i>
-              </span>
-            </div>
-
+            
             <br />
 
             <div className="wrap-input100 validate-input">
-                <Dropdown />
+              <Dropdown />
             </div>
 
             <div className="container-login100-form-btn">
