@@ -1,11 +1,12 @@
 {
-  "name": "diprella-login-react",
+  "name": "web-chat",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.5.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-multi-select-component": "^3.0.8",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.0.1",
