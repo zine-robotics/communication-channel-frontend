@@ -19,7 +19,7 @@ const Signup = () => {
           <div className="login100-pic js-tilt" data-tilt>
             <Tilt
               className="Tilt"
-              options={{ max: 55 }}
+              options={{ max: 35 }}
               style={{ height: 250, width: 400 }}
             >
               <div className="Tilt-inner">
