@@ -22,8 +22,8 @@ return (
   <SidebarOption title="App Development"/>
   <SidebarOption title="PCB Designing"/>
   <SidebarOption title="Algorithms"/>
-  <SidebarOption title="Deep Learning"/>
-  <SidebarOption title="CAD"/>
+  <SidebarOption title="Robotics Case Study"/>
+  <SidebarOption title="CAD Modelling"/>
    
  
 

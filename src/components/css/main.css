@@ -77,7 +77,8 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #098cf8;
+  color:#111d5e;/* #098cf8;*/
+  cursor: pointer;
 }
 
 /*---------------------------------------------*/
@@ -161,7 +162,7 @@ iframe {
 
 .txt2 {
   font-family: Poppins-Regular;
-  font-size: 15px;
+  font-size: 19px;
   line-height: 2.5;
   color: #666666;
 }

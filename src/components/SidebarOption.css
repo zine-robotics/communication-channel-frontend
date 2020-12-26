@@ -1,14 +1,14 @@
 .sidebarOption{
     display: flex;
     align-items: center;
-    font-size: 12px;/*imp*/
+    font-size: 15px !important;
     padding-left: 2px;
     cursor: pointer;
 }
 
-.sidebarOption : hover{
+.sidebarOption:hover{
     opacity: 0.9;
-     background-color : blue;/*important */
+     background-color : #393e46!important;
 }
 
 .sidebarOption_icon{
