@@ -16,9 +16,12 @@ function Navbar(){
     <div className="project">
       Project
     </div>
+
+    <a href="/">
     <div  className="logout">
       Logout
     </div>
+    </a>
   </div>
 </nav>
     );

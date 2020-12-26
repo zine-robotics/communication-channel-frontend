@@ -10,8 +10,7 @@
     margin-left: 300px;
 }
 .logout{
-    color: white;
+    color: white !important;
     font-weight: 800;
     margin-left: 600px;
-    
 }
