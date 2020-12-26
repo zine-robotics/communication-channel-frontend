@@ -18,7 +18,7 @@ const Signin = () => {
             <Tilt
               className="Tilt"
               options={{ max: 55 }}
-              style={{ height: 250, width: 300 }}
+              style={{ height: 250, width: 350 }}
             >
               <div className="Tilt-inner">
                 <img width="150px" height="100px" src={Logo} alt="img" />
@@ -63,7 +63,7 @@ const Signin = () => {
 
             <div className="container-login100-form-btn">
               <button className="login100-form-btn">
-                <a href="/chat">Login</a>
+                <a href="/chat" className="remove">Login</a>
               </button>
             </div>
 

@@ -20,7 +20,7 @@ const Signup = () => {
             <Tilt
               className="Tilt"
               options={{ max: 55 }}
-              style={{ height: 250, width: 350 }}
+              style={{ height: 250, width: 400 }}
             >
               <div className="Tilt-inner">
                 <img src={Logo} alt="img" />
@@ -115,7 +115,7 @@ const Signup = () => {
 
             <div className="container-login100-form-btn">
               <button className="login100-form-btn">
-                <a href="/chat">Sign Up</a>
+                <a href="/chat" className="remove">Sign Up</a>
               </button>
             </div>
 
