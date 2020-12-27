@@ -5,13 +5,45 @@ import "./vendor/css-hamburgers/hamburgers.min.css";
 import "./vendor/select2/select2.min.css";
 import "./css/util.css";
 import "./css/main.css";
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./images/zinelogo.jpeg";
 import Dropdown from "./Dropdown";
 import { BrowserRouter as Link } from "react-router-dom";
 import Tilt from "react-tilt";
+import { useHistory } from "react-router";
+import axios from "../helpers/axios";
 
 const Signup = () => {
+  const history = useHistory();
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [rollNumber, setRollNumber] = useState("");
+  const [domainOfInterest, setDomainOfInterest] = useState([]);
+  let result
+  const getDomainOfInterest = (selected) => {
+    console.log(selected.map(a => a.label));
+    result = selected.map(a => a.label)
+  }
+  const PostData = async (e) => {
+    e.preventDefault();
+    // regex for testing email is left
+    console.log(result)
+    setDomainOfInterest(result);
+    const res = await axios.post("/signup", {
+      fullName,
+      email,
+      password,
+      rollNumber,
+      domainOfInterest,
+    });
+    if (res.status === 200) {
+      console.log(res.message);
+      history.push("/signin");
+    } else {
+      console.log(res);
+    }
+  };
   return (
     <div className="limiter">
       <div className="container-login100">
@@ -34,27 +66,16 @@ const Signup = () => {
             </p>
           </div>
 
-          <form className="login100-form validate-form">
+          <form className="login100-form validate-form" onSubmit={PostData}>
             <span className="login100-form-title">Sign In</span>
             <div className="wrap-input100 validate-input">
               <input
                 className="input100"
                 type="text"
                 name="firstName"
-                placeholder="First Name"
-              />
-              <span className="focus-input100"></span>
-              <span className="symbol-input100">
-                <i className="fa fa-address-book" aria-hidden="true"></i>
-              </span>
-            </div>
-
-            <div className="wrap-input100 validate-input">
-              <input
-                className="input100"
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
+                placeholder="Full Name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
               />
               <span className="focus-input100"></span>
               <span className="symbol-input100">
@@ -71,6 +92,8 @@ const Signup = () => {
                 type="text"
                 name="email"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <span className="focus-input100"></span>
               <span className="symbol-input100">
@@ -87,6 +110,8 @@ const Signup = () => {
                 type="password"
                 name="pass"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <span className="focus-input100"></span>
               <span className="symbol-input100">
@@ -100,6 +125,8 @@ const Signup = () => {
                 type="text"
                 name="rollNumber"
                 placeholder="CollegeID"
+                value={rollNumber}
+                onChange={(e) => setRollNumber(e.target.value)}
               />
               <span className="focus-input100"></span>
               <span className="symbol-input100">
@@ -110,12 +137,14 @@ const Signup = () => {
             <br />
 
             <div className="wrap-input100 validate-input">
-              <Dropdown />
+              <Dropdown getDomainOfInterest={getDomainOfInterest} />
             </div>
 
             <div className="container-login100-form-btn">
               <button className="login100-form-btn">
-                <a  className="remove" href="/chat">Sign Up</a>
+                <a className="remove" href="/chat">
+                  Sign Up
+                </a>
               </button>
             </div>
 

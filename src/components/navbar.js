@@ -1,6 +1,7 @@
 import React from "react";
 import "./navbar.css";
 import Logo from "./images/zinechat.png";
+import clearSession from "../helpers/signout"
 function Navbar() {
   return (
     <nav>
@@ -20,9 +21,10 @@ function Navbar() {
           <a href="#">Username</a>
         </li>
         <li>
-          <a className="active" href="/">
+          <button onClick = {clearSession}><a className="active" href="/">
             Logout
-          </a>
+          </a></button>
+          
         </li>
       </ul>
     </nav>
