@@ -14,7 +14,6 @@ function App() {
           <Route path="/chat" component={Chat} />
         </Switch>
       </Router>
-      <Chat/>
     </div>
   );
 }
