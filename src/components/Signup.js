@@ -41,20 +41,7 @@ const Signup = () => {
                 className="input100"
                 type="text"
                 name="firstName"
-                placeholder="First Name"
-              />
-              <span className="focus-input100"></span>
-              <span className="symbol-input100">
-                <i className="fa fa-address-book" aria-hidden="true"></i>
-              </span>
-            </div>
-
-            <div className="wrap-input100 validate-input">
-              <input
-                className="input100"
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
+                placeholder="Full Name"
               />
               <span className="focus-input100"></span>
               <span className="symbol-input100">
