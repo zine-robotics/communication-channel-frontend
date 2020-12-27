@@ -6,10 +6,32 @@ import "./vendor/select2/select2.min.css";
 import "./css/util.css";
 import "./css/main.css";
 import Logo from "./images/zinelogo.jpeg";
-import React from "react";
+import React, { useState } from "react";
 import Tilt from "react-tilt";
+import { useHistory } from "react-router";
+import axios from "../helpers/axios";
 
 const Signin = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
+  const PostData = async (e) => {
+    e.preventDefault();
+    // regex for testing email is left
+    const res = await axios.post("/signin", {
+      email,
+      password,
+    });
+    if (res.status === 200) {
+      const { token, user } = res.data;
+      console.log("Successfully Signed in");
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+      history.push("/chat");
+    } else {
+      console.log("Failed to Signin", res);
+    }
+  };
   return (
     <div className="limiter">
       <div className="container-login100">
@@ -26,7 +48,7 @@ const Signin = () => {
             </Tilt>
           </div>
 
-          <form className="login100-form validate-form">
+          <form className="login100-form validate-form" onSubmit={PostData}>
             <span className="login100-form-title">Login</span>
 
             <div
@@ -38,6 +60,8 @@ const Signin = () => {
                 type="text"
                 name="email"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <span className="focus-input100"></span>
               <span className="symbol-input100">
@@ -54,6 +78,8 @@ const Signin = () => {
                 type="password"
                 name="pass"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <span className="focus-input100"></span>
               <span className="symbol-input100">
@@ -63,7 +89,9 @@ const Signin = () => {
 
             <div className="container-login100-form-btn">
               <button className="login100-form-btn">
-                <a className="remove" href="/chat" >Login</a>
+                <a className="remove" href="/chat">
+                  Login
+                </a>
               </button>
             </div>
 
