@@ -1,16 +1,30 @@
 import React from "react";
 import Navbar from "./navbar";
 import Sidebar from "./Sidebar";
+import ChatRoom from "./ChatRoom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./Chat.css";
 
 function Chat(){
     return (
      <div className="chat-page">   
-    <Navbar />
-    <div className="chat_body">
-       <Sidebar />
-    </div>
-   </div>
+      <Router>
+       <Navbar />
+         <div className="chat_body">
+          <Sidebar />
+
+          <Switch>
+              <Route path="/room/:Id">
+                  <h1>CHAT SCREEN</h1>
+                  {/* <Chat /> */}
+              </Route>
+              <Route path="/">
+                  <h1>Welcome</h1>
+              </Route>
+          </Switch>
+         </div>
+      </Router>
+     </div>
 
     );
 }
