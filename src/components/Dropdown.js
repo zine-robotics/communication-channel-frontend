@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MultiSelect from "react-multi-select-component";
 
-function Dropdown() {
+function Dropdown({ getDomainOfInterest }) {
   const options = [
     { label: "Web Development", value: "web" },
     { label: "App Development", value: "app" },
@@ -14,7 +14,7 @@ function Dropdown() {
   ];
 
   const [selected, setSelected] = useState([]);
-
+  getDomainOfInterest(selected);
   return (
     <div>
       <MultiSelect
