@@ -13,15 +13,15 @@ function Chat(){
          <div className="chat_body">
           <Sidebar />
 
-           <Switch>
-              <Route path="/chat/room/:roomId">
+           {/* <Switch>
+              <Route path="/chat/room/:roomId"> */}
                   
                      <ChatRoom/> 
-              </Route>
+              {/* </Route>
               <Route path="/chat">
                   <h1>Welcome</h1>
               </Route>
-          </Switch> 
+          </Switch>  */}
          </div>
       </Router>
      </div>
