@@ -31,13 +31,14 @@
     flex: 1;
     display: flex;
     width: 80%;
+    border-bottom: 1px solid #686d76 !important;
   }
   
   .chatRoom__footer > form > input {
     flex: 1;
     border-radius: 50px;
     padding: 15px;
-    border: none;
+    border-bottom:none;
     width: 90%;
   }
   
