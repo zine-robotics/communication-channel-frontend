@@ -6,7 +6,7 @@ import "./vendor/select2/select2.min.css";
 import "./css/util.css";
 import "./css/main.css";
 import React, { useState } from "react";
-import Logo from "./images/zinelogo.jpeg";
+import Logo from "./images/ZINE.png";
 import Dropdown from "./Dropdown";
 import { BrowserRouter as Link } from "react-router-dom";
 import Tilt from "react-tilt";
@@ -152,7 +152,7 @@ const Signup = () => {
               <a className="txt2" href="/">
                 Login
                 <i
-                  className="fa fa-long-arrow-right m-l-5"
+                  className="fa m-l-5"
                   aria-hidden="true"
                 ></i>
               </a>

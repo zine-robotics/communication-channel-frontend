@@ -5,7 +5,7 @@ import "./vendor/css-hamburgers/hamburgers.min.css";
 import "./vendor/select2/select2.min.css";
 import "./css/util.css";
 import "./css/main.css";
-import Logo from "./images/zinelogo.jpeg";
+import Logo from "./images/ZINE.png";
 import React, { useState } from "react";
 import Tilt from "react-tilt";
 import { useHistory } from "react-router";
@@ -40,10 +40,10 @@ const Signin = () => {
             <Tilt
               className="Tilt"
               options={{ max: 35 }}
-              style={{ height: 250, width: 350 }}
+              style={{ height: 350, width: 450 }}
             >
               <div className="Tilt-inner">
-                <img width="150px" height="100px" src={Logo} alt="img" />
+                <img width="250px" height="200px" src={Logo} alt="img" />
               </div>
             </Tilt>
           </div>
@@ -99,7 +99,7 @@ const Signin = () => {
               <a className="txt2" href="/signup">
                 Create your Account
                 <i
-                  className="fa fa-long-arrow-right m-l-5"
+                  className="fa m-l-5"
                   aria-hidden="true"
                 ></i>
               </a>
