@@ -14,9 +14,9 @@ function Chat(){
           <Sidebar />
 
           <Switch>
-              <Route path="/room/:Id">
-                  <h1>CHAT SCREEN</h1>
-                  {/* <Chat /> */}
+              <Route path="/chat/room/:roomId">
+                  
+                     <ChatRoom/> 
               </Route>
               <Route path="/">
                   <h1>Welcome</h1>

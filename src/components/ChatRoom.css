@@ -1,0 +1,18 @@
+.chatRoom{
+    flex: 0.7;
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding-bottom: 150px;
+    
+}
+
+.chatRoom__header{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #686d76 !important;
+}
+
+.chatRoom_channelName{
+    display: flex;
+}

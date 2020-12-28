@@ -11,7 +11,7 @@ function Navbar() {
       </label>
       <label className="logo">ZINE</label>
       <ul>
-        <li>
+        {/* <li>
           <a href="#">
             Project Name
           </a>
@@ -19,7 +19,7 @@ function Navbar() {
         <li></li>
         <li>
           <a href="#">Username</a>
-        </li>
+        </li> */}
         <li>
           <button onClick = {clearSession}><a className="active" href="/">
             Logout

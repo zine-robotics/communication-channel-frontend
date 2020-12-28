@@ -21,7 +21,7 @@ function Sidebar(){
      </div>
      {/* <CreateIcon />  */}
     </div>
-     <div className="Channels"> 
+     <div className="Channels" roomId={'title'}> 
      <SidebarOption Icon={ChatIcon} title="Channels" />
      <SidebarOption title="Web Development"/>
      <SidebarOption title="App Development"/>
