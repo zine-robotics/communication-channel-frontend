@@ -5,6 +5,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useParams } from "react-router-dom";
 // import ChatInput from "./ChatInput"
 import SendIcon from "@material-ui/icons/Send";
+import AttachFileIcon from '@material-ui/icons/AttachFile';
 import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
 
 function ChatRoom(){
@@ -23,14 +24,18 @@ function ChatRoom(){
         </div>
       </div>
 
-      <div className="chatRoom__footer">
-        <SentimentVerySatisfiedIcon />
+      <div className="chatRoom_body">
+      </div>
+    
+
+      <div className="chatRoom__footer"> 
         <form>
           <input
             // value={input}
             // onChange={(event) => setinput(event.target.value)}
-            placeholder="Type your message here"
-          />
+            placeholder="Type your message here" /> 
+            
+            <AttachFileIcon />
           <button type="submit">
             <SendIcon />
           </button>
