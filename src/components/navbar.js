@@ -5,12 +5,12 @@ import clearSession from "../helpers/signout"
 function Navbar() {
   return (
     <nav>
-      <input type="checkbox" id="check" />
+      {/* <input type="checkbox" id="check" />
       <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>
-      </label>
+      </label> */}
       <label className="logo">ZINE</label>
-      <ul>
+      
         {/* <li>
           <a href="#">
             Project Name
@@ -20,13 +20,12 @@ function Navbar() {
         <li>
           <a href="#">Username</a>
         </li> */}
-        <li>
+        
           <button onClick = {clearSession}><a className="active" href="/">
             Logout
           </a></button>
           
-        </li>
-      </ul>
+       
     </nav>
   );
 }

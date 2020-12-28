@@ -10,7 +10,7 @@ function SidebarOption({ Icon, title, id}){
         if (id) {
             history.push('/room/${id}')
         } else {
-            history.push('title')
+            history.push({title})
         }
     }
     
