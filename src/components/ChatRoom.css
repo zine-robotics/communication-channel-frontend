@@ -1,6 +1,7 @@
 .chatRoom{
     flex: 0.7;
     flex-grow: 1;
+    height: 100vh;
 }
 
 .chatroom__message {
@@ -40,7 +41,8 @@
 .chatRoom__body {
    
     background-color: teal;
-    overflow+y: scroll; 
+    overflow: scroll;
+    height: 82vh;
    
   }
 

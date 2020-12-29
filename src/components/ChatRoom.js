@@ -223,7 +223,7 @@ function ChatRoom(){
         </div>
       </div>
 
-      <div className="chatRoom_body">
+      <div className="chatRoom__body">
         {roomMessages.map(({senderId, content, conversationId, createdAt})=>(
           <Message  
             senderId={senderId}
