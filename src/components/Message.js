@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Message.css"
 
-function Message({_id, senderId, content, conversationId, createdAt, updatedAt, __v}) {
+function Message({senderId, content, conversationId, createdAt}) {
     return (
         <div className="message">
             <div className="message__info">

@@ -44,15 +44,12 @@ function ChatRoom(){
       </div>
 
       <div className="chatRoom_body">
-        {roomMessages.map(({_id, senderId, content, conversationId, createdAt, updatedAt, __v})=>(
-          <Message 
-            _id={_id} 
+        {roomMessages.map(({senderId, content, conversationId, createdAt})=>(
+          <Message  
             senderId={senderId}
             content={content}
             conversationId={conversationId}
             createdAt={createdAt}
-            updatedAt={updatedAt}
-            __v={__v}
           />
         ))
         }
