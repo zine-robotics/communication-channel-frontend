@@ -45,9 +45,6 @@ img{
   /* transition:cubic-bezier(0.075, 0.82, 0.165, 1); */
   /* transition: width 2s, height 2s, transform 2s; */
 }
-img:hover{
-  /* transform:scale(1.5,1.5) */
-}
 
 .welcome{
   text-align: center;
@@ -167,6 +164,9 @@ iframe {
   color: #666666;
 }
 
+.txt2:hover{
+  color: white;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/

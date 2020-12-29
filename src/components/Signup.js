@@ -8,7 +8,7 @@ import "./css/main.css";
 import React, { useState } from "react";
 import Logo from "./images/ZINE.png";
 import Dropdown from "./Dropdown";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Tilt from "react-tilt";
 import { useHistory } from "react-router";
 import axios from "../helpers/axios";
@@ -20,15 +20,15 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [rollNumber, setRollNumber] = useState("");
   const [domainOfInterest, setDomainOfInterest] = useState([]);
-  let result
+  let result;
   const getDomainOfInterest = (selected) => {
-    console.log(selected.map(a => a.label));
-    result = selected.map(a => a.label)
-  }
+    console.log(selected.map((a) => a.label));
+    result = selected.map((a) => a.label);
+  };
   const PostData = async (e) => {
     e.preventDefault();
     // regex for testing email is left
-    console.log(result)
+    console.log(result);
     setDomainOfInterest(result);
     const res = await axios.post("/signup", {
       fullName,
@@ -141,22 +141,15 @@ const Signup = () => {
             </div>
 
             <div className="container-login100-form-btn">
-            <Link to="/chat">
-              <button className="login100-form-btn">
-                
-                  Sign Up
-                
-              </button>
+              <Link to="/chat">
+                <button className="login100-form-btn">Sign Up</button>
               </Link>
             </div>
 
             <div className="text-center p-t-56">
               <Link to="/" className="txt2">
                 Login
-                <i
-                  className="fa m-l-5"
-                  aria-hidden="true"
-                ></i>
+                <i className="fa m-l-5" aria-hidden="true"></i>
               </Link>
             </div>
           </form>
