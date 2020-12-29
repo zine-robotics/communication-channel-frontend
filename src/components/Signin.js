@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import Tilt from "react-tilt";
 import { useHistory } from "react-router";
 import axios from "../helpers/axios";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -89,22 +89,15 @@ const Signin = () => {
             </div>
 
             <div className="container-login100-form-btn">
-            <Link to="/chat">
-              <button className="login100-form-btn">
-
-                  Login
-                
-              </button>
+              <Link to="/chat" className="remove">
+                <button className="login100-form-btn">Login</button>
               </Link>
             </div>
 
             <div className="text-center p-t-136">
               <Link to="/signup" className="txt2">
                 Create your Account
-                <i
-                  className="fa m-l-5"
-                  aria-hidden="true"
-                ></i>
+                <i className="fa m-l-5" aria-hidden="true"></i>
               </Link>
             </div>
           </form>
