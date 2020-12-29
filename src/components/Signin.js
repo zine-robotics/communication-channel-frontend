@@ -89,8 +89,8 @@ const Signin = () => {
             </div>
 
             <div className="container-login100-form-btn">
-              <Link to="/chat" className="remove">
-                <button className="login100-form-btn">Login</button>
+              <Link to="/chat" className="login100-form-btn">
+                Sign Up
               </Link>
             </div>
 

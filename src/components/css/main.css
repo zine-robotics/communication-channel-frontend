@@ -377,6 +377,7 @@ a{
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+  position: relative;
 }
 
 .login100-form-btn:hover {

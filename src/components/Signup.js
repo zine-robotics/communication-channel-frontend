@@ -141,8 +141,8 @@ const Signup = () => {
             </div>
 
             <div className="container-login100-form-btn">
-              <Link to="/chat">
-                <button className="login100-form-btn">Sign Up</button>
+              <Link to="/chat" className="login100-form-btn">
+                Sign Up
               </Link>
             </div>
 
