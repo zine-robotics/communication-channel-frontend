@@ -8,7 +8,7 @@ import "./css/main.css";
 import React, { useState } from "react";
 import Logo from "./images/ZINE.png";
 import Dropdown from "./Dropdown";
-import { BrowserRouter as Link } from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Tilt from "react-tilt";
 import { useHistory } from "react-router";
 import axios from "../helpers/axios";
@@ -51,7 +51,7 @@ const Signup = () => {
           <div className="login100-pic js-tilt" data-tilt>
             <Tilt
               className="Tilt"
-              options={{ max: 35 }}
+              options={{ max: 40 }}
               style={{ height: 250, width: 400 }}
             >
               <div className="Tilt-inner">
@@ -141,21 +141,23 @@ const Signup = () => {
             </div>
 
             <div className="container-login100-form-btn">
+            <Link to="/chat">
               <button className="login100-form-btn">
-                <a className="remove" href="/chat">
+                
                   Sign Up
-                </a>
+                
               </button>
+              </Link>
             </div>
 
             <div className="text-center p-t-56">
-              <a className="txt2" href="/">
+              <Link to="/" className="txt2">
                 Login
                 <i
                   className="fa m-l-5"
                   aria-hidden="true"
                 ></i>
-              </a>
+              </Link>
             </div>
           </form>
         </div>

@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import Tilt from "react-tilt";
 import { useHistory } from "react-router";
 import axios from "../helpers/axios";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -39,11 +40,11 @@ const Signin = () => {
           <div className="login100-pic js-tilt" data-tilt>
             <Tilt
               className="Tilt"
-              options={{ max: 35 }}
-              style={{ height: 350, width: 450 }}
+              options={{ max: 40 }}
+              style={{ height: 300, width: 440 }}
             >
               <div className="Tilt-inner">
-                <img width="250px" height="200px" src={Logo} alt="img" />
+                <img width="300px" height="300px" src={Logo} alt="img" />
               </div>
             </Tilt>
           </div>
@@ -88,21 +89,23 @@ const Signin = () => {
             </div>
 
             <div className="container-login100-form-btn">
+            <Link to="/chat">
               <button className="login100-form-btn">
-                <a className="remove" href="/chat">
+
                   Login
-                </a>
+                
               </button>
+              </Link>
             </div>
 
             <div className="text-center p-t-136">
-              <a className="txt2" href="/signup">
+              <Link to="/signup" className="txt2">
                 Create your Account
                 <i
                   className="fa m-l-5"
                   aria-hidden="true"
                 ></i>
-              </a>
+              </Link>
             </div>
           </form>
         </div>
