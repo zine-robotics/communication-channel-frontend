@@ -5,6 +5,29 @@
     padding-bottom: 15px;
 }
 
+.chatroom__message {
+  position: relative;
+  font-size: 15px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgb(243, 240, 240);
+  border-radius: 15px;
+  width: fit-content;
+  margin-top: 25px;
+}
+
+.chatroom__messagetimestamp {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: xx-small;
+  color: gray;
+}
+
+.chatroom__messagerecierver {
+  margin-left: auto;
+  background-color: #c5ff99;
+}
+
 .chatRoom__header{
     display: flex;
     align-items: center;
