@@ -40,10 +40,10 @@
 
 .chatRoom__body {
    
-    background-color: teal;
-    overflow: scroll;
-    height: 82vh;
-   
+  background-color:white;
+  overflow: scroll;
+  margin-left: 18px;
+  height: 82vh;
   }
 
 .chatRoom__footer {

@@ -1,3 +1,8 @@
+@font-face{
+    font-family: 'LibreBaskerville';
+    src: local(./fonts/LibreBaskerville-Bold.ttf) format('truetype');
+}
+
 .message{
     display: flex;
     align-items: center;
@@ -6,5 +11,17 @@
 .message_timestamp{
     color: gray;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 13px;
+    
+}
+
+h5{
+    font-weight:bold !important;
+}
+
+p{
+    color:black !important;
+    font-size: 16px !important;
+    font-weight: 500;
+    font-family: LibreBaskerville;
 }
