@@ -1,9 +1,13 @@
-body {
+.all {
     font-family: Roboto,sans-serif;
     font-size: 13px;
     line-height: 1.42857143;
     color: #767676;
     background-color: #edecec;
+}
+
+.roomname{
+margin-left: 15px;
 }
 
 #messages-main {
