@@ -400,17 +400,17 @@ function ChatRoom() {
           </div>
           <div className="ms-body">
             <div className="action-header clearfix">
-              <div className="visible-xs" id="ms-menu-trigger">
+              <div className="d-none d-block d-sm-block d-md-none" id="ms-menu-trigger">
                 <i className="fa fa-bars" />
               </div>
-              <div className="pull-left hidden-xs">
+              <div className="pull-left roomname">
                 {/* <img
                   src="https://bootdey.com/img/Content/avatar/avatar2.png"
                   alt=""
                   className="img-avatar m-r-10"
                 /> */}
                 <div className="lv-avatar pull-left"></div>
-                <span className="roomname">avid Parbell</span>
+                <span>David Parbell</span>
               </div>
               {/* <ul className="ah-actions actions">
                 <li>
