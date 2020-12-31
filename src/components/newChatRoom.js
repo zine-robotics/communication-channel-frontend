@@ -229,7 +229,7 @@ function ChatRoom() {
                 alt=""
                 className="img-avatar pull-left"
               /> */}
-              <div>USERNAME</div>
+              <div className="sub-heading">Username</div>
             </div>
             {/*<div className="p-15">
                <div className="dropdown">
@@ -282,7 +282,7 @@ function ChatRoom() {
                   className="img-avatar m-r-10"
                 /> */}
                 <div className="lv-avatar pull-left"></div>
-                <span>Web Development</span>
+                <span className="sub-heading">Web Development</span>
               </div>
               {/*</div><ul className="ah-actions actions">
                 <li>

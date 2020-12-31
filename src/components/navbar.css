@@ -12,9 +12,12 @@
     font-family: montserrat;
   }
   nav {
+    position:fixed;
+    top:0;
     background: #0082e6;
     height: 80px;
     width: 100%;
+    z-index: 3;
   }
   label.logo {
     color: white;
