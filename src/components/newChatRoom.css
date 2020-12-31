@@ -148,7 +148,7 @@ margin-left: 55px;
     background: 0 0;
 }
 .msb-reply button:hover {
-    background: #f2f2f2;
+    background: #dfd3d3;
 }
 .img-avatar {
     height: 37px;
@@ -159,7 +159,6 @@ margin-left: 55px;
     overflow-y: auto;
 }
 .list-group.lg-alt .list-group-item {
-    
     border: 0;
 }
 .p-15 {
