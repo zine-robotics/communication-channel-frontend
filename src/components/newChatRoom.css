@@ -4,7 +4,9 @@
     line-height: 1.42857143;
     color: #767676;
     background-color: #edecec;
-    height: 100%;
+    margin-top: 80px;
+
+    
 }
 
 .roomname{
@@ -24,6 +26,7 @@ margin-left: 55px;
     position: absolute;
     left: 0;
     top: 0;
+    bottom: 0 !important;
     border-right: 1px solid #eee;
     padding-bottom: 50px;
     height: 100%;
@@ -93,7 +96,8 @@ margin-left: 55px;
     margin-left: 15px;
 }
 .message-feed:not(.right) .mf-content {
-    background: #03a9f4;
+    background:#2196f3; /*#14213d;*/
+    font-size: 15px !important;
     color: #fff;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
@@ -118,8 +122,8 @@ margin-left: 55px;
     top: 1px;
 }
 .msb-reply {
-    box-shadow: 0 -20px 20px -5px #fff;
     position: relative;
+    box-shadow: 0 -20px 20px -5px #fff;
     margin-top: 30px;
     border-top: 1px solid #eee;
     background: #f8f8f8;
@@ -155,11 +159,24 @@ margin-left: 55px;
     border-radius: 2px;
     width: 37px;
 }
+.sub-heading{
+    font-size: 20px !important;
+    color: #14213d;
+    font-weight: 600;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 .list-group.lg-alt{
     overflow-y: auto;
 }
-.list-group.lg-alt .list-group-item {
+
+.list-group.lg-alt .list-group-item:hover{
+    background-color: grey;
+    color: white;
+}
+.list-group.lg-alt .list-group-item{
     border: 0;
+    color: #2196f3;
+    font-size:17px;
 }
 .p-15 {
     padding: 15px!important;
