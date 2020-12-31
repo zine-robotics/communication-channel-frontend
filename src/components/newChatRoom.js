@@ -1,4 +1,4 @@
-import React from "react";
+                                   import React from "react";
 import "./newChatRoom.css";
 import $ from "jquery";
 import Message from "./Message";
@@ -231,8 +231,8 @@ function ChatRoom() {
               /> */}
               <div>USERNAME</div>
             </div>
-            <div className="p-15">
-              <div className="dropdown">
+            {/* <div className="p-15"> */}
+              {/* <div className="dropdown"> */}
                 {/* <a
                   className="btn btn-primary btn-block"
                   href
@@ -240,7 +240,7 @@ function ChatRoom() {
                 >
                   Messages <i className="caret m-l-5" />
                 </a> */}
-                <ul className="dropdown-menu dm-icon w-100">
+                {/* <ul className="dropdown-menu dm-icon w-100">
                   <li>
                     <a href>
                       <i className="fa fa-envelope" /> Messages
@@ -257,14 +257,151 @@ function ChatRoom() {
                     </a>
                   </li>
                 </ul>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
             <div className="list-group lg-alt">
               <Channel name={"Web Development"} />
               <Channel name={"App Development"} />           
               <Channel name={"Machine Learning"} />           
               <Channel name={"Robotics Case Study"} />           
               <Channel name={"Algo Pseudo"} />                   
+              {/* <a className="list-group-item media" href>
+                <div className="pull-left">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                    alt=""
+                    className="img-avatar"
+                  />
+                </div>
+                <div className="media-body">
+                  <div className="list-group-item-heading">
+                    Davil Parnell
+                  </div>
+                  <small className="list-group-item-text c-gray">
+                    Fierent fastidii recteque ad pro
+                  </small>
+                </div>
+              </a>
+              <a className="list-group-item media" href>
+                <div className="pull-left">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                    alt=""
+                    className="img-avatar"
+                  />
+                </div>
+                <div className="media-body">
+                  <div className="list-group-item-heading">Ann Watkinson</div>
+                  <small className="list-group-item-text c-gray">
+                    Cum sociis natoque penatibus{" "}
+                  </small>
+                </div>
+              </a>
+              <a className="list-group-item media" href>
+                <div className="pull-left">
+                   <img
+                    src="https://bootdey.com/img/Content/avatar/avatar4.png"
+                    alt=""
+                    className="img-avatar"
+                   /> 
+                </div>
+                <div className="media-body">
+                  <div className="list-group-item-heading">Marse Walter</div>
+                  <small className="list-group-item-text c-gray">
+                    Suspendisse sapien ligula
+                  </small>
+                </div>
+              </a>
+              <a className="list-group-item media" href>
+                <div className="lv-avatar pull-left">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar5.png"
+                    alt=""
+                    className="img-avatar"
+                  />
+                </div>
+                <div className="media-body">
+                  <div className="list-group-item-heading">Jeremy Robbins</div>
+                  <small className="list-group-item-text c-gray">
+                    Phasellus porttitor tellus nec
+                  </small>
+                </div>
+              </a>
+              <a className="list-group-item media" href>
+                <div className="lv-avatar pull-left">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                    alt=""
+                    className="img-avatar"
+                  />
+                </div>
+                <div className="media-body">
+                  <div className="list-group-item-heading">Reginald Horace</div>
+                  <small className="list-group-item-text c-gray">
+                    Quisque consequat arcu eget
+                  </small>
+                </div>
+              </a>
+              <a className="list-group-item media" href>
+                <div className="pull-left">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                    alt=""
+                    className="img-avatar"
+                  />
+                </div>
+                <div className="media-body">
+                  <div className="list-group-item-heading">Shark Henry</div>
+                  <small className="list-group-item-text c-gray">
+                    Nam lobortis odio et leo maximu
+                  </small>
+                </div>
+              </a>
+              <a className="list-group-item media" href>
+                <div className="pull-left">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                    alt=""
+                    className="img-avatar"
+                  />
+                </div>
+                <div className="media-body">
+                  <div className="list-group-item-heading">Paul Van Dack</div>
+                  <small className="list-group-item-text c-gray">
+                    Nam posuere purus sed velit auctor sodales
+                  </small>
+                </div>
+              </a>
+              <a className="list-group-item media" href>
+                <div className="lv-avatar pull-left">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                    alt=""
+                    className="img-avatar"
+                  />
+                </div>
+                <div className="media-body">
+                  <div className="list-group-item-heading">James Anderson</div>
+                  <small className="list-group-item-text c-gray">
+                    Vivamus imperdiet sagittis quam
+                  </small>
+                </div>
+              </a>
+              <a className="list-group-item media" href>
+                <div className="lv-avatar pull-left">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                    alt=""
+                    className="img-avatar"
+                  />
+                </div>
+                <div className="media-body">
+                  <div className="list-group-item-heading">Kane Williams</div>
+                  <small className="list-group-item-text c-gray">
+                    Suspendisse justo nulla luctus nec
+                  </small>
+                </div>
+              </a> */}
             </div>
           </div>
           <div className="ms-body">
@@ -284,8 +421,8 @@ function ChatRoom() {
                 <div className="lv-avatar pull-left"></div>
                 <span>Web Development</span>
               </div>
-              {/* <ul className="ah-actions actions">
-                <li>
+              {/* <ul className="ah-actions actions"> */}
+                {/* <li>
                   <a href>
                     <i className="fa fa-trash" />
                   </a>
@@ -299,34 +436,34 @@ function ChatRoom() {
                   <a href>
                     <i className="fa fa-clock-o" />
                   </a>
-                </li>
-                <li className="dropdown">
+                </li> */}
+                {/* <li className="dropdown">
                   <a href data-toggle="dropdown" aria-expanded="true">
                     <i className="fa fa-sort" />
-                  </a>
-                  <ul className="dropdown-menu dropdown-menu-right">
+                  </a> */}
+                  {/* <ul className="dropdown-menu dropdown-menu-right">
                     <li>
                       <a href>Latest</a>
                     </li>
                     <li>
                       <a href>Oldest</a>
                     </li>
-                  </ul>
-                </li>
-                <li className="dropdown">
+                  </ul> */}
+                {/* </li> */}
+                {/* <li className="dropdown">
                   <a href data-toggle="dropdown" aria-expanded="true">
                     <i className="fa fa-bars" />
-                  </a>
-                  <ul className="dropdown-menu dropdown-menu-right">
+                  </a> */}
+                  {/* <ul className="dropdown-menu dropdown-menu-right">
                     <li>
                       <a href>Refresh</a>
                     </li>
                     <li>
                       <a href>Message Settings</a>
                     </li>
-                  </ul>
-                </li>
-              </ul> */}
+                  </ul> */}
+                {/* </li> */}
+              {/* </ul> */}
             </div>
 
             {/* MESSAGES START FROM HERE*/}

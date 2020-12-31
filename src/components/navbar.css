@@ -39,9 +39,13 @@
     border-radius: 3px;
     text-transform: uppercase;
   }
-  a.active,
-  a:hover {
+  a.active {
     background: #1b9bff;
+    transition: 0.5s;
+  }
+  a.hover{
+    background: white !important;
+    color: #1b9bff !important;
     transition: 0.5s;
   }
   .checkbtn {
@@ -56,7 +60,7 @@
   #check {
     display: none;
   }
-  @media (max-width: 952px) {
+  /* @media (max-width: 952px) {
     label.logo {
       font-size: 30px;
       padding-left: 30px;
@@ -96,4 +100,4 @@
       left: 0;
     }
   }
-  
+   */
