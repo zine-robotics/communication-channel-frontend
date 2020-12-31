@@ -5,6 +5,7 @@
     color: #767676;
     background-color: #edecec;
     margin-top: 80px;
+
     
 }
 
@@ -25,6 +26,7 @@ margin-left: 55px;
     position: absolute;
     left: 0;
     top: 0;
+    bottom: 0 !important;
     border-right: 1px solid #eee;
     padding-bottom: 50px;
     height: 100%;
@@ -120,8 +122,8 @@ margin-left: 55px;
     top: 1px;
 }
 .msb-reply {
-    box-shadow: 0 -20px 20px -5px #fff;
     position: relative;
+    box-shadow: 0 -20px 20px -5px #fff;
     margin-top: 30px;
     border-top: 1px solid #eee;
     background: #f8f8f8;
@@ -166,15 +168,12 @@ margin-left: 55px;
 .list-group.lg-alt{
     overflow-y: auto;
 }
-<<<<<<< Updated upstream
-.list-group.lg-alt .list-group-item {
-=======
+
 .list-group.lg-alt .list-group-item:hover{
     background-color: grey;
     color: white;
 }
 .list-group.lg-alt .list-group-item{
->>>>>>> Stashed changes
     border: 0;
     color: #2196f3;
     font-size:17px;

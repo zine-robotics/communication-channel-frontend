@@ -12,12 +12,12 @@
     font-family: montserrat;
   }
   nav {
-    position:fixed;
-    top:0;
     background: #0082e6;
     height: 80px;
     width: 100%;
-    z-index: 3;
+    position:fixed;
+    top:0;
+    z-index: 3 !important;
   }
   label.logo {
     color: white;
@@ -34,6 +34,9 @@
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
+  }
+  nav button a:hover{
+    background-color: whitesmoke;
   }
   nav button a {
     color: white;

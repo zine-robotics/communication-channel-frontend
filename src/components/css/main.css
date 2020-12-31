@@ -140,7 +140,7 @@ button {
 }
 
 button:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 iframe {
@@ -165,7 +165,7 @@ iframe {
 }
 
 .txt2:hover{
-  color: white;
+  color: #111d5e;
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -382,6 +382,7 @@ a{
 
 .login100-form-btn:hover {
   background: #333333;
+  color:lavenderblush;
 }
 
 
