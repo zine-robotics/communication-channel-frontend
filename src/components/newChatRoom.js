@@ -282,7 +282,7 @@ function ChatRoom() {
                   className="img-avatar m-r-10"
                 /> */}
                 <div className="lv-avatar pull-left"></div>
-                <span>David Parbell</span>
+                <span>Web Development</span>
               </div>
               {/* <ul className="ah-actions actions">
                 <li>
