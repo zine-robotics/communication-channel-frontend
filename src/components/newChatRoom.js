@@ -2,7 +2,8 @@ import React from "react";
 import "./newChatRoom.css";
 import $ from "jquery";
 import Message from "./Message";
-import Channel from "./Channel";
+import axios from "../helpers/axios";
+import Rooms from "./Rooms"
 
 $(function () {
   if ($("#ms-menu-trigger")[0]) {
@@ -13,6 +14,8 @@ $(function () {
 });
 
 function ChatRoom() {
+
+
   var roomMessages = [
     {
       id: "5fe6e29931cf76666b0f702a",
@@ -222,51 +225,7 @@ function ChatRoom() {
     <div className="all">
       <div className="container bootstrap snippets bootdey">
         <div className="tile tile-alt" id="messages-main">
-          <div className="ms-menu">
-            <div className="ms-user clearfix">
-              {/* <img
-                src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                alt=""
-                className="img-avatar pull-left"
-              /> */}
-              <div>USERNAME</div>
-            </div>
-            {/*<div className="p-15">
-               <div className="dropdown">
-                  <a
-                    className="btn btn-primary btn-block"
-                    href
-                    data-toggle="dropdown"
-                  >
-                    Messages <i className="caret m-l-5" />
-                  </a>
-                <ul className="dropdown-menu dm-icon w-100">
-                  <li>
-                    <a href>
-                      <i className="fa fa-envelope" /> Messages
-                    </a>
-                  </li>
-                  <li>
-                    <a href>
-                      <i className="fa fa-users" /> Contacts
-                    </a>
-                  </li>
-                  <li>
-                    <a href>
-                      <i className="fa fa-format-list-bulleted"> </i>Todo Lists
-                    </a>
-                  </li>
-                </ul>
-              </div> 
-            </div> */}
-            <div className="list-group lg-alt">
-              <Channel name={"Web Development"} />
-              <Channel name={"App Development"} />           
-              <Channel name={"Machine Learning"} />           
-              <Channel name={"Robotics Case Study"} />           
-              <Channel name={"Algo Pseudo"} />                   
-            </div>
-          </div>
+          <Rooms />
           <div className="ms-body">
             <div className="action-header clearfix">
               <div
