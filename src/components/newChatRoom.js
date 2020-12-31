@@ -4,6 +4,7 @@ import $ from "jquery";
 import Message from "./Message";
 import axios from "../helpers/axios";
 import Rooms from "./Rooms";
+import Channel from "./Channel"
 
 $(function () {
   if ($("#ms-menu-trigger")[0]) {
@@ -223,9 +224,6 @@ function ChatRoom({ token, user }) {
     <div className="all">
       <div className="container bootstrap snippets bootdey">
         <div className="tile tile-alt" id="messages-main">
-<<<<<<< HEAD
-          <Rooms token={token} user={user} />
-=======
           <div className="ms-menu">
             <div className="ms-user clearfix">
               {/* <img
@@ -271,7 +269,6 @@ function ChatRoom({ token, user }) {
               <Channel name={"Algo Pseudo"} />                   
             </div>
           </div>
->>>>>>> main
           <div className="ms-body">
             <div className="action-header clearfix">
               <div
