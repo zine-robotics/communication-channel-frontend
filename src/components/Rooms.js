@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./newChatRoom.css";
-import Channel from "./Channel"
+import Channel from "./Channel";
+import axios from "../helpers/axios";
 
-const Rooms = () => {
+const Rooms = ({ token, user }) => {
+  const getRooms = async () => {
+    const res = await axios.get("/rooms", {
+      userId: user._id
+    });
+    if (res.status === 200) {
+      const rooms = res.chats;
+    } else {
+      console.log(res);
+    }
+  };
+useEffect(() => {
+  getRooms();
+}, [])
   return (
     <div className="ms-menu">
       <div className="ms-user clearfix">

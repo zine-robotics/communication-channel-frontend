@@ -89,9 +89,11 @@ const Signin = () => {
             </div>
 
             <div className="container-login100-form-btn">
-              <Link to="/chat" className="login100-form-btn">
-                Sign Up
-              </Link>
+              {/* <Link to="/chat" className="login100-form-btn">
+                Sign In
+              </Link> */}
+              <a className="login100-form-btn"><button type="submit"> Sign In</button></a>
+
             </div>
 
             <div className="text-center p-t-136">
@@ -99,6 +101,7 @@ const Signin = () => {
                 Create your Account
                 <i className="fa m-l-5" aria-hidden="true"></i>
               </Link>
+              
             </div>
           </form>
         </div>

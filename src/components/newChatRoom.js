@@ -3,7 +3,7 @@ import "./newChatRoom.css";
 import $ from "jquery";
 import Message from "./Message";
 import axios from "../helpers/axios";
-import Rooms from "./Rooms"
+import Rooms from "./Rooms";
 
 $(function () {
   if ($("#ms-menu-trigger")[0]) {
@@ -13,9 +13,7 @@ $(function () {
   }
 });
 
-function ChatRoom() {
-
-
+function ChatRoom({ token, user }) {
   var roomMessages = [
     {
       id: "5fe6e29931cf76666b0f702a",
@@ -225,7 +223,7 @@ function ChatRoom() {
     <div className="all">
       <div className="container bootstrap snippets bootdey">
         <div className="tile tile-alt" id="messages-main">
-          <Rooms />
+          <Rooms token={token} user={user} />
           <div className="ms-body">
             <div className="action-header clearfix">
               <div
@@ -304,14 +302,11 @@ function ChatRoom() {
             {/* MESSAGES END */}
           </div>
           <div className="msb-reply">
-              <textarea
-                placeholder="What's on your mind..."
-                defaultValue={""}
-              />
-              <button>
-                <i className="fa fa-paper-plane-o" />
-              </button>
-            </div>
+            <textarea placeholder="What's on your mind..." defaultValue={""} />
+            <button>
+              <i className="fa fa-paper-plane-o" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
