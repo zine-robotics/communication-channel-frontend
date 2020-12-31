@@ -231,17 +231,17 @@ function ChatRoom() {
               /> */}
               <div>USERNAME</div>
             </div>
-            <div className="p-15">
+            {/*<div className="p-15">
                <div className="dropdown">
-                  {/* <a
+                  <a
                     className="btn btn-primary btn-block"
                     href
                     data-toggle="dropdown"
                   >
                     Messages <i className="caret m-l-5" />
-                  </a> */}
+                  </a>
                 <ul className="dropdown-menu dm-icon w-100">
-                  {/* <li>
+                  <li>
                     <a href>
                       <i className="fa fa-envelope" /> Messages
                     </a>
@@ -255,10 +255,10 @@ function ChatRoom() {
                     <a href>
                       <i className="fa fa-format-list-bulleted"> </i>Todo Lists
                     </a>
-                  </li> */}
+                  </li>
                 </ul>
               </div> 
-            </div>
+            </div> */}
             <div className="list-group lg-alt">
               <Channel name={"Web Development"} />
               <Channel name={"App Development"} />           
