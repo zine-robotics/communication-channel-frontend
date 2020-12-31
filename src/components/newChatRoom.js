@@ -343,8 +343,8 @@ function ChatRoom() {
             )}
 
             {/* MESSAGES END */}
-
-            <div className="msb-reply">
+          </div>
+          <div className="msb-reply">
               <textarea
                 placeholder="What's on your mind..."
                 defaultValue={""}
@@ -353,7 +353,6 @@ function ChatRoom() {
                 <i className="fa fa-paper-plane-o" />
               </button>
             </div>
-          </div>
         </div>
       </div>
     </div>

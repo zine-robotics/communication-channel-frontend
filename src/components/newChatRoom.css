@@ -198,7 +198,9 @@ margin-left: 55px;
     padding: 0 10px;
 }
 .ms-body{
-    background:#fff;    
+    background:#fff;
+    overflow-y: scroll;
+    height: 90vh;    
 }
 #ms-menu-trigger {
     user-select: none;
