@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./newChatRoom.css";
+import "./css/ChatRoom.css";
 import Channel from "./Channel";
 import axios from "../helpers/axios";
 

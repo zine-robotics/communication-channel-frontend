@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./navbar";
-import ChatRoom from "./newChatRoom";
-import "./Chat.css";
+import ChatRoom from "./ChatRoom";
+import "./css/Chat.css";
 
 function Chat() {
   const token = localStorage.getItem("token");

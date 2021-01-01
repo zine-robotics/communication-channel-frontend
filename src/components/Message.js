@@ -1,5 +1,5 @@
 import React from "react";
-import "./newChatRoom.css";
+import "./css/ChatRoom.css";
 
 function Message({ senderId, content, conversationId, createdAt }) {
   return (

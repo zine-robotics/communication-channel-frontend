@@ -1,5 +1,5 @@
 import React from "react";
-import "./navbar.css";
+import "./css/navbar.css";
 import Logo from "./images/zinechat.png";
 import clearSession from "../helpers/signout"
 function Navbar() {

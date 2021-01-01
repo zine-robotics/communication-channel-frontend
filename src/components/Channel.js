@@ -1,5 +1,5 @@
 import React from "react";
-import "./newChatRoom.css";
+import "./css/ChatRoom.css";
 function Channel({ name }) {
   return (
     <a className="list-group-item media" href="#">
