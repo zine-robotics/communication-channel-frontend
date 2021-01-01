@@ -124,7 +124,7 @@ margin-left: 55px;
 .msb-reply {
     position: relative;
     box-shadow: 0 -20px 20px -5px #fff;
-    margin-top: 30px;
+    margin-top: 0px;
     border-top: 1px solid #eee;
     background: #f8f8f8;
 }
@@ -217,7 +217,8 @@ margin-left: 55px;
 .ms-body{
     background:#fff;
     overflow-y: scroll;
-    height: 90vh;    
+    /* height: 82vh;     */
+    height: calc(var(--vh, 1vh) * 82);
 }
 #ms-menu-trigger {
     user-select: none;
