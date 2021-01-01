@@ -215,8 +215,8 @@ function ChatRoom({ token, user }) {
       senderId: "5fd2489d71c8f43084d6746d",
       content: "csdkadjcbnsd",
       conversationId: "5fe5bb233fae5014fb8de01d",
-      createdAt: "2020-12-26T07:18:02.666Z",
-      updatedAt: "2020-12-26T07:18:02.666Z",
+      createdAt: "2020-12-27T07:18:02.666Z",
+      updatedAt: "2020-12-27T07:18:02.666Z",
       __v: 0,
     },
   ];
@@ -333,6 +333,7 @@ function ChatRoom({ token, user }) {
 
             {/* MESSAGES START FROM HERE*/}
 
+          {/* <div className="reverse"> */}
             {roomMessages.map(
               ({ senderId, content, conversationId, createdAt }) => (
                 <Message
@@ -343,7 +344,7 @@ function ChatRoom({ token, user }) {
                 />
               )
             )}
-
+          {/* </div> */}
             {/* MESSAGES END */}
           </div>
           <div className="msb-reply">
