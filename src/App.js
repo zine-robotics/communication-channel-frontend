@@ -1,10 +1,25 @@
-import React from 'react';
-import Chat from "./components/Chat"
+import React, { useEffect } from "react";
+import Chat from "./components/Chat";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { debounce } from "lodash";
+import $ from "jquery";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
+  useEffect(() => {
+    const setViewportHeight = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    setViewportHeight();
+    const handleResize = debounce(setViewportHeight, 200);
+    $(window).on("resize", handleResize);
+    return () => {
+      $(window).off("resize", handleResize);
+    };
+  }, []);
   return (
     <div className="App">
       <Router>
