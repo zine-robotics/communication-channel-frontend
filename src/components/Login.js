@@ -1,8 +1,5 @@
-import "./vendor/bootstrap/css/bootstrap.min.css";
 import "./fonts/font-awesome-4.7.0/css/font-awesome.min.css";
-import "./vendor/animate/animate.css";
-import "./vendor/css-hamburgers/hamburgers.min.css";
-import "./vendor/select2/select2.min.css";
+import "./animate/animate.css";
 import "./css/util.css";
 import "./css/main.css";
 import Logo from "./images/ZINE.png";
@@ -12,7 +9,7 @@ import { useHistory } from "react-router";
 import axios from "../helpers/axios";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-const Signin = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
@@ -92,7 +89,7 @@ const Signin = () => {
               {/* <Link to="/chat" className="login100-form-btn">
                 Sign In
               </Link> */}
-              <a className="login100-form-btn"><button type="submit"> Sign In</button></a>
+              <a className="login100-form-btn"><button type="submit"><span className="colorit">SIGN IN</span></button></a>
 
             </div>
 
@@ -100,8 +97,7 @@ const Signin = () => {
               <Link to="/signup" className="txt2">
                 Create your Account
                 <i className="fa m-l-5" aria-hidden="true"></i>
-              </Link>
-              
+              </Link>             
             </div>
           </form>
         </div>
@@ -110,4 +106,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Login;

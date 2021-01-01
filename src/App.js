@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Chat from "./components/Chat";
-import Signin from "./components/Signin";
+import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { debounce } from "lodash";
 import $ from "jquery";
@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" component={Signin} />
+          <Route exact path="/" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/chat" component={Chat} />
         </Switch>
