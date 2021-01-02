@@ -4,7 +4,8 @@ import $ from "jquery";
 import Message from "./Message";
 import axios from "../helpers/axios";
 import Rooms from "./Rooms";
-import Channel from "./Channel"
+import Channel from "./Channel";
+import InfiniteScrollReverse from "react-infinite-scroll-reverse";
 
 $(function () {
   if ($("#ms-menu-trigger")[0]) {
@@ -263,30 +264,30 @@ function ChatRoom({ token, user }) {
             </div> */}
             <div className="list-group lg-alt">
               <Channel name={"Web Development"} />
-              <Channel name={"App Development"} />           
-              <Channel name={"Machine Learning"} />           
-              <Channel name={"Robotics Case Study"} />           
-              <Channel name={"Algo Pseudo"} />    
+              <Channel name={"App Development"} />
+              <Channel name={"Machine Learning"} />
+              <Channel name={"Robotics Case Study"} />
+              <Channel name={"Algo Pseudo"} />
               <Channel name={"Web Development"} />
-              <Channel name={"App Development"} />           
-              <Channel name={"Machine Learning"} />           
-              <Channel name={"Robotics Case Study"} />           
-              <Channel name={"Algo Pseudo"} />      
+              <Channel name={"App Development"} />
+              <Channel name={"Machine Learning"} />
+              <Channel name={"Robotics Case Study"} />
+              <Channel name={"Algo Pseudo"} />
               <Channel name={"Web Development"} />
-              <Channel name={"App Development"} />           
-              <Channel name={"Machine Learning"} />           
-              <Channel name={"Robotics Case Study"} />           
-              <Channel name={"Algo Pseudo"} />      
+              <Channel name={"App Development"} />
+              <Channel name={"Machine Learning"} />
+              <Channel name={"Robotics Case Study"} />
+              <Channel name={"Algo Pseudo"} />
               <Channel name={"Web Development"} />
-              <Channel name={"App Development"} />           
-              <Channel name={"Machine Learning"} />           
-              <Channel name={"Robotics Case Study"} />           
-              <Channel name={"Algo Pseudo"} />      
+              <Channel name={"App Development"} />
+              <Channel name={"Machine Learning"} />
+              <Channel name={"Robotics Case Study"} />
+              <Channel name={"Algo Pseudo"} />
               <Channel name={"Web Development"} />
-              <Channel name={"App Development"} />           
-              <Channel name={"Machine Learning"} />           
-              <Channel name={"Robotics Case Study"} />           
-              <Channel name={"Algo Pseudo"} />                     
+              <Channel name={"App Development"} />
+              <Channel name={"Machine Learning"} />
+              <Channel name={"Robotics Case Study"} />
+              <Channel name={"Algo Pseudo"} />
             </div>
           </div>
           <div className="ms-body">
@@ -304,7 +305,7 @@ function ChatRoom({ token, user }) {
                   className="img-avatar m-r-10"
                 /> */}
                 <div className="lv-avatar pull-left"></div>
-                <span className="sub-heading">Web Development</span>
+                <div className="sub-heading">Web Development</div>
               </div>
               {/*</div><ul className="ah-actions actions">
                 <li>
@@ -353,7 +354,7 @@ function ChatRoom({ token, user }) {
 
             {/* MESSAGES START FROM HERE*/}
 
-          {/* <div className="reverse"> */}
+            <div className="messages">
             {roomMessages.map(
               ({ senderId, content, conversationId, createdAt }) => (
                 <Message
@@ -364,7 +365,7 @@ function ChatRoom({ token, user }) {
                 />
               )
             )}
-          {/* </div> */}
+            </div>
             {/* MESSAGES END */}
           </div>
           <div className="msb-reply">
