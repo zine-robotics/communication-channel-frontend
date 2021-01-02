@@ -5,7 +5,6 @@ import Message from "./Message";
 import axios from "../helpers/axios";
 import Rooms from "./Rooms";
 import Channel from "./Channel";
-import InfiniteScrollReverse from "react-infinite-scroll-reverse";
 
 $(function () {
   if ($("#ms-menu-trigger")[0]) {
@@ -262,7 +261,7 @@ function ChatRoom({ token, user }) {
                 </ul>
               </div> 
             </div> */}
-            <div className="list-group lg-alt">
+            <div className="list-group lg-alt scroll">
               <Channel name={"Web Development"} />
               <Channel name={"App Development"} />
               <Channel name={"Machine Learning"} />
@@ -355,6 +354,7 @@ function ChatRoom({ token, user }) {
             {/* MESSAGES START FROM HERE*/}
 
             <div className="messages">
+            <div className="reverse">
             {roomMessages.map(
               ({ senderId, content, conversationId, createdAt }) => (
                 <Message
@@ -365,6 +365,7 @@ function ChatRoom({ token, user }) {
                 />
               )
             )}
+            </div>
             </div>
             {/* MESSAGES END */}
           </div>

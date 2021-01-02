@@ -9,6 +9,11 @@
 
 .messages{
     overflow-y: scroll;
+    transform: scaleY(-1);
+}
+
+.reverse{
+    transform: scaleY(-1);
 }
 
 .roomname{
@@ -246,7 +251,6 @@ margin-left: 55px;
 } */
 .ms-body{
     background:#fff;
-    /* overflow-y: scroll; */
     height: 90vh;    
     display: flex;
     flex-direction: column;

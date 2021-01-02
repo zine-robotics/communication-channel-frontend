@@ -12,8 +12,8 @@ function Message({ senderId, content, conversationId, createdAt }) {
         <small className="mf-date">
           <i className="fa fa-clock-o" /> {new Date(createdAt).toUTCString()}
         </small>
-        </div>
-      {/* </div> */}
+        {/* </div> */}
+      </div>
     </div>
   );
 }
