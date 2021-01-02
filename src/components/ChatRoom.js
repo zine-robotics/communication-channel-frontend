@@ -266,7 +266,27 @@ function ChatRoom({ token, user }) {
               <Channel name={"App Development"} />           
               <Channel name={"Machine Learning"} />           
               <Channel name={"Robotics Case Study"} />           
-              <Channel name={"Algo Pseudo"} />                   
+              <Channel name={"Algo Pseudo"} />    
+              <Channel name={"Web Development"} />
+              <Channel name={"App Development"} />           
+              <Channel name={"Machine Learning"} />           
+              <Channel name={"Robotics Case Study"} />           
+              <Channel name={"Algo Pseudo"} />      
+              <Channel name={"Web Development"} />
+              <Channel name={"App Development"} />           
+              <Channel name={"Machine Learning"} />           
+              <Channel name={"Robotics Case Study"} />           
+              <Channel name={"Algo Pseudo"} />      
+              <Channel name={"Web Development"} />
+              <Channel name={"App Development"} />           
+              <Channel name={"Machine Learning"} />           
+              <Channel name={"Robotics Case Study"} />           
+              <Channel name={"Algo Pseudo"} />      
+              <Channel name={"Web Development"} />
+              <Channel name={"App Development"} />           
+              <Channel name={"Machine Learning"} />           
+              <Channel name={"Robotics Case Study"} />           
+              <Channel name={"Algo Pseudo"} />                     
             </div>
           </div>
           <div className="ms-body">

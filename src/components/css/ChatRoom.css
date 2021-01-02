@@ -4,18 +4,8 @@
     line-height: 1.42857143;
     color: #767676;
     background-color: #edecec;
-    margin-top: 80px;
-
-    
+    margin-top: 80px;   
 }
-
-.reverse{
-    transform: scaleY(-1);
-}
-
-/* .scroll{
-    overflow-y: scroll;
-} */
 
 .roomname{
 margin-left: 55px;
@@ -35,19 +25,47 @@ margin-left: 55px;
     left: 0;
     top: 0;
     bottom: 0 !important;
+    overflow-y: auto;
     border-right: 1px solid #eee;
     padding-bottom: 50px;
     height: 100%;
     width: 240px;
     background: #fff;
 }
+
+@media (min-width:1200px){
+    .msb-reply{
+        width:1110px !important;
+    }
+}
+@media (min-width:992px){
+    .msb-reply{
+        width:930px;
+    }
+}
 @media (min-width:768px) {
     #messages-main .ms-body {
     padding-left: 240px;
+    }
+    .msb-reply{
+        width:690px;
+    }
 }
-}@media (max-width:767px) {
+@media (min-width:576px){
+    .msb-reply{
+        width:510px;
+    }
+}
+@media (max-width:576px){
+    .msb-reply{
+        width:100%;
+        padding-right: 15px !important;
+    }
+}
+
+@media (max-width:767px) {
     #messages-main .ms-menu {
-    height: calc(100% - 58px);
+    height: 100%;
     display: none;
     z-index: 1;
     top: 58px;
@@ -56,11 +74,11 @@ margin-left: 55px;
     display: block;
 }
 #messages-main .ms-body {
-    overflow: hidden;
+    overflow: auto;
 }
 }
 #messages-main .ms-user {
-    padding: 15px;
+    padding: 14px;
     background: #f8f8f8;
 }
 #messages-main .ms-user>div {
@@ -130,9 +148,9 @@ margin-left: 55px;
     top: 1px;
 }
 .msb-reply {
-    position: relative;
+    position: fixed;
+    bottom: 0;
     box-shadow: 0 -20px 20px -5px #fff;
-    margin-top: 0px;
     border-top: 1px solid #eee;
     background: #f8f8f8;
 }
@@ -225,8 +243,7 @@ margin-left: 55px;
 .ms-body{
     background:#fff;
     overflow-y: scroll;
-    /* height: 82vh;     */
-    height: calc(var(--vh, 1vh) * 82);
+    height: 90vh;    
 }
 #ms-menu-trigger {
     user-select: none;
