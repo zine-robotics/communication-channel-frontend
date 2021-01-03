@@ -232,7 +232,7 @@ margin-left: 55px;
 .action-header {
     position: relative;
     width: 100%;
-    z-index: 3;
+    /* z-index: 3; */
     background: #f8f8f8;
     padding: 15px 13px 15px 17px;
 
