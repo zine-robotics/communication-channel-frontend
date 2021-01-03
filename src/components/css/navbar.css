@@ -1,109 +1,182 @@
+
+
 * {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-  }
-  .project{
-    margin-right: 430px;
-  }
-  body {
-    font-family: montserrat;
-  }
-  nav {
-    background: #0082e6;
-    height: 80px;
-    width: 100%;
-    position:fixed;
-    top:0;
-    z-index: 3 !important;
-  }
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+.project{
+  margin-right: 430px;
+}
+body {
+  font-family: montserrat;
+}
+nav {
+  background: #0082e6;
+  height: 80px;
+  width: 100%;
+  position:fixed;
+  top:0;
+  z-index: 3 !important;
+  justify-content: space-between;
+  display: flex !important;
+  align-items: center;
+}
+.avatar-image {
+  background: #eee;
+  width: 48px;
+  height: 48px;
+  border-radius: 48px;
+  /* background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/144644/profile/profile-80.jpg'); */
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.tag{
+  font-size: 30px;
+  padding-left: 13px;
+}
+
+.avatar-dropdown-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.open .avatar-dropdown-menu-items {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1) translate(0, 0);
+}
+.avatar-dropdown-menu-items {
+  visibility: hidden;
+  transition: all 0.2s;
+  transform: scale(0.8) translate(20px, -30px);
+  opacity: 0;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  top: calc(100% + 16px);
+  padding: 0;
+  margin: 0;
+  background: white;
+  line-height: 55px;
+  padding: 10px 0;
+  min-width: 160px;
+  border-radius: 3px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+}
+ul{
+  margin-bottom: 0 !important;
+}
+.avatar-dropdown-menu-items a {
+  font-size: 17px;
+  padding: 0 1rem;
+  
+  display: block;
+  color: #555;
+}
+.avatar-dropdown-menu-items a:hover {
+  background-color: #e2eafc;
+}
+
+label.logo {
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 40px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+/* nav button {
+  float: right;
+  margin-right: 20px;
+}
+nav button {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav button a:hover{
+  background-color: whitesmoke;
+}
+nav button a {
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+a.active {
+  background: #1b9bff;
+  transition: 0.5s;
+}
+a.hover{
+  background: white !important;
+  color: #1b9bff !important;
+  transition: 0.5s;
+}
+.checkbtn {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+} */
+/*toggle removed*/
+/* @media (max-width: 952px) {
   label.logo {
-    color: white;
-    font-size: 35px;
-    line-height: 80px;
-    padding: 0 40px;
-    font-weight: bold;
-  }
-  nav button {
-    float: right;
-    margin-right: 20px;
-  }
-  nav button {
-    display: inline-block;
-    line-height: 80px;
-    margin: 0 5px;
-  }
-  nav button a:hover{
-    background-color: whitesmoke;
+    font-size: 30px;
+    padding-left: 30px;
   }
   nav button a {
-    color: white;
-    font-size: 17px;
-    padding: 7px 13px;
-    border-radius: 3px;
-    text-transform: uppercase;
+    font-size: 16px;
   }
-  a.active {
-    background: #1b9bff;
-    transition: 0.5s;
-  }
-  a.hover{
-    background: white !important;
-    color: #1b9bff !important;
-    transition: 0.5s;
-  }
+}
+@media (max-width: 858px) {
   .checkbtn {
-    font-size: 30px;
-    color: white;
-    float: right;
-    line-height: 80px;
-    margin-right: 40px;
-    cursor: pointer;
-    display: none;
+    display: block;
   }
-  #check {
-    display: none;
+  button {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
   }
-  /* @media (max-width: 952px) {
-    label.logo {
-      font-size: 30px;
-      padding-left: 30px;
-    }
-    nav button a {
-      font-size: 16px;
-    }
+  nav button {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
   }
-  @media (max-width: 858px) {
-    .checkbtn {
-      display: block;
-    }
-    button {
-      position: fixed;
-      width: 100%;
-      height: 100vh;
-      background: #2c3e50;
-      top: 80px;
-      left: -100%;
-      text-align: center;
-      transition: all 0.5s;
-    }
-    nav button {
-      display: block;
-      margin: 50px 0;
-      line-height: 30px;
-    }
-    nav button a {
-      font-size: 20px;
-    }
-    a:hover,
-    a.active {
-      background: none;
-      color: #0082e6;
-    }
-    #check:checked ~ button {
-      left: 0;
-    }
+  nav button a {
+    font-size: 20px;
   }
-   */
+  a:hover,
+  a.active {
+    background: none;
+    color: #0082e6;
+  }
+  #check:checked ~ button {
+    left: 0;
+  }
+}
+ */
