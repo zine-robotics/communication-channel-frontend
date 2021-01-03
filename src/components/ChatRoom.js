@@ -226,12 +226,7 @@ function ChatRoom({ token, user }) {
         <div className="tile tile-alt" id="messages-main">
           <div className="ms-menu">
             <div className="ms-user clearfix">
-              {/* <img
-                src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                alt=""
-                className="img-avatar pull-left"
-              /> */}
-              <div className="sub-heading">Username</div>
+              <div className="sub-heading">Channels</div>
             </div>
             {/*<div className="p-15">
                <div className="dropdown">
@@ -263,10 +258,13 @@ function ChatRoom({ token, user }) {
             </div> */}
             <div className="list-group lg-alt scroll">
               <Channel name={"Web Development"} />
-              <Channel name={"App Development"} />
-              <Channel name={"Machine Learning"} />
-              <Channel name={"Robotics Case Study"} />
-              <Channel name={"Algo Pseudo"} />
+              <Channel name={"App Development"} />           
+              <Channel name={"Machine Learning"} />           
+              <Channel name={"Robotics Case Study"} />           
+              <Channel name={"Algo Pseudo"} />   
+              <div className="ms-user clearfix">
+              <div className="sub-heading">Members</div>
+            </div> 
               <Channel name={"Web Development"} />
               <Channel name={"App Development"} />
               <Channel name={"Machine Learning"} />
@@ -289,6 +287,7 @@ function ChatRoom({ token, user }) {
               <Channel name={"Algo Pseudo"} />
             </div>
           </div>
+          
           <div className="ms-body">
             <div className="action-header clearfix">
               <div
@@ -298,11 +297,6 @@ function ChatRoom({ token, user }) {
                 <i className="fa fa-bars" />
               </div>
               <div className="pull-left roomname">
-                {/* <img
-                  src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                  alt=""
-                  className="img-avatar m-r-10"
-                /> */}
                 <div className="lv-avatar pull-left"></div>
                 <div className="sub-heading">Web Development</div>
               </div>
