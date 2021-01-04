@@ -13,8 +13,7 @@ function Channel({ name }) {
       </div>
       <div className="media-body">
         <div className="list-group-item-heading">
-          <Avatar name={name} size="40" round />
-          {name}
+          <Avatar name={name} size="40" round /> {name}
         </div>
         <small className="list-group-item-text c-gray"></small>
       </div>
