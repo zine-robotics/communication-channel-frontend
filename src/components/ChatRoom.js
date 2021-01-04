@@ -362,13 +362,19 @@ function ChatRoom({ token, user }) {
             </div>
             </div>
             {/* MESSAGES END */}
-          </div>
-          <div className="msb-reply">
+            <div className="msb-reply">
             <textarea placeholder="What's on your mind..." defaultValue={""} />
             <button>
               <i className="fa fa-paper-plane-o" />
             </button>
           </div>
+          </div>
+          {/* <div className="msb-reply">
+            <textarea placeholder="What's on your mind..." defaultValue={""} />
+            <button>
+              <i className="fa fa-paper-plane-o" />
+            </button>
+          </div> */}
         </div>
       </div>
     </div>
