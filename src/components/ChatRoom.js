@@ -15,6 +15,7 @@ $(function () {
 });
 
 function ChatRoom({ token, user }) {
+
   var roomMessages = [
     {
       id: "5fe6e29931cf76666b0f702a",
@@ -97,6 +98,7 @@ function ChatRoom({ token, user }) {
     {
       _id: "5fe6e371bb6f3867879f69a0",
       senderId: "5fe5bc013fae5014fb8de01e",
+      content: "Jai ho",
       conversationId: "5fe5bb233fae5014fb8de01d",
       createdAt: "2020-12-26T07:17:05.243Z",
       updatedAt: "2020-12-26T07:17:05.243Z",
@@ -220,8 +222,15 @@ function ChatRoom({ token, user }) {
       __v: 0,
     },
   ];
+
+  var [bg, state] = React.useState({backgroundImage : "url(./images/casestudy.jpeg)"});
+  function background({val}){
+  if(val==="App Development")
+    state(bg={backgroundImage : "url(./images/android.jpeg)"});
+}
+
   return (
-    <div className="all">
+    <div className="all" style={{bg}}>
       <div className="container bootstrap snippets bootdey">
         <div className="tile tile-alt" id="messages-main">
           <div className="ms-menu">
@@ -258,7 +267,7 @@ function ChatRoom({ token, user }) {
             </div> */}
             <div className="list-group lg-alt scroll">
               <Channel name={"Web Development"} />
-              <Channel name={"App Development"} />           
+              <Channel name={"App Development"}/>         
               <Channel name={"Machine Learning"} />           
               <Channel name={"Robotics Case Study"} />           
               <Channel name={"Algo Pseudo"} />   
@@ -289,7 +298,7 @@ function ChatRoom({ token, user }) {
               </div>
               <div className="pull-left roomname">
                 <div className="lv-avatar pull-left"></div>
-                <div className="sub-heading">Web Development</div>
+                <div className="sub-heading">PCB Designing</div>
               </div>
               {/*</div><ul className="ah-actions actions">
                 <li>
