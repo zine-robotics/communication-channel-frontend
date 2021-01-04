@@ -265,26 +265,17 @@ function ChatRoom({ token, user }) {
               <div className="ms-user clearfix">
               <div className="sub-heading">Members</div>
             </div> 
-              <Channel name={"Web Development"} />
-              <Channel name={"App Development"} />
-              <Channel name={"Machine Learning"} />
-              <Channel name={"Robotics Case Study"} />
-              <Channel name={"Algo Pseudo"} />
-              <Channel name={"Web Development"} />
-              <Channel name={"App Development"} />
-              <Channel name={"Machine Learning"} />
-              <Channel name={"Robotics Case Study"} />
-              <Channel name={"Algo Pseudo"} />
-              <Channel name={"Web Development"} />
-              <Channel name={"App Development"} />
-              <Channel name={"Machine Learning"} />
-              <Channel name={"Robotics Case Study"} />
-              <Channel name={"Algo Pseudo"} />
-              <Channel name={"Web Development"} />
-              <Channel name={"App Development"} />
-              <Channel name={"Machine Learning"} />
-              <Channel name={"Robotics Case Study"} />
-              <Channel name={"Algo Pseudo"} />
+              <Channel name={"Aryaman"} />
+              <Channel name={"Pavnesh"} />
+              <Channel name={"Ishika"} />
+              <Channel name={"Rahul"} />
+              <Channel name={"Jignesh"} />
+              <Channel name={"Chirayu"} />
+              <Channel name={"Darshan"} />
+              <Channel name={"Devansh"} />             
+              <Channel name={"Rushil"} />             
+              <Channel name={"Harshit"} />             
+              <Channel name={"Puneet"} />             
             </div>
           </div>
           
