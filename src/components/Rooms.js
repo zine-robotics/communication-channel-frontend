@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./css/ChatRoom.css";
 import Channel from "./Channel";
 import axios from "../helpers/axios";
 
 const Rooms = ({ token, user }) => {
+  const [rooms, setRooms] = useState([])
   const getRooms = async () => {
-    const res = await axios.get("/rooms", {
-      userId: "5fe85f079b965e3ade7dc13f",
-    });
-    console.log(res)
+    const res = await axios.post("/rooms", 
+      {
+        userId: "5fe85f079b965e3ade7dc13f",
+      }
+    );
     if (res.status === 200) {
-      const rooms = res.data.chats;
-      console.log(rooms);
+      setRooms(res.data.chats);
+      console.log(res.data.chats);
     } else {
       console.log(res);
     }
@@ -21,11 +23,7 @@ const Rooms = ({ token, user }) => {
   }, []);
   return (
     <>
-      <Channel name={"Web Development"} />
-      <Channel name={"App Development"} />
-      <Channel name={"Machine Learning"} />
-      <Channel name={"Robotics Case Study"} />
-      <Channel name={"Algo Pseudo"} />
+        {rooms.map(room => <Channel name={room.conversationName}/>)}
     </>
   );
 };
