@@ -43,6 +43,7 @@ nav {
 .avatar-dropdown-menu {
   position: relative;
   cursor: pointer;
+  padding: 20px
 }
 
 .open .avatar-dropdown-menu-items {

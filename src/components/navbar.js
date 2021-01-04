@@ -4,6 +4,8 @@ import "./css/navbar.css";
 import Logo from "./images/zinechat.png";
 import clearSession from "../helpers/signout";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Avatar from "react-avatar";
+
 
 // $(function () {
 //   if ($("#ms-menu-trigger")[0]) {
@@ -40,7 +42,7 @@ $(function() {
 });
  
 
-function Navbar() {
+function Navbar({user}) {
  
   return (
     <nav>
@@ -51,14 +53,11 @@ function Navbar() {
       </label> */}
         
       <div className='avatar-dropdown-menu'>
-      <div className='avatar-image'>
-      <div className='tag'>A</div>
-      {/* <MoreVertIcon/> */}
-      </div>
+      <Avatar name={user.fullName} size="52" round/>
       <div className='avatar-dropdown-menu-items'>
         <ul>
           <li>
-            <a>Username</a>
+            <a>{user.fullName}</a>
           </li>
           <li>
             <a>Project Name</a>

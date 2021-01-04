@@ -266,11 +266,7 @@ function ChatRoom({ token, user }) {
               </div> 
             </div> */}
             <div className="list-group lg-alt scroll">
-              <Channel name={"Web Development"} />
-              <Channel name={"App Development"}/>         
-              <Channel name={"Machine Learning"} />           
-              <Channel name={"Robotics Case Study"} />           
-              <Channel name={"Algo Pseudo"} />   
+              <Rooms token={token} user={user} /> 
               <div className="ms-user clearfix">
               <div className="sub-heading">Members</div>
             </div> 
