@@ -8,12 +8,11 @@ const Rooms = ({ token, user }) => {
   const getRooms = async () => {
     const res = await axios.post("/rooms", 
       {
-        userId: "5fe85f079b965e3ade7dc13f",
+        userId: user._id,
       }
     );
     if (res.status === 200) {
       setRooms(res.data.chats);
-      console.log(res.data.chats);
     } else {
       console.log(res);
     }
