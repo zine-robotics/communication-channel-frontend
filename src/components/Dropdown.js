@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import MultiSelect from "react-multi-select-component";
+import "./css/main.css";
 
 function Dropdown({ getDomainOfInterest }) {
   const options = [
@@ -22,8 +23,11 @@ function Dropdown({ getDomainOfInterest }) {
         value={selected}
         onChange={setSelected}
         labelledBy={"Select"}
+        
       />
+      
     </div>
+    
   );
 }
 export default Dropdown;

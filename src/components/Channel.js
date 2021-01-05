@@ -6,7 +6,7 @@ function Channel({ name }) {
   return (
     <a className="list-group-item media" href="#">
       <div className="pull-left avatars">
-      <Avatar name={name} size="40" round />
+      <strong><Avatar name={name} size="40" round /></strong>
       </div>
       <div className="media-body">
         <div className="list-group-item-heading">

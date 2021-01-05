@@ -81,6 +81,7 @@ ul{
 }
 .avatar-dropdown-menu-items a:hover {
   background-color: #e2eafc;
+  text-decoration-line: none;
 }
 
 label.logo {
