@@ -5,10 +5,10 @@ import "./css/Chat.css";
 
 function Chat() {
   const token = localStorage.getItem("token");
-  const user = localStorage.getItem("user");
+  const user = JSON.parse(localStorage.getItem("user"));
   return (
     <div className="chat-page">
-      <Navbar />
+      <Navbar user={user} />
         <ChatRoom token={token} user={user}/>
     </div>
   );
