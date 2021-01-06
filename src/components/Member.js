@@ -13,6 +13,8 @@ function Member({ userId }) {
     });
     if(res.status === 200) {
       setMemberName(res.data.user.fullName)
+    } else {
+      console.log(res)
     }
   };
   useEffect(() => {
