@@ -64,7 +64,7 @@ const Signup = () => {
           </div>
 
           <form className="login100-form validate-form" onSubmit={PostData}>
-            <span className="login100-form-title">Sign In</span>
+            <span className="login100-form-title">Sign Up</span>
             <div className="wrap-input100 validate-input">
               <input
                 className="input100"
