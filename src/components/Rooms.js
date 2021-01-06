@@ -3,14 +3,12 @@ import "./css/ChatRoom.css";
 import Channel from "./Channel";
 import axios from "../helpers/axios";
 
-const Rooms = ({ token, user }) => {
-  const [rooms, setRooms] = useState([])
+const Rooms = ({ token, user, setClickedRoomName, setClickedRoomMembers }) => {
+  const [rooms, setRooms] = useState([]);
   const getRooms = async () => {
-    const res = await axios.post("/rooms", 
-      {
-        userId: user._id,
-      }
-    );
+    const res = await axios.post("/rooms", {
+      userId: user._id,
+    });
     if (res.status === 200) {
       setRooms(res.data.chats);
     } else {
@@ -22,7 +20,18 @@ const Rooms = ({ token, user }) => {
   }, []);
   return (
     <>
-        {rooms.map(room => <Channel name={room.conversationName}/>)}
+      {/*add pariticent fetching and user info */}
+      {rooms.map((room) => (
+        <button
+          style={{ all: "unset" }}
+          onClick={() => {
+            setClickedRoomName(room.conversationName);
+            setClickedRoomMembers(room.participants);
+          }}
+        >
+          <Channel name={room.conversationName} />
+        </button>
+      ))}
     </>
   );
 };
