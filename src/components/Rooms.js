@@ -3,7 +3,14 @@ import "./css/ChatRoom.css";
 import Channel from "./Channel";
 import axios from "../helpers/axios";
 
-const Rooms = ({ token, user, setClickedRoomName, setClickedRoomMembers, setClickedRoomId }) => {
+const Rooms = ({
+  token,
+  user,
+  setClickedRoomName,
+  setClickedRoomMembers,
+  setClickedRoomId,
+  getMessages,
+}) => {
   const [rooms, setRooms] = useState([]);
   const getRooms = async () => {
     const res = await axios.post("/rooms", {
@@ -27,7 +34,8 @@ const Rooms = ({ token, user, setClickedRoomName, setClickedRoomMembers, setClic
           onClick={() => {
             setClickedRoomName(room.conversationName);
             setClickedRoomMembers(room.participants);
-            setClickedRoomId(room._id)
+            setClickedRoomId(room._id);
+            getMessages();
           }}
         >
           <Channel name={room.conversationName} />

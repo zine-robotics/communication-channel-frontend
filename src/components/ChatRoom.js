@@ -6,6 +6,9 @@ import axios from "../helpers/axios";
 import Rooms from "./Rooms";
 import Channel from "./Channel";
 import Member from "./Member";
+import getSocket from "../helpers/socket";
+
+// const socket = getSocket();
 
 $(function () {
   if ($("#ms-menu-trigger")[0]) {
@@ -55,6 +58,7 @@ function ChatRoom({ token, user }) {
                 setClickedRoomName={setClickedRoomName}
                 setClickedRoomMembers={setClickedRoomMembers}
                 setClickedRoomId={setClickedRoomId}
+                getMessages={getMessages}
               />
               <div className="ms-user clearfix">
                 <div className="sub-heading">Members</div>
