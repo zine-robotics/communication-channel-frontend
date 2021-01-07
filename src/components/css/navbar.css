@@ -46,14 +46,15 @@ nav {
   padding: 20px
 }
 
-.open .avatar-dropdown-menu-items {
+.open .avatar-dropdown-menu-items{
   display: block;
-  visibility: visible;
+  visibility: visible; 
   opacity: 1;
   transform: scale(1) translate(0, 0);
 }
 .avatar-dropdown-menu-items {
   visibility: hidden;
+  display: none;
   transition: all 0.2s;
   transform: scale(0.8) translate(20px, -30px);
   opacity: 0;

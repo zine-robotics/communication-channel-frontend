@@ -10,13 +10,14 @@ import getSocket from "../helpers/socket";
 
 // const socket = getSocket();
 
-$(function () {
-  if ($("#ms-menu-trigger")[0]) {
-    $("body").on("click", "#ms-menu-trigger", function () {
-      $(".ms-menu").toggleClass("toggled");
-    });
-  }
-});
+
+// $(function () {
+//   if ($("#ms-menu-trigger")[0]) {
+//     $("body").on("click", "#ms-menu-trigger", function () {
+//       $(".ms-menu").toggleClass("toggled");
+//     });
+//   }
+// });
 
 function ChatRoom({ token, user }) {
   const [clickedRoomName, setClickedRoomName] = useState("");
@@ -26,17 +27,22 @@ function ChatRoom({ token, user }) {
   // useEffect(() => {
   //   getMessages();
   // }, []);
-
-  var [bg, state] = React.useState({
-    backgroundImage: "url(./images/casestudy.jpeg)",
-  });
-  function background({ val }) {
-    if (val === "App Development")
-      state((bg = { backgroundImage: "url(./images/android.jpeg)" }));
-  }
+  useEffect(() => {
+    $("#ms-menu-trigger").on("click",function () {
+        $(".ms-menu").toggleClass("toggled");
+      });
+   });
+  // var [bg, state] = React.useState({
+  //   backgroundImage: "url(./images/casestudy.jpeg)",
+  // });
+  // function background({ val }) {
+  //   if (val === "App Development")
+  //     state((bg = { backgroundImage: "url(./images/android.jpeg)" }));
+  // }
 
   return (
-    <div className="all" style={{ bg }}>
+    <div className="all" >
+    {/* style={{ bg }} */}
       <div className="container bootstrap snippets bootdey">
         <div className="tile tile-alt" id="messages-main">
           <div className="ms-menu">

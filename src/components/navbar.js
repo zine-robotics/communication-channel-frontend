@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import $ from "jquery";
 import "./css/navbar.css";
 import Logo from "./images/zinechat.png";
@@ -43,6 +44,12 @@ $(function() {
  
 
 function Navbar({user}) {
+
+  // useEffect(() => {
+  //    $(".avatar-dropdown-menu").on("click",function(){
+  //       $(".avatar-dropdown-menu-items").toggleClass(".open");
+  //    });
+  // });
  
   return (
     <nav>
