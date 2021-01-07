@@ -110,15 +110,51 @@ function ChatRoom({ token, user }) {
             </div>
           ) : (
             //else
-            <div>Not Clicked</div>
+            <div className="ms-body">
+              <div className="action-header clearfix">
+                <div
+                  className="d-none d-block d-sm-block d-md-none"
+                  id="ms-menu-trigger"
+                >
+                  <i className="fa fa-bars" />
+                </div>
+                <div className="pull-left roomname">
+                  <div className="lv-avatar pull-left"></div>
+                  <div className="sub-heading"></div>
+                </div>
+              </div>
+
+              {/* MESSAGES START FROM HERE*/}
+
+              {/* <div className="messages">
+                <div className="reverse">
+                  {clickedRoomMessages.map(
+                    ({ senderId, content, conversationId, createdAt }) => (
+                      <Message
+                        senderId={senderId}
+                        content={content}
+                        conversationId={conversationId}
+                        createdAt={createdAt}
+                      />
+                    )
+                  )}
+                </div>
+              </div> */}
+              {/* MESSAGES END */}
+              {/* <div className="msb-reply">
+                <textarea
+                  placeholder="What's on your mind..."
+                  defaultValue={""}
+                />
+                <button>
+                  <i className="fa fa-paper-plane-o" />
+                </button>
+              </div> */}
+            </div>
+            
           )}
 
-          {/* <div className="msb-reply">
-            <textarea placeholder="What's on your mind..." defaultValue={""} />
-            <button>
-              <i className="fa fa-paper-plane-o" />
-            </button>
-          </div> */}
+         
         </div>
       </div>
     </div>

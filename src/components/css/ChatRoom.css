@@ -181,10 +181,12 @@ margin-left: 55px;
     position: relative;
     /* z-index: 3; */
     /* position: fixed; */
-    bottom: 0;
+    top:  calc(var(--vh, 1vh)*89 - 125px);
+    bottom: 0 !important;
     box-shadow: 0 -20px 20px -5px #fff;
     border-top: 1px solid #eee;
-    background: #f8f8f8;
+    background: #e9ecef;
+    /* #f8f8f8; */
 }
 textarea{
     font-size:17px;
@@ -194,7 +196,7 @@ textarea{
 }
 .msb-reply textarea {
     width: 100%;
-    font-size: 13px;
+    font-size: 15px;
     border: 0;
     padding: 10px 15px;
     resize: none;
@@ -206,6 +208,7 @@ textarea{
     top: 0;
     right: 0;
     border: 0;
+    border-radius: 10px;
     height: 100%;
     width: 60px;
     font-size: 25px;
@@ -213,13 +216,16 @@ textarea{
     background: 0 0;
 }
 .msb-reply button:hover {
-    background: #dfd3d3;
+    background: #2196f3;
+    color: white;
 }
 .img-avatar {
     height: 37px;
     border-radius: 2px;
     width: 37px;
 }
+
+
 .sub-heading{
     font-size: 20px !important;
     color: #14213d;
@@ -264,6 +270,7 @@ textarea{
     /* #ecf8f8; */
     /*#f8f8f8;*/
     padding: 15px 13px 15px 17px;
+    height: 59px;
 
 }
 /* .ah-actions {
