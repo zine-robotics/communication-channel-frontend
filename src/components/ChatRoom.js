@@ -4,7 +4,6 @@ import $ from "jquery";
 import Message from "./Message";
 import axios from "../helpers/axios";
 import Rooms from "./Rooms";
-import Channel from "./Channel";
 import Member from "./Member";
 import getSocket from "../helpers/socket";
 
@@ -87,12 +86,13 @@ function ChatRoom({ token, user }) {
               <div className="messages">
                 <div className="reverse">
                   {clickedRoomMessages.map(
-                    ({ senderId, content, conversationId, createdAt }) => (
+                    ({ senderId, content, conversationId, createdAt}) => (
                       <Message
                         senderId={senderId}
                         content={content}
                         conversationId={conversationId}
                         createdAt={createdAt}
+                        user={user}
                       />
                     )
                   )}
