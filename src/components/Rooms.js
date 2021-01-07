@@ -43,7 +43,7 @@ const Rooms = ({
     <>
       {/*add pariticent fetching and user info */}
       {rooms.map((room) => (
-        <button
+        <button className="channelButton"
           style={{ all: "unset" }}
           onClick={() => {
             setClickedRoomName(room.conversationName);

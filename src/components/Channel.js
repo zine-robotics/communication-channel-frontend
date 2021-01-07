@@ -10,8 +10,8 @@ function Channel({ name }) {
       <strong><Avatar name={name} size="40" round /></strong>
       </div>
       <div className="media-body">
-        <div className="list-group-item-heading">{name}</div>
-        <small className="list-group-item-text c-gray"></small>
+        <div className="list-group-item-heading" className="channel-padding">{name}</div>
+        {/* <small className="list-group-item-text c-gray"></small> */}
       </div>
     </a>
   );

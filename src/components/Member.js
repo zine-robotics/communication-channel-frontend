@@ -27,7 +27,7 @@ function Member({ userId }) {
       </div>
       <div className="media-body">
         <div className="list-group-item-heading">{memberName}</div>
-        <small className="list-group-item-text c-gray"></small>
+        {/* <small className="list-group-item-text c-gray"></small> */}
       </div>
     </a>
   );
