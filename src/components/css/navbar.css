@@ -24,17 +24,17 @@ nav {
   display: flex !important;
   align-items: center;
 }
-.avatar-image {
+ /* .avatar-image {
   background: #eee;
   width: 48px;
   height: 48px;
   border-radius: 48px;
-  /* background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/144644/profile/profile-80.jpg'); */
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/144644/profile/profile-80.jpg');
   background-size: contain;
   background-position: center;
   cursor: pointer;
-  margin-right: 5px;
-}
+  margin-right: 5px; 
+}  */
 .tag{
   font-size: 30px;
   padding-left: 13px;
@@ -48,16 +48,9 @@ nav {
 
 .open .avatar-dropdown-menu-items{
   display: block;
-  visibility: visible; 
-  opacity: 1;
-  transform: scale(1) translate(0, 0);
 }
 .avatar-dropdown-menu-items {
-  visibility: hidden;
   display: none;
-  transition: all 0.2s;
-  transform: scale(0.8) translate(20px, -30px);
-  opacity: 0;
   position: absolute;
   z-index: 3;
   right: 0;

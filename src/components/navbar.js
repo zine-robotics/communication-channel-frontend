@@ -8,48 +8,30 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Avatar from "react-avatar";
 
 
-// $(function () {
-//   if ($("#ms-menu-trigger")[0]) {
-//     $("body").on("click", "#ms-menu-trigger", function () {
-//       $(".ms-menu").toggleClass("toggled");
-//     });
-//   }
-// });
-
-// document.querySelector('.mini-photo-wrapper').addEventListener('click', function() {
-//   document.querySelector('.menu-container').classList.toggle('active');
-// });
-
-$(function() {
-	var $dropDownMenu = $(".avatar-dropdown-menu");
-
-	$dropDownMenu.click(function(e) {		
-		e.stopPropagation();
-
-		$(document).on("click", menuCloseListener);
-
-		toggleMenu();
-	});
-
-	var toggleMenu = function() {
-		$dropDownMenu.toggleClass("open");
-	}
-
-	var menuCloseListener = function() {
-		toggleMenu();
-
-		$(document).off("click", menuCloseListener);
-	}
-});
- 
-
 function Navbar({user}) {
 
-  // useEffect(() => {
-  //    $(".avatar-dropdown-menu").on("click",function(){
-  //       $(".avatar-dropdown-menu-items").toggleClass(".open");
-  //    });
-  // });
+  useEffect(() => {
+    var $dropDownMenu = $(".avatar-dropdown-menu");
+
+    $dropDownMenu.click(function(e) {		
+      e.stopPropagation();
+  
+      $(document).on("click", menuCloseListener);
+  
+      toggleMenu();
+    });
+  
+    var toggleMenu = function() {
+      $dropDownMenu.toggleClass("open");
+    }
+  
+    var menuCloseListener = function() {
+      toggleMenu();
+  
+      $(document).off("click", menuCloseListener);
+    }
+   
+  });
  
   return (
     <nav>
