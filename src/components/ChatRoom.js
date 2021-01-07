@@ -21,19 +21,11 @@ $(function () {
 function ChatRoom({ token, user }) {
   const [clickedRoomName, setClickedRoomName] = useState("");
   const [clickedRoomMembers, setClickedRoomMembers] = useState([]);
-  const [clickedRoomId, setClickedRoomId] = useState("");
   const [clickedRoomMessages, setClickedRoomMessages] = useState([]);
-  const getMessages = async () => {
-    const res = await axios.post("/messages", {
-      roomId: clickedRoomId,
-    });
-    if (res.status === 200) {
-      setClickedRoomMessages(res.data.messages);
-    }
-  };
-  useEffect(() => {
-    getMessages();
-  }, []);
+  
+  // useEffect(() => {
+  //   getMessages();
+  // }, []);
 
   var [bg, state] = React.useState({
     backgroundImage: "url(./images/casestudy.jpeg)",
@@ -57,8 +49,7 @@ function ChatRoom({ token, user }) {
                 user={user}
                 setClickedRoomName={setClickedRoomName}
                 setClickedRoomMembers={setClickedRoomMembers}
-                setClickedRoomId={setClickedRoomId}
-                getMessages={getMessages}
+                setClickedRoomMessages={setClickedRoomMessages}
               />
               <div className="ms-user clearfix">
                 <div className="sub-heading">Members</div>
@@ -99,6 +90,7 @@ function ChatRoom({ token, user }) {
                       />
                     )
                   )}
+                  {console.log(clickedRoomMessages)}
                 </div>
               </div>
               {/* MESSAGES END */}
