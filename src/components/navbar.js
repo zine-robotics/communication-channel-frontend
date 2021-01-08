@@ -31,7 +31,7 @@ function Navbar({user}) {
       $(document).off("click", menuCloseListener);
     }
    
-  });
+  },[]);
  
   return (
     <nav>

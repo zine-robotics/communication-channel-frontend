@@ -27,7 +27,7 @@ function ChatRoom({ token, user }) {
     $("#ms-menu-trigger").on("click",function () {
         $(".ms-menu").toggleClass("toggled");
       });
-   });
+   },[]);
   // var [bg, state] = React.useState({
   //   backgroundImage: "url(./images/pcb.gif)",
   // });
