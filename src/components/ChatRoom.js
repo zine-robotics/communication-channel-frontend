@@ -4,7 +4,6 @@ import $ from "jquery";
 import Message from "./Message";
 import axios from "../helpers/axios";
 import Rooms from "./Rooms";
-import Channel from "./Channel";
 import Member from "./Member";
 import getSocket from "../helpers/socket";
 
@@ -24,25 +23,21 @@ function ChatRoom({ token, user }) {
   const [clickedRoomMembers, setClickedRoomMembers] = useState([]);
   const [clickedRoomMessages, setClickedRoomMessages] = useState([]);
   
-  // useEffect(() => {
-  //   getMessages();
-  // }, []);
   useEffect(() => {
     $("#ms-menu-trigger").on("click",function () {
         $(".ms-menu").toggleClass("toggled");
       });
-   });
+   },[]);
   // var [bg, state] = React.useState({
-  //   backgroundImage: "url(./images/casestudy.jpeg)",
+  //   backgroundImage: "url(./images/pcb.gif)",
   // });
   // function background({ val }) {
   //   if (val === "App Development")
-  //     state((bg = { backgroundImage: "url(./images/android.jpeg)" }));
+  //     state((bg = { backgroundImage: "url(./css/images/5.jpg)" }));
   // }
 
   return (
     <div className="all" >
-    {/* style={{ bg }} */}
       <div className="container bootstrap snippets bootdey">
         <div className="tile tile-alt" id="messages-main">
           <div className="ms-menu">
@@ -87,12 +82,13 @@ function ChatRoom({ token, user }) {
               <div className="messages">
                 <div className="reverse">
                   {clickedRoomMessages.map(
-                    ({ senderId, content, conversationId, createdAt }) => (
+                    ({ senderId, content, conversationId, createdAt}) => (
                       <Message
                         senderId={senderId}
                         content={content}
                         conversationId={conversationId}
                         createdAt={createdAt}
+                        user={user}
                       />
                     )
                   )}
