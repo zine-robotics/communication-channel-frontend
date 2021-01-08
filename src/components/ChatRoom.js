@@ -23,25 +23,21 @@ function ChatRoom({ token, user }) {
   const [clickedRoomMembers, setClickedRoomMembers] = useState([]);
   const [clickedRoomMessages, setClickedRoomMessages] = useState([]);
   
-  // useEffect(() => {
-  //   getMessages();
-  // }, []);
   useEffect(() => {
     $("#ms-menu-trigger").on("click",function () {
         $(".ms-menu").toggleClass("toggled");
       });
    });
   // var [bg, state] = React.useState({
-  //   backgroundImage: "url(./images/casestudy.jpeg)",
+  //   backgroundImage: "url(./images/pcb.gif)",
   // });
   // function background({ val }) {
   //   if (val === "App Development")
-  //     state((bg = { backgroundImage: "url(./images/android.jpeg)" }));
+  //     state((bg = { backgroundImage: "url(./css/images/5.jpg)" }));
   // }
 
   return (
     <div className="all" >
-    {/* style={{ bg }} */}
       <div className="container bootstrap snippets bootdey">
         <div className="tile tile-alt" id="messages-main">
           <div className="ms-menu">

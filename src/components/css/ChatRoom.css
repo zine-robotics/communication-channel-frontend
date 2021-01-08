@@ -1,18 +1,27 @@
-
-
-.all {
-    font-family: Roboto,sans-serif;
-    font-size: 13px;
-    line-height: 1.42857143;
-    color:#313638;
-    /* #767676;*/
+/* pcb
     background-image: url(./images/pcb.gif),url(./images/pcb-flip.gif);
     margin-top: 80px;   
     background-repeat:no-repeat;
     background-attachment: fixed; 
     background-size: 20% 100%,20% 100%;
-    background-position: left,right;
-    
+    background-position: left,right; */
+
+    /* background-image: url(./images/android.png);
+    margin-top: 80px;   
+    background-repeat:repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%; */
+.all {
+    font-family: Roboto,sans-serif;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color:#313638;/* #767676;*/
+    background-image: url(./images/robot.jpg);
+    margin-top: 80px;
+    background-repeat:no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+
 }
 
 .avatars{
@@ -158,7 +167,8 @@ margin-left: 55px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 .message-feed.right .mf-content {
-    background: #eee;
+    background: #2196f3;
+    color: #fff;
 }
 .mf-content {
     padding: 12px 17px 13px;
