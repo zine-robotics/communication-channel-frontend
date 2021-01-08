@@ -35,6 +35,7 @@ const Signup = () => {
       domainOfInterest,
     });
     if (res.status === 200) {
+      console.log(res)
       const roomIds = [
         "5ff2fbc9d0eec312cbbb6d95",
         "5ff2fbe0d0eec312cbbb6d96",
@@ -44,32 +45,32 @@ const Signup = () => {
       ];
       domainOfInterest.map((dom) => {
         if (dom === "App Development")
-          roomIds.append("5ff2fba4d0eec312cbbb6d93");
+          roomIds.push("5ff2fba4d0eec312cbbb6d93");
         else if (dom === "Web Development")
-          roomIds.append("5ff2fbacd0eec312cbbb6d94");
+          roomIds.push("5ff2fbacd0eec312cbbb6d94");
         else if (dom === "Machine Learning")
-          roomIds.append("5ff2fbf6d0eec312cbbb6d98");
+          roomIds.push("5ff2fbf6d0eec312cbbb6d98");
         else if (dom === "PCB Design")
-          roomIds.append("5ff86cc879afa373a9eea8ad");
+          roomIds.push("5ff86cc879afa373a9eea8ad");
         else if (dom === "Image Processing")
-          roomIds.append("5ff86d2179afa373a9eea8ae");
+          roomIds.push("5ff86d2179afa373a9eea8ae");
         else if (dom === "CAD Modelling")
-          roomIds.append("5ff86d2e79afa373a9eea8af");
+          roomIds.push("5ff86d2e79afa373a9eea8af");
         else if (dom === "Case Study")
-          roomIds.append("5ff8752dd4be4906f680b545");
+          roomIds.push("5ff8752dd4be4906f680b545");
       });
       roomIds.map(async (roomId) => {
           const _res = await axios.post("/joinroom", {
             roomId,
-            userId: res.data._id,
+            userId: res.data.data._id,
           });
           if (_res.status === 200) {
-            console.log(res.message, _res.message);
+            console.log(res.data.message, _res.data.message);
           } else {
             console.log(res);
           }
         });
-      history.push("/signin");
+      history.push("/");
     } else {
       console.log(res);
     }
