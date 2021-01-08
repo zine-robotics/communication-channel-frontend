@@ -76,6 +76,7 @@ a:hover {
 	text-decoration: none;
   color:#111d5e;/* #098cf8;*/
   cursor: pointer;
+  text-decoration-line: none;
 }
 
 /*---------------------------------------------*/
@@ -136,11 +137,13 @@ textarea:-ms-input-placeholder { color: #999999; }
 button {
 	outline: none !important;
 	border: none;
-	background: transparent;
+  background: transparent;
+  width: 100%;
 }
 
 button:hover {
   cursor: pointer;
+  text-decoration-line: none;
 }
 
 iframe {
@@ -166,6 +169,7 @@ iframe {
 
 .txt2:hover{
   color: #111d5e;
+  text-decoration-line: none;
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -188,7 +192,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-   background : url(./images/5.jpg);
+   background : url(./images/5.webp);
    /* background: #963be6;
   background: -webkit-linear-gradient(-135deg, #290727, #4158d0);
   background: -o-linear-gradient(-135deg, #440640, #4158d0);
@@ -402,6 +406,7 @@ iframe {
 .login100-form-btn:hover {
   background: #333333;
   color:lavenderblush;
+  text-decoration-line: none;
 }
 
 
