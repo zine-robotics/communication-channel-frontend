@@ -64,6 +64,7 @@ function ChatRoom({ token, user }) {
 
   return (
     <div className="all">
+     <div className={clickedRoomName}>
       <div className="container bootstrap snippets bootdey">
         <div className="tile tile-alt" id="messages-main">
           <div className="ms-menu">
@@ -183,6 +184,7 @@ function ChatRoom({ token, user }) {
           )}
         </div>
       </div>
+     </div> 
     </div>
   );
 }

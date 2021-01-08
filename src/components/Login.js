@@ -89,8 +89,11 @@ const Login = () => {
               {/* <Link to="/chat" className="login100-form-btn">
                 Sign In
               </Link> */}
-              <a className="login100-form-btn"><button type="submit"><span className="colorit">SIGN IN</span></button></a>
-
+              <button type="submit">
+              <a className="login100-form-btn">
+              <span className="colorit">SIGN IN</span> 
+              </a>
+              </button>
             </div>
 
             <div className="text-center p-t-136">

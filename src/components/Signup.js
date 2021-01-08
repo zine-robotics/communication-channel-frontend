@@ -171,10 +171,16 @@ const Signup = () => {
             </div>
 
             <div className="container-login100-form-btn">
-              <Link to="/chat" className="login100-form-btn">
+              {/* <Link to="/chat" className="login100-form-btn">
                 Sign Up
-              </Link>
+              </Link> */}
+              <button type="submit">
+              <a className="login100-form-btn">
+              <span className="colorit">SIGN UP</span> 
+              </a>
+              </button>
             </div>
+           
 
             <div className="text-center p-t-56">
               <Link to="/" className="txt2">
