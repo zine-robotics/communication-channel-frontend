@@ -8,7 +8,7 @@ import Channel from "./Channel";
 import Member from "./Member";
 import getSocket from "../helpers/socket";
 
-// const socket = getSocket();
+const socket = getSocket();
 
 
 // $(function () {
