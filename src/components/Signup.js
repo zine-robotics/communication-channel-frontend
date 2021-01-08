@@ -5,7 +5,7 @@ import "./css/main.css";
 import React, { useState } from "react";
 import Logo from "./images/ZINE.png";
 import Dropdown from "./Dropdown";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Tilt from "react-tilt";
 import { useHistory } from "react-router";
 import axios from "../helpers/axios";
@@ -35,7 +35,40 @@ const Signup = () => {
       domainOfInterest,
     });
     if (res.status === 200) {
-      console.log(res.message);
+      const roomIds = [
+        "5ff2fbc9d0eec312cbbb6d95",
+        "5ff2fbe0d0eec312cbbb6d96",
+        "5ff2fbe5d0eec312cbbb6d97",
+        "5ff3517c1273f27108900481",
+        "5ff8699f9b6aaa69ffe0266b",
+      ];
+      domainOfInterest.map((dom) => {
+        if (dom === "App Development")
+          roomIds.append("5ff2fba4d0eec312cbbb6d93");
+        else if (dom === "Web Development")
+          roomIds.append("5ff2fbacd0eec312cbbb6d94");
+        else if (dom === "Machine Learning")
+          roomIds.append("5ff2fbf6d0eec312cbbb6d98");
+        else if (dom === "PCB Design")
+          roomIds.append("5ff86cc879afa373a9eea8ad");
+        else if (dom === "Image Processing")
+          roomIds.append("5ff86d2179afa373a9eea8ae");
+        else if (dom === "CAD Modelling")
+          roomIds.append("5ff86d2e79afa373a9eea8af");
+        else if (dom === "Case Study")
+          roomIds.append("5ff8752dd4be4906f680b545");
+      });
+      roomIds.map(async (roomId) => {
+          const _res = await axios.post("/joinroom", {
+            roomId,
+            userId: res.data._id,
+          });
+          if (_res.status === 200) {
+            console.log(res.message, _res.message);
+          } else {
+            console.log(res);
+          }
+        });
       history.push("/signin");
     } else {
       console.log(res);

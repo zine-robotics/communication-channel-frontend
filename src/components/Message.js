@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "../helpers/axios";
 import "./css/ChatRoom.css";
 
-function Message({ senderId, content, conversationId, createdAt, user }) {
+function Message({ senderId, content, createdAt, user }) {
   const [senderName, setSenderName] = useState("");
   const getUserInfo = async () => {
     const res = await axios.get("/user", {

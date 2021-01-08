@@ -9,13 +9,20 @@ const Rooms = ({
   setClickedRoomName,
   setClickedRoomMembers,
   setClickedRoomMessages,
+  acknowledgement,
+  socket
 }) => {
   const [rooms, setRooms] = useState([]);
   const [clickedRoomId, setClickedRoomId] = useState("");
-
-  const getRooms = async () => {
+  const joinRoom = (userId, name, roomId) => {
+    socket.emit("join-room", { userId, name, roomId }, acknowledgement);
+  };
+  const leaveRoom = (userId, name) => {
+    socket.emit("leave-room", {userId, name}, acknowledgement)
+  }
+  const getRooms = async (userId) => {
     const res = await axios.post("/rooms", {
-      userId: user._id,
+      userId,
     });
     if (res.status === 200) {
       setRooms(res.data.chats);
@@ -24,8 +31,7 @@ const Rooms = ({
     }
   };
 
-  const getMessages = async () => {
-    console.log(clickedRoomId, "While Sending request")
+  const getMessages = async (clickedRoomId) => {
     const res = await axios.post("/messages", {
       roomId: clickedRoomId,
     });
@@ -34,16 +40,22 @@ const Rooms = ({
     }
   };
   useEffect(() => {
-    getRooms();
-  }, []);
+    getRooms(user._id);
+  }, [user._id]);
   useEffect(() => {
-    getMessages()
+    getMessages(clickedRoomId);
+  }, [clickedRoomId]);
+  useEffect(() => {
+    leaveRoom(user._id, user.fullName)
+    joinRoom(user._id, user.fullName, clickedRoomId)
+    console.log("join-room")
   }, [clickedRoomId])
   return (
     <>
       {/*add pariticent fetching and user info */}
       {rooms.map((room) => (
-        <button className="channelButton"
+        <button
+          className="channelButton"
           style={{ all: "unset" }}
           onClick={() => {
             setClickedRoomName(room.conversationName);
