@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./css/ChatRoom.css";
-import $ from "jquery";
+import $, { data } from "jquery";
 import Message from "./Message";
 import axios from "../helpers/axios";
 import Rooms from "./Rooms";
@@ -8,7 +8,6 @@ import Member from "./Member";
 import getSocket from "../helpers/socket";
 
 const socket = getSocket();
-
 
 // $(function () {
 //   if ($("#ms-menu-trigger")[0]) {
@@ -22,12 +21,39 @@ function ChatRoom({ token, user }) {
   const [clickedRoomName, setClickedRoomName] = useState("");
   const [clickedRoomMembers, setClickedRoomMembers] = useState([]);
   const [clickedRoomMessages, setClickedRoomMessages] = useState([]);
-  
-  useEffect(() => {
-    $("#ms-menu-trigger").on("click",function () {
-        $(".ms-menu").toggleClass("toggled");
+
+  const acknowledgement = (ack) => {
+    if (ack) {
+      alert(ack);
+    }
+  };
+
+  const sendMessage = () => {
+    const content = document.getElementById("box").value;
+    if (content) {
+      socket.emit("message", {
+        senderId: user._id,
+        content,
+        createdAt: Date().toLocaleString(),
       });
-   },[]);
+      document.getElementById("box").value = "";
+    }
+  };
+  useEffect(() => {
+    socket.on("message", (data) => {
+      const { senderId, content, createdAt } = data;
+      setClickedRoomMessages((messages) => [
+        ...messages,
+        { senderId, content, createdAt },
+      ]);
+    });
+  }, []);
+
+  useEffect(() => {
+    $("#ms-menu-trigger").on("click", function () {
+      $(".ms-menu").toggleClass("toggled");
+    });
+  }, []);
   // var [bg, state] = React.useState({
   //   backgroundImage: "url(./images/pcb.gif)",
   // });
@@ -37,7 +63,7 @@ function ChatRoom({ token, user }) {
   // }
 
   return (
-    <div className="all" >
+    <div className="all">
       <div className="container bootstrap snippets bootdey">
         <div className="tile tile-alt" id="messages-main">
           <div className="ms-menu">
@@ -51,6 +77,8 @@ function ChatRoom({ token, user }) {
                 setClickedRoomName={setClickedRoomName}
                 setClickedRoomMembers={setClickedRoomMembers}
                 setClickedRoomMessages={setClickedRoomMessages}
+                acknowledgement={acknowledgement}
+                socket={socket}
               />
               <div className="ms-user clearfix">
                 <div className="sub-heading">Members</div>
@@ -80,19 +108,17 @@ function ChatRoom({ token, user }) {
               {/* MESSAGES START FROM HERE*/}
 
               <div className="messages">
-                <div className="reverse">
+                <div className="reverse" id="messages">
                   {clickedRoomMessages.map(
-                    ({ senderId, content, conversationId, createdAt}) => (
+                    ({ senderId, content, createdAt }) => (
                       <Message
                         senderId={senderId}
                         content={content}
-                        conversationId={conversationId}
                         createdAt={createdAt}
                         user={user}
                       />
                     )
                   )}
-                  {console.log(clickedRoomMessages)}
                 </div>
               </div>
               {/* MESSAGES END */}
@@ -100,8 +126,13 @@ function ChatRoom({ token, user }) {
                 <textarea
                   placeholder="What's on your mind..."
                   defaultValue={""}
+                  id="box"
                 />
-                <button>
+                <button
+                  onClick={() => {
+                    sendMessage();
+                  }}
+                >
                   <i className="fa fa-paper-plane-o" />
                 </button>
               </div>
@@ -149,10 +180,7 @@ function ChatRoom({ token, user }) {
                 </button>
               </div> */}
             </div>
-            
           )}
-
-         
         </div>
       </div>
     </div>
