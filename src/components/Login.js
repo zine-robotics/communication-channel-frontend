@@ -38,10 +38,10 @@ const Login = () => {
             <Tilt
               className="Tilt"
               options={{ max: 40 }}
-              style={{ height: 300, width: 440 }}
+              style={{ height: 400, width: 440 }}
             >
               <div className="Tilt-inner">
-                <img width="300px" height="300px" src={Logo} alt="img" />
+                <img width="300px" height="350px" src={Logo} alt="img" className="newheight"/>
               </div>
             </Tilt>
           </div>
