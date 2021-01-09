@@ -1,5 +1,5 @@
 **Web-chat** <br>
-Communication channel front-end for zine-robotics.
+Communication channel for zine-robotics.
 Steps to run
 1. clone the repository ```git clone https://github.com/aryamanprince/web-chat.git```
 2. clone backend repository ```git clone https://github.com/pc-beast/communication-channel-backend.git```
