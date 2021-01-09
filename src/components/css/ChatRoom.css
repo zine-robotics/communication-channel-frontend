@@ -55,6 +55,55 @@
     background-size:20% 100%,20% 100%;
     background-position: left,right;
 }
+.PCB{
+    background-image: url(./images/pcb.webp),url(./images/pcb-flip.webp);
+    background-repeat:no-repeat;
+    background-attachment: fixed; 
+    background-size: 22% 100%,22% 100%;
+    background-position: left,right;
+}
+.App{
+    background-image: url(./images/img4.webp);
+    background-repeat:repeat;
+    background-attachment: fixed; 
+    background-size: 50% 100%;
+}
+.Web{
+    background-image: url(./images/img3.webp);
+    background-repeat:repeat;
+    background-attachment: fixed; 
+    background-size: 50% 100%;
+}
+.Image{
+    background-image: url(./images/img5.webp);
+    background-repeat:repeat;
+    background-attachment: fixed; 
+    background-size: 25% 100%;
+}
+.Aeromodelling{
+    background-image: url(./images/cad1.webp);
+    background-repeat:repeat;
+    background-attachment: fixed; 
+    background-size: 50% 100%;
+}
+.BME{
+    background-image: url(./images/img.webp);
+    background-repeat:repeat;
+    background-attachment: fixed; 
+    background-size: 50% 100%;
+}
+/* .BME{
+    background-image: url(./images/cad2.webp);
+    background-repeat:repeat;
+    background-attachment: fixed; 
+    background-size: 50% 100%;
+} */
+.BEE{
+    background-image: url(./images/ee2.webp);
+    background-repeat:repeat;
+    background-attachment: fixed; 
+    background-size: 50% 100%;
+}
 
 
 .avatars{
