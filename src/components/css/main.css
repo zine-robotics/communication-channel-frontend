@@ -5,9 +5,6 @@
 .robo{
   border-radius: 600px;
 }
-.limiter{
-  overflow: auto !important;
-}
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
@@ -42,9 +39,10 @@
 }
 
 body, html {
-	height: 100%;
+  height: 100%; 
 	font-family: Poppins-Regular, sans-serif;
 }
+
 /*------logo----*/
 img{
   width:500px;
@@ -474,6 +472,11 @@ iframe {
 @media (max-width: 576px) {
   .wrap-login100 {
     padding: 100px 15px 33px 15px;
+  }
+}
+@media (max-height : 800px){
+  body {
+    overflow-y: auto;
   }
 }
 
