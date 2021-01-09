@@ -5,6 +5,9 @@
 .robo{
   border-radius: 600px;
 }
+.limiter{
+  overflow: auto !important;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
@@ -55,7 +58,7 @@ img{
 .welcome{
   text-align: center;
   padding-top: 50px;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bold;
   color: #0287CC;
   font-family: Brush Script MT, cursive;
@@ -92,10 +95,11 @@ h1,h2,h3,h4,h5,h6 {
 
 p {
 	font-family: Poppins-Regular;
-	font-size: 14px;
+	font-size: 17px;
 	line-height: 1.7;
 	color: #666666;
-	margin: 0px;
+  margin: 0px;
+  margin-left: 23px;;
 }
 
 ul, li {
@@ -415,6 +419,15 @@ iframe {
   text-decoration-line: none;
 }
 
+/*Tilt image*/
+.Tiltlogin{
+  height:400px;
+  width:440px;
+}
+.Tiltsignup{
+  height:250px;
+  width:400px;
+}
 
 
 /*------------------------------------------------------------------
@@ -424,7 +437,7 @@ iframe {
 
 @media (max-width: 992px) {
   .wrap-login100 {
-    padding: 177px 90px 33px 85px;
+    padding: 100px 90px 33px 85px;
   }
 
   .login100-pic {
@@ -433,6 +446,14 @@ iframe {
 
   .login100-form {
     width: 50%;
+  }
+  .Tiltlogin{
+    height:120px;
+    width:320px;
+  }
+  .Tiltsignup{
+    height:125px;
+    width:300px;
   }
 }
 
@@ -522,5 +543,6 @@ iframe {
     visibility: visible;
     opacity: 1;
   }
+ 
 }
 

@@ -3,7 +3,7 @@ import "./animate/animate.css";
 import "./css/util.css";
 import "./css/main.css";
 import React, { useState } from "react";
-import Logo from "./images/robo.jpeg";
+import Logo from "./images/robo.webp";
 import Dropdown from "./Dropdown";
 import { Link } from "react-router-dom";
 import Tilt from "react-tilt";
@@ -80,19 +80,21 @@ const Signup = () => {
       <div className="container-login100">
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
-            <Tilt
-              className="Tilt"
+            
+             <Tilt
+              className="Tiltsignup"
               options={{ max: 40 }}
-              style={{ height: 250, width: 400 }}
+              // style={{ height: 250, width: 400 }}
             >
               <div className="Tilt-inner">
                 <img src={Logo} alt="img" className="robo"/>
               </div>
-            </Tilt>
+            </Tilt> 
+          
             <p>
               <br />
               <div className="welcome">
-                Welcome <br></br>to<br></br> Zine Comuunication Channel
+                Welcome to<br></br> Zine Comuunication Channel
               </div>
             </p>
           </div>

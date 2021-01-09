@@ -36,9 +36,9 @@ const Login = () => {
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
             <Tilt
-              className="Tilt"
+              className="Tiltlogin"
               options={{ max: 40 }}
-              style={{ height: 400, width: 440 }}
+              // style={{ height: 400, width: 440 }}
             >
               <div className="Tilt-inner">
                 <img width="300px" height="350px" src={Logo} alt="img" className="newheight"/>
@@ -96,7 +96,7 @@ const Login = () => {
               </button>
             </div>
 
-            <div className="text-center p-t-136">
+            <div className="text-center p-t-100">
               <Link to="/signup" className="txt2">
                 Create your Account
                 <i className="fa m-l-5" aria-hidden="true"></i>
