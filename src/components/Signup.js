@@ -3,7 +3,7 @@ import "./animate/animate.css";
 import "./css/util.css";
 import "./css/main.css";
 import React, { useState } from "react";
-import Logo from "./images/ZINE.png";
+import Logo from "./images/robo.jpeg";
 import Dropdown from "./Dropdown";
 import { Link } from "react-router-dom";
 import Tilt from "react-tilt";
@@ -86,7 +86,7 @@ const Signup = () => {
               style={{ height: 250, width: 400 }}
             >
               <div className="Tilt-inner">
-                <img src={Logo} alt="img" />
+                <img src={Logo} alt="img" className="robo"/>
               </div>
             </Tilt>
             <p>

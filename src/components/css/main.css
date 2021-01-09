@@ -2,6 +2,10 @@
   color: white;
 }
 
+.robo{
+  border-radius: 600px;
+}
+
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
@@ -170,7 +174,7 @@ iframe {
 }
 
 .txt2:hover{
-  color: #111d5e;
+  color: #ff0000;
   text-decoration-line: none;
 }
 

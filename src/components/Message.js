@@ -64,4 +64,3 @@ function Message({ senderId, content, createdAt, user }) {
 }
 }
 export default Message;
-
