@@ -5,7 +5,7 @@ import "./css/ChatRoom.css";
 function formatAMPM(date) {
   var year = date.getFullYear();
   var dt = date.getDate();
-  var month = date.getMonth();
+  var month = date.getMonth() + 1;
   var hours = date.getHours();
   var minutes = date.getMinutes();
   var ampm = hours >= 12 ? 'PM' : 'AM';
