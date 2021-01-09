@@ -453,6 +453,9 @@ iframe {
     height:125px;
     width:300px;
   }
+  .welcome{
+    padding-top: 180px;
+  }
 }
 
 @media (max-width: 768px) {
