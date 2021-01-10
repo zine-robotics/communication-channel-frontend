@@ -91,7 +91,7 @@ const Login = () => {
               </Link> */}
               <button type="submit">
               <a className="login100-form-btn">
-              <span className="colorit">SIGN IN</span> 
+              <span className="colorit">LOGIN</span> 
               </a>
               </button>
             </div>
