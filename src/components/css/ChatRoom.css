@@ -268,7 +268,8 @@ margin-left: 55px;
     padding: 12px 17px 13px;
     border-radius: 2px;
     display: inline-block;
-    max-width: 80%
+    max-width: 80%;
+    text-align: left !important;
 }
 .mf-date {
     display: block;
