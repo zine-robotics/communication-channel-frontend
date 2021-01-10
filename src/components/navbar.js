@@ -48,9 +48,6 @@ function Navbar({user}) {
           <li>
             <a>{user.fullName}</a>
           </li>
-          <li>
-            <a>Project Name</a>
-          </li>
           <li onClick = {clearSession}>
             <a className="active" href="/">Log out</a>
           </li>

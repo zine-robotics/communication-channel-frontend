@@ -4,11 +4,11 @@ import "./css/util.css";
 import "./css/main.css";
 import React, { useState } from "react";
 import Logo from "./images/robo.webp";
-import Dropdown from "./Dropdown";
 import { Link } from "react-router-dom";
 import Tilt from "react-tilt";
 import { useHistory } from "react-router";
 import axios from "../helpers/axios";
+// import M from "materialize-css";
 
 const Signup = () => {
   const history = useHistory();
@@ -16,7 +16,6 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rollNumber, setRollNumber] = useState("");
-  const [domainOfInterest, setDomainOfInterest] = useState([]);
   let result;
   const getDomainOfInterest = (selected) => {
     console.log(selected.map((a) => a.label));
@@ -25,17 +24,36 @@ const Signup = () => {
   const PostData = async (e) => {
     e.preventDefault();
     // regex for testing email is left
+    // const regex = RegExp(/^[\w\.]+@(?:mnit|iiitkota).ac.in$/);
+    // if (!regex.test(email)) {
+    //   console.log("toast");
+    //   // M.toast({ html: "Invalid email. Use College email id", classes: "#c62828 red darken-3 toast-container", displayLength: "5000"});
+    //   alert("Invalid email. Use College email id")
+    //   return;
+    // }
+    if (fullName.length < 3) {
+      // M.toast({ html: "Do no use nick names and enter Full Name", classes: "#c62828 red darken-3" });
+      alert("Do no use nick names and enter Full Name")
+      return;
+    }
+    if (password.length < 6) {
+      // M.toast({ html: "Password Must be grater than 6 characters", classes: "#c62828 red darken-3" });
+      alert("Password Must be grater than or equal 6 characters")
+      return;
+    }
+    if (rollNumber.length == 0) {
+      // M.toast({ html: "Enter valid college Id", classes: "#c62828 red darken-3" });
+      alert("Enter valid college Id")
+      return;
+    }
     console.log(result);
-    setDomainOfInterest(result);
     const res = await axios.post("/signup", {
       fullName,
       email,
       password,
       rollNumber,
-      domainOfInterest,
     });
     if (res.status === 200) {
-      console.log(res)
       const roomIds = [
         "5ff2fbc9d0eec312cbbb6d95",
         "5ff2fbe0d0eec312cbbb6d96",
@@ -43,33 +61,18 @@ const Signup = () => {
         "5ff3517c1273f27108900481",
         "5ff8699f9b6aaa69ffe0266b",
       ];
-      domainOfInterest.map((dom) => {
-        if (dom === "App Development")
-          roomIds.push("5ff2fba4d0eec312cbbb6d93");
-        else if (dom === "Web Development")
-          roomIds.push("5ff2fbacd0eec312cbbb6d94");
-        else if (dom === "Machine Learning")
-          roomIds.push("5ff2fbf6d0eec312cbbb6d98");
-        else if (dom === "PCB Design")
-          roomIds.push("5ff86cc879afa373a9eea8ad");
-        else if (dom === "Image Processing")
-          roomIds.push("5ff86d2179afa373a9eea8ae");
-        else if (dom === "CAD Modelling")
-          roomIds.push("5ff86d2e79afa373a9eea8af");
-        else if (dom === "Case Study")
-          roomIds.push("5ff8752dd4be4906f680b545");
-      });
       roomIds.map(async (roomId) => {
-          const _res = await axios.post("/joinroom", {
-            roomId,
-            userId: res.data.data._id,
-          });
-          if (_res.status === 200) {
-            console.log(res.data.message, _res.data.message);
-          } else {
-            console.log(res);
-          }
+        const _res = await axios.post("/joinroom", {
+          roomId,
+          userId: res.data.data._id,
         });
+        if (_res.status === 200) {
+          console.log(res.data.message, _res.data.message);
+        } else {
+          console.log(res);
+        }
+      });
+      console.log(res);
       history.push("/");
     } else {
       console.log(res);
@@ -80,17 +83,16 @@ const Signup = () => {
       <div className="container-login100">
         <div className="wrap-login100">
           <div className="login100-pic js-tilt" data-tilt>
-            
-             <Tilt
+            <Tilt
               className="Tiltsignup"
               options={{ max: 40 }}
               // style={{ height: 250, width: 400 }}
             >
               <div className="Tilt-inner">
-                <img src={Logo} alt="img" className="robo"/>
+                <img src={Logo} alt="img" className="robo" />
               </div>
-            </Tilt> 
-          
+            </Tilt>
+
             <p>
               <br />
               <div className="welcome">
@@ -169,21 +171,16 @@ const Signup = () => {
 
             <br />
 
-            <div className="wrap-input100 validate-input">
-              <Dropdown getDomainOfInterest={getDomainOfInterest} />
-            </div>
-
             <div className="container-login100-form-btn">
               {/* <Link to="/chat" className="login100-form-btn">
                 Sign Up
               </Link> */}
               <button type="submit">
-              <a className="login100-form-btn">
-              <span className="colorit">SIGN UP</span> 
-              </a>
+                <a className="login100-form-btn">
+                  <span className="colorit">SIGN UP</span>
+                </a>
               </button>
             </div>
-           
 
             <div className="text-center p-t-56">
               <Link to="/" className="txt2">

@@ -41,7 +41,7 @@ const Rooms = ({
   };
   useEffect(() => {
     getRooms(user._id);
-  }, [user._id]);
+  }, []);
   useEffect(() => {
     getMessages(clickedRoomId);
   }, [clickedRoomId]);
