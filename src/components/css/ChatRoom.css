@@ -111,9 +111,19 @@
 }
 
 .messages{
-    min-height:calc(var(--vh, 1vh)*89 - 125px);;
+    min-height:calc(var(--vh, 1vh)*89 - 125px);
     overflow-y: scroll;
     transform: scaleY(-1);
+}
+
+img{
+    position: relative;
+    border-radius: 50px;
+    /* margin-top: 22%;
+    margin-left: 20%; */
+    height: 100%;
+    width:100%;
+    
 }
 
 .reverse{
@@ -145,6 +155,8 @@ margin-left: 55px;
     width: 240px;
     background: #fff;
 }
+
+
 
 
 /* @media (min-width:1200px){

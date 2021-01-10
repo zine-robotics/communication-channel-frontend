@@ -94,7 +94,7 @@ const Signup = () => {
             <p>
               <br />
               <div className="welcome">
-                Welcome to<br></br> Zine Comuunication Channel
+                Welcome to<br></br> Zine Communication Channel
               </div>
             </p>
           </div>
