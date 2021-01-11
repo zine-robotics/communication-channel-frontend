@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "../helpers/axios";
 import ReactMarkdown from "react-markdown";
 import "./css/ChatRoom.css";
-import gfm from 'remark-gfm';
+import gfm from "remark-gfm";
 
 function formatAMPM(date) {
   var year = date.getFullYear();
@@ -46,11 +46,9 @@ function Message({ senderId, content, createdAt, user, senderName }) {
         <div className="media-body">
           <h5>{senderName}</h5>
           <div className="mf-content">
-          <ReactMarkdown plugins={[gfm]} children={content} />
+            <ReactMarkdown plugins={[gfm]} children={content} />
           </div>
-          <small className="mf-date">
-            <i className="fa fa-clock-o" /> {formatAMPM(new Date(createdAt))}
-          </small>
+          <small className="mf-date">{formatAMPM(new Date(createdAt))}</small>
         </div>
       </div>
     );
@@ -61,11 +59,9 @@ function Message({ senderId, content, createdAt, user, senderName }) {
         <div className="media-body">
           <h5>{senderName}</h5>
           <div className="mf-content">
-          <ReactMarkdown plugins={[gfm]} children={content} />
+            <ReactMarkdown plugins={[gfm]} children={content} />
           </div>
-          <small className="mf-date">
-            <i className="fa fa-clock-o" /> {formatAMPM(new Date(createdAt))}
-          </small>
+          <small className="mf-date">{formatAMPM(new Date(createdAt))}</small>
         </div>
       </div>
     );
