@@ -109,46 +109,20 @@ function ChatRoom({ token, user }) {
 
                 {/* MESSAGES START FROM HERE*/}
 
-              <div className="messages">
-                <div className="reverse" id="messages">
-                  {clickedRoomMessages.map(
-                    ({ senderId, content, createdAt, senderName }) => (
-                      <Message
-                        senderId={senderId}
-                        content={content}
-                        createdAt={createdAt}
-                        user={user}
-                        senderName={senderName}
-                      />
-                    )
-                  )}
-                </div>
-              </div>
-              {/* MESSAGES END */}
-              <div className="msb-reply">
-                <textarea
-                  placeholder="What's on your mind..."
-                  defaultValue={""}
-                  id="box" onKeyDown={(event) => onEnterPress(event)}
-                />
-                <button
-                  onClick={() => {
-                    sendMessage();
-                  }}
-                >
-                  <i className="fa fa-paper-plane-o" />
-                </button>
-              </div>
-            </div>
-          ) : (
-            //else
-            <div className="ms-body">
-              <div className="action-header clearfix">
-                <div
-                  className="d-none d-block d-sm-block d-md-none"
-                  id="ms-menu-trigger"
-                >
-                  <i className="fa fa-bars" />
+                <div className="messages">
+                  <div className="reverse" id="messages">
+                    {clickedRoomMessages.map(
+                      ({ senderId, content, createdAt, senderName }) => (
+                        <Message
+                          senderId={senderId}
+                          content={content}
+                          createdAt={createdAt}
+                          user={user}
+                          senderName={senderName}
+                        />
+                      )
+                    )}
+                  </div>
                 </div>
                 {/* MESSAGES END */}
                 <div className="msb-reply">
