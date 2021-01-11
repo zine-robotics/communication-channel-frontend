@@ -280,6 +280,22 @@ margin-left: 55px;
     margin-bottom: 0px;
     color: #fff
 }
+
+.mf-content > p > a:link {
+    color: #fff;
+}
+
+.mf-content > p > a:visited {
+    color: #fff;
+}
+
+.mf-content > p > a:hover {
+    color: #fff;
+}
+
+.mf-content > p > a:active {
+    color: #fff;
+}
 .mf-date {
     display: block;
     color: #586f7c;
