@@ -55,13 +55,13 @@ function ChatRoom({ token, user }) {
       $(".ms-menu").toggleClass("toggled");
     });
   }, []);
-  // var [bg, state] = React.useState({
-  //   backgroundImage: "url(./images/pcb.gif)",
-  // });
-  // function background({ val }) {
-  //   if (val === "App Development")
-  //     state((bg = { backgroundImage: "url(./css/images/5.jpg)" }));
-  // }
+  
+const onEnterPress = (e) => {
+  if(e.keyCode === 13){
+    e.preventDefault();
+    sendMessage();
+  }
+}
 
   return (
     <div className="all">
@@ -129,9 +129,9 @@ function ChatRoom({ token, user }) {
                 <textarea
                   placeholder="What's on your mind..."
                   defaultValue={""}
-                  id="box"
+                  id="box" onKeyDown={(event) => onEnterPress(event)}
                 />
-                <button
+                <button id="butt"
                   onClick={() => {
                     sendMessage();
                   }}
