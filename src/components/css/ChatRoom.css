@@ -281,7 +281,19 @@ margin-left: 55px;
     color: #fff
 }
 
-.mf-content > p > a {
+.mf-content > p > a:link {
+    color: #fff;
+}
+
+.mf-content > p > a:visited {
+    color: #fff;
+}
+
+.mf-content > p > a:hover {
+    color: #fff;
+}
+
+.mf-content > p > a:active {
     color: #fff;
 }
 .mf-date {
