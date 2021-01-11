@@ -35,16 +35,17 @@ function ChatRoom({ token, user }) {
         senderId: user._id,
         content,
         createdAt: Date().toLocaleString(),
+        name: user.fullName
       });
       document.getElementById("box").value = "";
     }
   };
   useEffect(() => {
     socket.on("message", (data) => {
-      const { senderId, content, createdAt } = data;
+      const { senderId, content, createdAt, senderName } = data;
       setClickedRoomMessages((messages) => [
         ...messages,
-        { senderId, content, createdAt },
+        { senderId, content, createdAt, senderName },
       ]);
     });
   }, []);
@@ -111,12 +112,13 @@ function ChatRoom({ token, user }) {
               <div className="messages">
                 <div className="reverse" id="messages">
                   {clickedRoomMessages.map(
-                    ({ senderId, content, createdAt }) => (
+                    ({ senderId, content, createdAt, senderName }) => (
                       <Message
                         senderId={senderId}
                         content={content}
                         createdAt={createdAt}
                         user={user}
+                        senderName={senderName}
                       />
                     )
                   )}
