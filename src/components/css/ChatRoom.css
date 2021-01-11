@@ -280,6 +280,10 @@ margin-left: 55px;
     margin-bottom: 0px;
     color: #fff
 }
+
+.mf-content > p > a {
+    color: #fff;
+}
 .mf-date {
     display: block;
     color: #586f7c;
