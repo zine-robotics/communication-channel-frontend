@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./css/ChatRoom.css";
-import $, { data } from "jquery";
+import $ from "jquery";
 import Message from "./Message";
-import axios from "../helpers/axios";
 import Rooms from "./Rooms";
 import Member from "./Member";
 import getSocket from "../helpers/socket";
@@ -85,12 +84,11 @@ function ChatRoom({ token, user }) {
                 <div className="ms-user clearfix">
                   <div className="sub-heading">Members</div>
                 </div>
-                {clickedRoomMembers.map((clickedRoomMember) => (
-                  <Member userId={clickedRoomMember.id} />
+                {clickedRoomMembers.map((clickedRoomMember, index) => (
+                  <Member userId={clickedRoomMember.id} key={index} />
                 ))}
               </div>
             </div>
-            {console.log(clickedRoomName)}
             {clickedRoomName ? (
               //if clicked room true
               <div className="ms-body">

@@ -33,7 +33,7 @@ const Rooms = ({
   };
 
   const getMessages = async (clickedRoomId) => {
-    const res = await axios.post(`${config.server}/rooms/`, {
+    const res = await axios.post(`${config.server}/messages/`, {
       roomId: clickedRoomId,
     });
     if (res.status === 200) {
@@ -49,7 +49,6 @@ const Rooms = ({
   useEffect(() => {
     leaveRoom(user._id, user.fullName)
     joinRoom(user._id, user.fullName, clickedRoomId)
-    console.log("join-room")
   }, [clickedRoomId])
   return (
     <>
@@ -68,7 +67,6 @@ const Rooms = ({
           <Channel name={room.conversationName} />
         </button>
       ))}
-      {console.log(clickedRoomId)}
     </>
   );
 };
