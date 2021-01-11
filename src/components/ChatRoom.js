@@ -30,7 +30,7 @@ function ChatRoom({ token, user }) {
 
   const sendMessage = () => {
     const content = document.getElementById("box").value;
-    if (content) {
+    if (/\S/.test(content)) {
       socket.emit("message", {
         senderId: user._id,
         content,
