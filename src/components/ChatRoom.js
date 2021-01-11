@@ -35,7 +35,7 @@ function ChatRoom({ token, user }) {
         senderId: user._id,
         content,
         createdAt: Date().toLocaleString(),
-        senderName: user.fullName
+        senderName: user.fullName,
       });
       document.getElementById("box").value = "";
     }
@@ -55,110 +55,111 @@ function ChatRoom({ token, user }) {
       $(".ms-menu").toggleClass("toggled");
     });
   }, []);
-  
-const onEnterPress = (e) => {
-  if(e.keyCode === 13){
-    e.preventDefault();
-    sendMessage();
-  }
-}
+
+  const onEnterPress = (e) => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      sendMessage();
+    }
+  };
 
   return (
     <div className="all">
-     <div className={clickedRoomName}>
-      <div className="container bootstrap snippets bootdey">
-        <div className="tile tile-alt" id="messages-main">
-          <div className="ms-menu">
-            <div className="ms-user clearfix">
-              <div className="sub-heading">Channels</div>
-            </div>
-            <div className="list-group lg-alt scroll">
-              <Rooms
-                token={token}
-                user={user}
-                setClickedRoomName={setClickedRoomName}
-                setClickedRoomMembers={setClickedRoomMembers}
-                setClickedRoomMessages={setClickedRoomMessages}
-                acknowledgement={acknowledgement}
-                socket={socket}
-              />
+      <div className={clickedRoomName}>
+        <div className="container bootstrap snippets bootdey">
+          <div className="tile tile-alt" id="messages-main">
+            <div className="ms-menu">
               <div className="ms-user clearfix">
-                <div className="sub-heading">Members</div>
+                <div className="sub-heading">Channels</div>
               </div>
-              {clickedRoomMembers.map((clickedRoomMember) => (
-                <Member userId={clickedRoomMember.id} />
-              ))}
-            </div>
-          </div>
-          {console.log(clickedRoomName)}
-          {clickedRoomName ? (
-            //if clicked room true
-            <div className="ms-body">
-              <div className="action-header clearfix">
-                <div
-                  className="d-none d-block d-sm-block d-md-none"
-                  id="ms-menu-trigger"
-                >
-                  <i className="fa fa-bars" />
-                </div>
-                <div className="pull-left roomname">
-                  <div className="lv-avatar pull-left"></div>
-                  <div className="sub-heading">{clickedRoomName}</div>
-                </div>
-              </div>
-
-              {/* MESSAGES START FROM HERE*/}
-
-              <div className="messages">
-                <div className="reverse" id="messages">
-                  {clickedRoomMessages.map(
-                    ({ senderId, content, createdAt, senderName }) => (
-                      <Message
-                        senderId={senderId}
-                        content={content}
-                        createdAt={createdAt}
-                        user={user}
-                        senderName={senderName}
-                      />
-                    )
-                  )}
-                </div>
-              </div>
-              {/* MESSAGES END */}
-              <div className="msb-reply">
-                <textarea
-                  placeholder="What's on your mind..."
-                  defaultValue={""}
-                  id="box" onKeyDown={(event) => onEnterPress(event)}
+              <div className="list-group lg-alt scroll">
+                <Rooms
+                  token={token}
+                  user={user}
+                  setClickedRoomName={setClickedRoomName}
+                  setClickedRoomMembers={setClickedRoomMembers}
+                  setClickedRoomMessages={setClickedRoomMessages}
+                  acknowledgement={acknowledgement}
+                  socket={socket}
                 />
-                <button id="butt"
-                  onClick={() => {
-                    sendMessage();
-                  }}
-                >
-                  <i className="fa fa-paper-plane-o" />
-                </button>
+                <div className="ms-user clearfix">
+                  <div className="sub-heading">Members</div>
+                </div>
+                {clickedRoomMembers.map((clickedRoomMember) => (
+                  <Member userId={clickedRoomMember.id} />
+                ))}
               </div>
             </div>
-          ) : (
-            //else
-            <div className="ms-body">
-              <div className="action-header clearfix">
-                <div
-                  className="d-none d-block d-sm-block d-md-none"
-                  id="ms-menu-trigger"
-                >
-                  <i className="fa fa-bars" />
+            {console.log(clickedRoomName)}
+            {clickedRoomName ? (
+              //if clicked room true
+              <div className="ms-body">
+                <div className="action-header clearfix">
+                  <div
+                    className="d-none d-block d-sm-block d-md-none"
+                    id="ms-menu-trigger"
+                  >
+                    <i className="fa fa-bars" />
+                  </div>
+                  <div className="pull-left roomname">
+                    <div className="lv-avatar pull-left"></div>
+                    <div className="sub-heading">{clickedRoomName}</div>
+                  </div>
                 </div>
-                <div className="pull-left roomname">
-                  <div className="lv-avatar pull-left"></div>
-                  <div className="sub-heading"></div>
+
+                {/* MESSAGES START FROM HERE*/}
+
+                <div className="messages">
+                  <div className="reverse" id="messages">
+                    {clickedRoomMessages.map(
+                      ({ senderId, content, createdAt, senderName }) => (
+                        <Message
+                          senderId={senderId}
+                          content={content}
+                          createdAt={createdAt}
+                          user={user}
+                          senderName={senderName}
+                        />
+                      )
+                    )}
+                  </div>
+                </div>
+                {/* MESSAGES END */}
+                <div className="msb-reply">
+                  <textarea
+                    placeholder="What's on your mind..."
+                    defaultValue={""}
+                    id="box"
+                    onKeyDown={(event) => onEnterPress(event)}
+                  />
+                  <button
+                    onClick={() => {
+                      sendMessage();
+                    }}
+                  >
+                    <i className="fa fa-paper-plane-o" />
+                  </button>
                 </div>
               </div>
+            ) : (
+              //else
+              <div className="ms-body">
+                <div className="action-header clearfix">
+                  <div
+                    className="d-none d-block d-sm-block d-md-none"
+                    id="ms-menu-trigger"
+                  >
+                    <i className="fa fa-bars" />
+                  </div>
+                  <div className="pull-left roomname">
+                    <div className="lv-avatar pull-left"></div>
+                    <div className="sub-heading"></div>
+                  </div>
+                </div>
 
-              {/* MESSAGES START FROM HERE*/}
+                {/* MESSAGES START FROM HERE*/}
 
-              {/* <div className="messages">
+                {/* <div className="messages">
                 <div className="reverse">
                   {clickedRoomMessages.map(
                     ({ senderId, content, conversationId, createdAt }) => (
@@ -172,8 +173,8 @@ const onEnterPress = (e) => {
                   )}
                 </div>
               </div> */}
-              {/* MESSAGES END */}
-              {/* <div className="msb-reply">
+                {/* MESSAGES END */}
+                {/* <div className="msb-reply">
                 <textarea
                   placeholder="What's on your mind..."
                   defaultValue={""}
@@ -182,11 +183,11 @@ const onEnterPress = (e) => {
                   <i className="fa fa-paper-plane-o" />
                 </button>
               </div> */}
-            </div>
-          )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
-     </div> 
     </div>
   );
 }
