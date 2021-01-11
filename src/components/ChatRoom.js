@@ -131,7 +131,7 @@ const onEnterPress = (e) => {
                   defaultValue={""}
                   id="box" onKeyDown={(event) => onEnterPress(event)}
                 />
-                <button id="butt"
+                <button
                   onClick={() => {
                     sendMessage();
                   }}
