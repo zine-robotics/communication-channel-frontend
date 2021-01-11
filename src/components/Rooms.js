@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./css/ChatRoom.css";
 import Channel from "./Channel";
 import axios from "../helpers/axios";
+import config from '../config.json';
 
 const Rooms = ({
   token,
@@ -21,7 +22,7 @@ const Rooms = ({
     socket.emit("leave-room", {userId, name}, acknowledgement)
   }
   const getRooms = async (userId) => {
-    const res = await axios.post("/rooms", {
+    const res = await axios.post(`${config.server}/rooms/`, {
       userId,
     });
     if (res.status === 200) {
@@ -32,7 +33,7 @@ const Rooms = ({
   };
 
   const getMessages = async (clickedRoomId) => {
-    const res = await axios.post("/messages", {
+    const res = await axios.post(`${config.server}/rooms/`, {
       roomId: clickedRoomId,
     });
     if (res.status === 200) {
@@ -53,7 +54,7 @@ const Rooms = ({
   return (
     <>
       {/*add pariticent fetching and user info */}
-      {rooms.map((room) => (
+      {rooms.map((room, index) => (
         <button
           className="channelButton"
           style={{ all: "unset" }}
@@ -62,6 +63,7 @@ const Rooms = ({
             setClickedRoomMembers(room.participants);
             setClickedRoomId(room._id);
           }}
+          key={index}
         >
           <Channel name={room.conversationName} />
         </button>

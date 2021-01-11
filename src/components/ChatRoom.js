@@ -11,7 +11,7 @@ const socket = getSocket();
 
 // $(function () {
 //   if ($("#ms-menu-trigger")[0]) {
-//     $("body").on("click", "#ms-menu-trigger", function () {
+//     $("body").on("clixck", "#ms-menu-trigger", function () {
 //       $(".ms-menu").toggleClass("toggled");
 //     });
 //   }
@@ -111,7 +111,7 @@ function ChatRoom({ token, user }) {
 
                 <div className="messages">
                   <div className="reverse" id="messages">
-                    {clickedRoomMessages.map(
+                    {clickedRoomMessages && clickedRoomMessages.map(
                       ({ senderId, content, createdAt, senderName }) => (
                         <Message
                           senderId={senderId}
@@ -119,6 +119,7 @@ function ChatRoom({ token, user }) {
                           createdAt={createdAt}
                           user={user}
                           senderName={senderName}
+                          key={createdAt}
                         />
                       )
                     )}
