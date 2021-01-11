@@ -33,17 +33,17 @@ const Signup = () => {
     // }
     if (fullName.length < 3) {
       // M.toast({ html: "Do no use nick names and enter Full Name", classes: "#c62828 red darken-3" });
-      alert("Do no use nick names and enter Full Name")
+      alert("Do no use nick names and enter Full Name");
       return;
     }
     if (password.length < 6) {
       // M.toast({ html: "Password Must be grater than 6 characters", classes: "#c62828 red darken-3" });
-      alert("Password Must be grater than or equal 6 characters")
+      alert("Password Must be grater than or equal 6 characters");
       return;
     }
     if (rollNumber.length == 0) {
       // M.toast({ html: "Enter valid college Id", classes: "#c62828 red darken-3" });
-      alert("Enter valid college Id")
+      alert("Enter valid college Id");
       return;
     }
     console.log(result);
@@ -60,6 +60,8 @@ const Signup = () => {
         "5ff2fbe5d0eec312cbbb6d97",
         "5ff3517c1273f27108900481",
         "5ff8699f9b6aaa69ffe0266b",
+        "5ffc310d5bfdb84beba3ffa9",
+        "5ffc31195bfdb84beba3ffaa",
       ];
       roomIds.map(async (roomId) => {
         const _res = await axios.post("/joinroom", {

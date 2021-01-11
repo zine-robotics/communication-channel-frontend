@@ -1,5 +1,6 @@
 const clearSession = () => {
-  localStorage.clear();
+  localStorage.removeItem("user");
+  console.log("Clear")
 };
 
 export default clearSession;
