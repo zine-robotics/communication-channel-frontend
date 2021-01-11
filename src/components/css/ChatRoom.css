@@ -272,6 +272,7 @@ margin-left: 55px;
     border-radius: 2px !important;
     display: inline-block !important;
     max-width: 80% !important;
+    text-align: left !important;
 }
 
 .mf-content > p {
