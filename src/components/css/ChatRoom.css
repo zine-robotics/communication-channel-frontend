@@ -269,9 +269,10 @@ margin-left: 55px;
 }
 .mf-content {
     padding: 12px 17px 13px !important;
-    border-radius: 2px !important;
+    border-radius: 5px !important;
     display: inline-block !important;
     max-width: 80% !important;
+    text-align: left !important;
 }
 
 .mf-content > p {
