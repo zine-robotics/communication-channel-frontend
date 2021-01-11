@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "../helpers/axios";
+import ReactMarkdown from 'react-markdown'
 import "./css/ChatRoom.css";
 
 function formatAMPM(date) {
@@ -40,7 +41,7 @@ function Message({ senderId, content, createdAt, user }) {
     <div className="pull-right" />
     <div className="media-body">
       <h5>{senderName}</h5>
-      <div className="mf-content">{content}</div>
+      <div className="mf-content"><ReactMarkdown source={content} /></div>
       <small className="mf-date">
         <i className="fa fa-clock-o" /> {formatAMPM(new Date(createdAt))}
       </small>
@@ -54,7 +55,7 @@ function Message({ senderId, content, createdAt, user }) {
       <div className="pull-left" />
       <div className="media-body">
         <h5>{senderName}</h5>
-        <div className="mf-content">{content}</div>
+        <div className="mf-content"><ReactMarkdown source={content} linkTargets="_blank" /></div>
         <small className="mf-date">
           <i className="fa fa-clock-o" /> {formatAMPM(new Date(createdAt))}
         </small>

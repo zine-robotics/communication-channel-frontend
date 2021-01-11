@@ -13,6 +13,7 @@
     "react": "^16.8.6",
     "react-avatar": "^3.9.7",
     "react-dom": "^16.8.6",
+    "react-markdown": "^5.0.3",
     "react-multi-select-component": "^3.0.8",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
