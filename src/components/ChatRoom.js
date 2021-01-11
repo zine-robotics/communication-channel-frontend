@@ -35,7 +35,7 @@ function ChatRoom({ token, user }) {
         senderId: user._id,
         content,
         createdAt: Date().toLocaleString(),
-        name: user.fullName
+        senderName: user.fullName
       });
       document.getElementById("box").value = "";
     }

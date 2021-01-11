@@ -19,6 +19,9 @@ function formatAMPM(date) {
 }
 
 function Message({ senderId, content, createdAt, user, senderName }) {
+  {
+    console.log(senderName);
+  }
   // const [senderName, setSenderName] = useState("");
   // const getUserInfo = async () => {
   //   const res = await axios.get("/user", {
