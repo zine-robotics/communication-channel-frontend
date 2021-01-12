@@ -3,7 +3,7 @@ import "./css/ChatRoom.css";
 import Avatar from "react-avatar";
 import config from '../config.json';
 import axios from "../helpers/axios";
-import Icon from "./images/icon.webp"
+import Icon from "./images/icon.webp";
 
 function Member({ userId }) {
   const [memberName, setMemberName] = useState("");

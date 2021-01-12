@@ -435,7 +435,7 @@ iframe {
 
 @media (max-width: 992px) {
   .wrap-login100 {
-    padding: 100px 90px 33px 85px;
+    padding: 100px 90px 33px 80px;
   }
 
   .login100-pic {
@@ -475,14 +475,14 @@ iframe {
 
 @media (max-width: 576px) {
   .wrap-login100 {
-    padding: 100px 15px 33px 15px;
+    padding: 85px 15px 33px 15px;
   }
 }
-@media (max-height : 800px){
+/* @media (max-height : 800px){
   body {
-    overflow-y: auto;
+    overflow-y: auto!important;
   }
-}
+} */
 
 
 /*------------------------------------------------------------------
