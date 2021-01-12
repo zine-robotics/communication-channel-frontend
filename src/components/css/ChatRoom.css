@@ -25,13 +25,6 @@
      
 }
 
-.BME{
-    background-image: url(./images/pcb.webp),url(./images/pcb-flip.webp);
-    background-repeat:no-repeat;
-    background-attachment: fixed; 
-    background-size: 22% 100%,22% 100%;
-    background-position: left,right;
-}
 
 .Algo{
     background-image: url(./images/5.webp);
