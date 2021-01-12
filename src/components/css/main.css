@@ -478,11 +478,11 @@ iframe {
     padding: 100px 15px 33px 15px;
   }
 }
-@media (max-height : 800px){
+/* @media (max-height : 800px){
   body {
     overflow-y: auto;
   }
-}
+}*/
 
 
 /*------------------------------------------------------------------
