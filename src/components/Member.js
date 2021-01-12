@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./css/ChatRoom.css";
 import Avatar from "react-avatar";
 import axios from "../helpers/axios";
+import Icon from "./images/icon.webp"
 
 function Member({ userId }) {
   const [memberName, setMemberName] = useState("");
+  const [role, setRole] = useState("");
   const getUserInfo = async () => {
     const res = await axios.get("/user", {
       params: {
@@ -12,7 +14,8 @@ function Member({ userId }) {
       },
     });
     if(res.status === 200) {
-      setMemberName(res.data.user.fullName)
+      setMemberName(res.data.user.fullName);
+      setRole(res.data.user.role);
     } else {
       console.log(res)
     }
@@ -20,10 +23,18 @@ function Member({ userId }) {
   useEffect(() => {
     getUserInfo();
   }, []);
+
+  function avatar(){
+    if(role==="admin")
+      return <Avatar src={Icon} size="40" round />
+
+    else
+    return <strong><Avatar name={memberName} size="40" round /></strong>
+  }
   return (
     <a className="list-group-item media" href="#">
       <div className="pull-left avatars">
-        <Avatar name={memberName} size="40" round />
+        {avatar()}
       </div>
       <div className="media-body">
         <div className="list-group-item-heading">{memberName}</div>
