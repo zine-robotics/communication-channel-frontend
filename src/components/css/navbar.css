@@ -1,5 +1,8 @@
 
-
+@font-face {
+  font-family: Megatron;
+  src: url('../fonts/Megatron.otf'); 
+}
 * {
   padding: 0;
   margin: 0;
@@ -81,10 +84,10 @@ ul{
 
 label.logo {
   color: white;
-  font-size: 35px;
+  font-size: 38px;
   line-height: 80px;
   padding: 0 40px;
-  font-weight: bold;
+  font-family: Megatron;
 }
 
 

@@ -80,10 +80,10 @@
     background-size: 50% 100%;
 }
 .BME{
-    background-image: url(./images/img.webp) !important;
-    background-repeat:repeat !important;
-    background-attachment: fixed !important; 
-    background-size: 50% 100% !important;
+    background-image: url(./images/img.webp);
+    background-repeat:repeat;
+    background-attachment: fixed; 
+    background-size: 50% 100%;
 }
 /* .BME{
     background-image: url(./images/cad2.webp);
