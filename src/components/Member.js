@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./css/ChatRoom.css";
 import Avatar from "react-avatar";
+import config from '../config.json';
 import axios from "../helpers/axios";
 import Icon from "./images/icon.webp"
 
@@ -8,7 +9,7 @@ function Member({ userId }) {
   const [memberName, setMemberName] = useState("");
   const [role, setRole] = useState("");
   const getUserInfo = async () => {
-    const res = await axios.get("/user", {
+    const res = await axios.get(`${config.server}/user/`, {
       params: {
         userId,
       },

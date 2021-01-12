@@ -8,6 +8,7 @@ import Tilt from "react-tilt";
 import { useHistory } from "react-router";
 import axios from "../helpers/axios";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import config from '../config.json';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ const Login = () => {
   const PostData = async (e) => {
     e.preventDefault();
     // regex for testing email is left
-    const res = await axios.post("/signin", {
+    const res = await axios.post(`${config.server}/signin/`, {
       email,
       password,
     });

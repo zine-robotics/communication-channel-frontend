@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Tilt from "react-tilt";
 import { useHistory } from "react-router";
 import axios from "../helpers/axios";
+import config from '../config.json';
 // import M from "materialize-css";
 
 const Signup = () => {
@@ -47,7 +48,7 @@ const Signup = () => {
       return;
     }
     console.log(result);
-    const res = await axios.post("/signup", {
+    const res = await axios.post(`${config.server}/signup/`, {
       fullName,
       email,
       password,
@@ -64,7 +65,7 @@ const Signup = () => {
         "5ffc31195bfdb84beba3ffaa",
       ];
       roomIds.map(async (roomId) => {
-        const _res = await axios.post("/joinroom", {
+        const _res = await axios.post(`${config.server}/joinroom/`, {
           roomId,
           userId: res.data.data._id,
         });

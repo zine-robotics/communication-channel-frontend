@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./css/ChatRoom.css";
-import $, { data } from "jquery";
+import $ from "jquery";
 import Message from "./Message";
-import axios from "../helpers/axios";
 import Rooms from "./Rooms";
 import Member from "./Member";
 import getSocket from "../helpers/socket";
@@ -11,7 +10,7 @@ const socket = getSocket();
 
 // $(function () {
 //   if ($("#ms-menu-trigger")[0]) {
-//     $("body").on("click", "#ms-menu-trigger", function () {
+//     $("body").on("clixck", "#ms-menu-trigger", function () {
 //       $(".ms-menu").toggleClass("toggled");
 //     });
 //   }
@@ -85,12 +84,11 @@ function ChatRoom({ token, user }) {
                 <div className="ms-user clearfix">
                   <div className="sub-heading">Members</div>
                 </div>
-                {clickedRoomMembers.map((clickedRoomMember) => (
-                  <Member userId={clickedRoomMember.id} />
+                {clickedRoomMembers.map((clickedRoomMember, index) => (
+                  <Member userId={clickedRoomMember.id} key={index} />
                 ))}
               </div>
             </div>
-            {console.log(clickedRoomName)}
             {clickedRoomName ? (
               //if clicked room true
               <div className="ms-body">
@@ -111,7 +109,7 @@ function ChatRoom({ token, user }) {
 
                 <div className="messages">
                   <div className="reverse" id="messages">
-                    {clickedRoomMessages.map(
+                    {clickedRoomMessages && clickedRoomMessages.map(
                       ({ senderId, content, createdAt, senderName }) => (
                         <Message
                           senderId={senderId}
@@ -119,6 +117,7 @@ function ChatRoom({ token, user }) {
                           createdAt={createdAt}
                           user={user}
                           senderName={senderName}
+                          key={createdAt}
                         />
                       )
                     )}
