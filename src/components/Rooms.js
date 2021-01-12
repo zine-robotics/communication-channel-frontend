@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./css/ChatRoom.css";
 import Channel from "./Channel";
-import axios from "../helpers/axios";
-import config from '../config.json';
+import axios from "axios";
+import config from "../config.json";
 
 const Rooms = ({
   token,
   user,
   setClickedRoomName,
-  setClickedRoomMembers,
   setClickedRoomMessages,
+  setActive,
   acknowledgement,
-  socket
+  socket,
 }) => {
   const [rooms, setRooms] = useState([]);
   const [clickedRoomId, setClickedRoomId] = useState("");
@@ -19,12 +19,21 @@ const Rooms = ({
     socket.emit("join-room", { userId, name, roomId }, acknowledgement);
   };
   const leaveRoom = (userId, name) => {
-    socket.emit("leave-room", {userId, name}, acknowledgement)
-  }
+    socket.emit("leave-room", { userId, name }, acknowledgement);
+  };
   const getRooms = async (userId) => {
-    const res = await axios.post(`${config.server}/rooms/`, {
-      userId,
-    });
+    const res = await axios.post(
+      `${config.server}/rooms/`,
+      {
+        userId,
+      },
+      {
+        headers: {
+          Authorization: token ? `Bearer ${token}` : "",
+          "Content-type": "application/json",
+        },
+      }
+    );
     if (res.status === 200) {
       setRooms(res.data.chats);
     } else {
@@ -33,9 +42,18 @@ const Rooms = ({
   };
 
   const getMessages = async (clickedRoomId) => {
-    const res = await axios.post(`${config.server}/messages/`, {
-      roomId: clickedRoomId,
-    });
+    const res = await axios.post(
+      `${config.server}/messages/`,
+      {
+        roomId: clickedRoomId,
+      },
+      {
+        headers: {
+          Authorization: token ? `Bearer ${token}` : "",
+          "Content-type": "application/json",
+        },
+      }
+    );
     if (res.status === 200) {
       setClickedRoomMessages(res.data.messages);
     }
@@ -44,13 +62,13 @@ const Rooms = ({
     getRooms(user._id);
   }, []);
   useEffect(() => {
-    if(!clickedRoomId) return;
+    if (!clickedRoomId) return;
     getMessages(clickedRoomId);
   }, [clickedRoomId]);
   useEffect(() => {
-    leaveRoom(user._id, user.fullName)
-    joinRoom(user._id, user.fullName, clickedRoomId)
-  }, [clickedRoomId])
+    leaveRoom(user._id, user.fullName);
+    joinRoom(user._id, user.fullName, clickedRoomId);
+  }, [clickedRoomId]);
   return (
     <>
       {/*add pariticent fetching and user info */}
@@ -60,8 +78,11 @@ const Rooms = ({
           style={{ all: "unset" }}
           onClick={() => {
             setClickedRoomName(room.conversationName);
-            setClickedRoomMembers(room.participants);
             setClickedRoomId(room._id);
+            setActive(true);
+            setInterval(() => {
+              setActive(false);
+            }, 2000);
           }}
           key={index}
         >

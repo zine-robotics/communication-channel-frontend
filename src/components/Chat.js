@@ -1,23 +1,25 @@
 import React from "react";
-import Navbar from "./navbar";
 import ChatRoom from "./ChatRoom";
 import "./css/Chat.css";
 import { useHistory } from "react-router";
+import { any } from "prop-types";
 
-function Chat() {
-  const token = localStorage.getItem("token");
-  const user = JSON.parse(localStorage.getItem("user"));
+const Chat = () => {
   const history = useHistory();
-  if (token) {
-    return (
-      <div className="chat-page">
-        <Navbar user={user} />
-        <ChatRoom token={token} user={user} />
-      </div>
-    );
-  } else {
-    history.push("/");
-    return <div></div>
-  }
-}
+  const token = localStorage.getItem("token") || null;
+  const user = JSON.parse(localStorage.getItem("user"));
+  //const history = useHistory();
+
+  return (
+    <>
+      {token && (
+        <div className="chat-page" style={{ height: "100%" }}>
+          <ChatRoom token={token} user={user} />
+        </div>
+      )}
+      {token || history.push("/")}
+    </>
+  );
+};
+
 export default Chat;

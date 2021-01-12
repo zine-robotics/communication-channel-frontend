@@ -5,32 +5,29 @@ import "./css/navbar.css";
 import clearSession from "../helpers/signout";
 import Avatar from "react-avatar";
 
-
-function Navbar({user}) {
-
+function Navbar({ user }) {
   useEffect(() => {
     var $dropDownMenu = $(".avatar-dropdown-menu");
 
-    $dropDownMenu.click(function(e) {		
+    $dropDownMenu.click(function (e) {
       e.stopPropagation();
-  
+
       $(document).on("click", menuCloseListener);
-  
+
       toggleMenu();
     });
-  
-    var toggleMenu = function() {
+
+    var toggleMenu = function () {
       $dropDownMenu.toggleClass("open");
-    }
-  
-    var menuCloseListener = function() {
+    };
+
+    var menuCloseListener = function () {
       toggleMenu();
-  
+
       $(document).off("click", menuCloseListener);
-    }
-   
-  },[]);
- 
+    };
+  }, []);
+
   return (
     <nav>
       <label className="logo">ZINE</label>
@@ -38,24 +35,30 @@ function Navbar({user}) {
       <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>
       </label> */}
-        
-      <div className='avatar-dropdown-menu'>
-      <Avatar name={user.fullName} size="52" round/>
-      <div className='avatar-dropdown-menu-items'>
-        <ul>
-          <li>
-            <a>{user.fullName}</a>
-          </li>
-          <li onClick = {() => {clearSession()}}>
-            <a className="active" href="/">Log out</a>
-          </li>
-        </ul>
+
+      <div className="avatar-dropdown-menu">
+        <Avatar name={user.fullName} size="52" round />
+        <div className="avatar-dropdown-menu-items">
+          <ul>
+            <li>
+              <a>{user.fullName}</a>
+            </li>
+            <li
+              onClick={() => {
+                clearSession();
+              }}
+            >
+              <a className="active" href="/">
+                Log out
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-        
-          {/* <button onClick = {clearSession}><a className="active" href="/">
+
+      {/* <button onClick = {clearSession}><a className="active" href="/">
             Logout
-          </a></button> */}   
+          </a></button> */}
     </nav>
   );
 }

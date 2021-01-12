@@ -5,6 +5,7 @@ import Signup from "./components/Signup";
 import { debounce } from "lodash";
 import $ from "jquery";
 import { Switch, Route, HashRouter } from "react-router-dom";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 function App() {
   useEffect(() => {

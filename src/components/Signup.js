@@ -7,8 +7,8 @@ import Logo from "./images/robo.webp";
 import { Link } from "react-router-dom";
 import Tilt from "react-tilt";
 import { useHistory } from "react-router";
-import axios from "../helpers/axios";
-import config from '../config.json';
+import axios from "axios";
+import config from "../config.json";
 // import M from "materialize-css";
 
 const Signup = () => {
@@ -28,7 +28,7 @@ const Signup = () => {
     const regex = RegExp(/^[\w\.]+@(?:mnit|iiitkota).ac.in$/);
     if (!regex.test(email)) {
       // M.toast({ html: "Invalid email. Use College email id", classes: "#c62828 red darken-3 toast-container", displayLength: "5000"});
-      alert("Invalid email. Use College email id")
+      alert("Invalid email. Use College email id");
       return;
     }
     if (fullName.length < 3) {
@@ -54,15 +54,7 @@ const Signup = () => {
       rollNumber,
     });
     if (res.status === 200) {
-      const roomIds = [
-        "5ff2fbc9d0eec312cbbb6d95",
-        "5ff2fbe0d0eec312cbbb6d96",
-        "5ff2fbe5d0eec312cbbb6d97",
-        "5ff3517c1273f27108900481",
-        "5ff8699f9b6aaa69ffe0266b",
-        "5ffc310d5bfdb84beba3ffa9",
-        "5ffc31195bfdb84beba3ffaa",
-      ];
+      const roomIds = ["5ffc310d5bfdb84beba3ffa9", "5ffc31195bfdb84beba3ffaa"];
       roomIds.map(async (roomId) => {
         const _res = await axios.post(`${config.server}/joinroom/`, {
           roomId,
