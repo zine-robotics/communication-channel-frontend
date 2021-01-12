@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import Tilt from "react-tilt";
 import { useHistory } from "react-router";
 import axios from "../helpers/axios";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import config from '../config.json';
 
 const Login = () => {

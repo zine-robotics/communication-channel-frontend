@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "../helpers/axios";
+import React from "react";
 import ReactMarkdown from "react-markdown";
 import "./css/ChatRoom.css";
 import gfm from "remark-gfm";

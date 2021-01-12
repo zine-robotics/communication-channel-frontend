@@ -18,20 +18,19 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [rollNumber, setRollNumber] = useState("");
   let result;
-  const getDomainOfInterest = (selected) => {
-    console.log(selected.map((a) => a.label));
-    result = selected.map((a) => a.label);
-  };
+  // const getDomainOfInterest = (selected) => {
+  //   console.log(selected.map((a) => a.label));
+  //   result = selected.map((a) => a.label);
+  // };
   const PostData = async (e) => {
     e.preventDefault();
     // regex for testing email is left
-    // const regex = RegExp(/^[\w\.]+@(?:mnit|iiitkota).ac.in$/);
-    // if (!regex.test(email)) {
-    //   console.log("toast");
-    //   // M.toast({ html: "Invalid email. Use College email id", classes: "#c62828 red darken-3 toast-container", displayLength: "5000"});
-    //   alert("Invalid email. Use College email id")
-    //   return;
-    // }
+    const regex = RegExp(/^[\w\.]+@(?:mnit|iiitkota).ac.in$/);
+    if (!regex.test(email)) {
+      // M.toast({ html: "Invalid email. Use College email id", classes: "#c62828 red darken-3 toast-container", displayLength: "5000"});
+      alert("Invalid email. Use College email id")
+      return;
+    }
     if (fullName.length < 3) {
       // M.toast({ html: "Do no use nick names and enter Full Name", classes: "#c62828 red darken-3" });
       alert("Do no use nick names and enter Full Name");
@@ -42,7 +41,7 @@ const Signup = () => {
       alert("Password Must be grater than or equal 6 characters");
       return;
     }
-    if (rollNumber.length == 0) {
+    if (rollNumber.length === 0) {
       // M.toast({ html: "Enter valid college Id", classes: "#c62828 red darken-3" });
       alert("Enter valid college Id");
       return;

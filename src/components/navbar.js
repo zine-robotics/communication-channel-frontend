@@ -2,9 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import $ from "jquery";
 import "./css/navbar.css";
-import Logo from "./images/zinechat.png";
 import clearSession from "../helpers/signout";
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Avatar from "react-avatar";
 
 

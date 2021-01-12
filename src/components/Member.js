@@ -18,22 +18,22 @@ function Member({ userId }) {
       setMemberName(res.data.user.fullName);
       setRole(res.data.user.role);
     } else {
-      console.log(res)
+      console.log(res);
     }
   };
   useEffect(() => {
-    getUserInfo();
+    if(userId) getUserInfo();
   }, []);
 
   function avatar(){
-    if(role==="admin")
+    if(role ==="admin")
       return <Avatar src={Icon} size="40" round />
 
     else
     return <strong><Avatar name={memberName} size="40" round /></strong>
   }
   return (
-    <a className="list-group-item media" href="#">
+    <a className="list-group-item media">
       <div className="pull-left avatars">
         {avatar()}
       </div>

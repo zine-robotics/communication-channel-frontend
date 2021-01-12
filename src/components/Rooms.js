@@ -44,6 +44,7 @@ const Rooms = ({
     getRooms(user._id);
   }, []);
   useEffect(() => {
+    if(!clickedRoomId) return;
     getMessages(clickedRoomId);
   }, [clickedRoomId]);
   useEffect(() => {

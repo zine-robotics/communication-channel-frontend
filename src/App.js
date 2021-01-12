@@ -4,7 +4,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { debounce } from "lodash";
 import $ from "jquery";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route, HashRouter } from "react-router-dom";
 
 function App() {
   useEffect(() => {
@@ -22,13 +22,13 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Router>
+      <HashRouter>
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/chat" component={Chat} />
         </Switch>
-      </Router>
+      </HashRouter>
     </div>
   );
 }

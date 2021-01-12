@@ -4,7 +4,7 @@ import Avatar from "react-avatar";
 
 function Channel({ name }) {
   return (
-    <a className="list-group-item media" href="#">
+    <a className="list-group-item media">
       <div className="pull-left avatars">
       <strong><Avatar name={name} size="40" round /></strong>
       </div>
