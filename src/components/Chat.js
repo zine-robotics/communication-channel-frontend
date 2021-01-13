@@ -10,6 +10,10 @@ const Chat = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   //const history = useHistory();
 
+  if (token.length === 0) {
+    history.push("/");
+  }
+
   return (
     <>
       {token && (
@@ -17,7 +21,6 @@ const Chat = () => {
           <ChatRoom token={token} user={user} />
         </div>
       )}
-      {token || history.push("/")}
     </>
   );
 };
