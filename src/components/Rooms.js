@@ -9,11 +9,13 @@ const Rooms = ({
   user,
   setClickedRoomName,
   setClickedRoomMessages,
+  setClickedRoomMembers,
+  setRooms,
+  rooms,
   setActive,
   acknowledgement,
   socket,
 }) => {
-  const [rooms, setRooms] = useState([]);
   const [clickedRoomId, setClickedRoomId] = useState("");
   const joinRoom = (userId, name, roomId) => {
     socket.emit("join-room", { userId, name, roomId }, acknowledgement);
@@ -21,6 +23,21 @@ const Rooms = ({
   const leaveRoom = (userId, name) => {
     socket.emit("leave-room", { userId, name }, acknowledgement);
   };
+
+  const modifyRoomNamesForDm = (rooms) => {
+    let newRooms = [];
+    rooms.map((room) => {
+      let splitConversationName = room.conversationName.split(",");
+      splitConversationName.forEach((name) => {
+        if (name !== user.fullName) {
+          room.conversationName = name;
+        }
+      });
+      newRooms.push(room);
+    });
+    return newRooms;
+  };
+
   const getRooms = async (userId) => {
     const res = await axios.post(
       `${config.server}/rooms/`,
@@ -35,7 +52,7 @@ const Rooms = ({
       }
     );
     if (res.status === 200) {
-      setRooms(res.data.chats);
+      setRooms(modifyRoomNamesForDm(res.data.chats));
     } else {
       console.log(res);
     }
@@ -79,6 +96,7 @@ const Rooms = ({
           onClick={() => {
             setClickedRoomName(room.conversationName);
             setClickedRoomId(room._id);
+            setClickedRoomMembers(room.participants);
             setActive(true);
             setInterval(() => {
               setActive(false);

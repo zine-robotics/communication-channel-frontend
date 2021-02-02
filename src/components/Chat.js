@@ -2,7 +2,6 @@ import React from "react";
 import ChatRoom from "./ChatRoom";
 import "./css/Chat.css";
 import { useHistory } from "react-router";
-import { any } from "prop-types";
 
 const Chat = () => {
   const history = useHistory();

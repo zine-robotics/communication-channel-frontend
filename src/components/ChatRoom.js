@@ -8,6 +8,8 @@ import getSocket from "../helpers/socket";
 import LoadingOverlay from "react-loading-overlay";
 import BounceLoader from "react-spinners/BounceLoader";
 import Navbar from "./navbar";
+import axios from "axios";
+import config from "../config.json";
 
 const socket = getSocket();
 
@@ -23,12 +25,89 @@ const ChatRoom = ({ token, user }) => {
   const [isActive, setActive] = useState(false);
   const [clickedRoomName, setClickedRoomName] = useState("");
   const [clickedRoomMessages, setClickedRoomMessages] = useState([]);
-
+  const [clickedRoomMembers, setClickedRoomMembers] = useState([]);
+  const [clickedMemberIdForDm, setClickedMemberIdForDm] = useState("");
+  const [clickedMemberNameForDm, setClickedMemberNameForDm] = useState("");
+  const [rooms, setRooms] = useState([]);
+  const [clickedRoomId, setClickedRoomId] = useState("");
   const acknowledgement = (ack) => {
     if (ack) {
       alert(ack);
     }
   };
+
+  // const getUserInfo = async () => {
+  //   const res = await axios.get(`${config.server}/user/`, {
+  //     params: {
+  //       userId,
+  //     },
+  //     headers: {
+  //       Authorization: token ? `Bearer ${token}` : "",
+  //       "Content-type": "application/json",
+  //     },
+  //   });
+  //   if (res.status === 200) {
+  //     setMemberName(res.data.user.fullName);
+  //     setRole(res.data.user.role);
+  //   } else {
+  //     console.log(res);
+  //   }
+  // };
+
+  const getDmRoom = async (clickedMemberIdForDm, clickedMemberNameForDm) => {
+    if (clickedMemberIdForDm){
+      const res = await axios.get(`${config.server}/checkroom`, {
+        params: {
+          userId: clickedMemberIdForDm,
+          firstUserName: clickedMemberNameForDm,
+          secondUserName: user.fullName
+        },
+        headers: {
+          Authorization: token ? `Bearer ${token}` : "",
+          "Content-type": "application/json",
+        },
+      });
+      if (res.status === 200) {
+        const dmRoomMembersName = res.data.room.conversationName.split(",")
+        dmRoomMembersName.forEach((name) => {
+          if(name !== user.fullName) {
+            res.data.room.conversationName = name;
+          }
+        })
+        setClickedRoomName(res.data.room.conversationName);
+        setClickedRoomId(res.data.room._id);
+        setClickedRoomMembers([]);
+        setRooms([...rooms, res.data.room])
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (!clickedRoomId) return;
+    getMessages(clickedRoomId);
+  }, [clickedRoomId]);
+
+  const getMessages = async (clickedRoomId) => {
+    const res = await axios.post(
+      `${config.server}/messages/`,
+      {
+        roomId: clickedRoomId,
+      },
+      {
+        headers: {
+          Authorization: token ? `Bearer ${token}` : "",
+          "Content-type": "application/json",
+        },
+      }
+    );
+    if (res.status === 200) {
+      setClickedRoomMessages(res.data.messages);
+    }
+  };
+
+  useEffect(() => {
+    getDmRoom(clickedMemberIdForDm, clickedMemberNameForDm)
+  }, [clickedMemberIdForDm, setClickedMemberNameForDm])
 
   const sendMessage = () => {
     const content = document.getElementById("box").value;
@@ -85,15 +164,25 @@ const ChatRoom = ({ token, user }) => {
                       setClickedRoomName={setClickedRoomName}
                       setClickedRoomMessages={setClickedRoomMessages}
                       setActive={setActive}
+                      setRooms={setRooms}
+                      rooms={rooms}
+                      setClickedRoomMembers={setClickedRoomMembers}
                       acknowledgement={acknowledgement}
                       socket={socket}
                     />
-                    {/* <div className="ms-user clearfix">
+                    <div className="ms-user clearfix">
                       <div className="sub-heading">Members</div>
                     </div>
-                    {clickedRoomMembers.map((clickedRoomMember, index) => (
-                      <Member userId={clickedRoomMember.id} key={index} />
-                    ))} */}
+                    {clickedRoomMembers.length !== 2 &&
+                      clickedRoomMembers.map((clickedRoomMember, index) => (
+                       clickedRoomMember !== user._id ? (
+                       <Member
+                        userId={clickedRoomMember.id}
+                        setClickedMemberIdForDm={setClickedMemberIdForDm}
+                        setClickedMemberNameForDm={setClickedMemberNameForDm}
+                        key={index}
+                      />) : ({})
+                      ))}
                   </div>
                 </div>
                 {clickedRoomName ? (
