@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import "./css/ChatRoom.css";
 import $ from "jquery";
 import Message from "./Message";
@@ -71,7 +71,8 @@ const ChatRoom = ({ token, user }) => {
         setClickedRoomName(res.data.room.conversationName);
         setClickedRoomId(res.data.room._id);
         setClickedRoomMembers([]);
-        const _rooms = [...rooms, res.data.room]
+        const filter = rooms.filter(room => room._id !== res.data.room._id)
+        const _rooms = [...filter, res.data.room];
         setRooms([...new Set(_rooms)]);
         leaveRoom(user._id, user.fullName);
         joinRoom(user._id, user.fullName, res.data.room._id);
@@ -179,7 +180,8 @@ const ChatRoom = ({ token, user }) => {
                     {console.log(clickedRoomMembers)}
                     {clickedRoomMembers.length !== 2 &&
                       clickedRoomMembers.map((clickedRoomMember, index) =>
-                        (clickedRoomMember !== user._id && clickedRoomMember.info) ? (
+                        clickedRoomMember !== user._id &&
+                        clickedRoomMember.info ? (
                           <Member
                             userId={clickedRoomMember.info.id}
                             userName={clickedRoomMember.info.name}

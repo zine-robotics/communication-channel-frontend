@@ -85,7 +85,6 @@ const Rooms = ({
   }, [clickedRoomId]);
   return (
     <>
-      {/*add pariticent fetching and user info */}
       {rooms.map((room, index) => (
         <button
           className="channelButton"
