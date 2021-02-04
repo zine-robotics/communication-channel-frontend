@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import "./css/ChatRoom.css";
 import $ from "jquery";
 import Message from "./Message";
@@ -8,6 +8,8 @@ import getSocket from "../helpers/socket";
 import LoadingOverlay from "react-loading-overlay";
 import BounceLoader from "react-spinners/BounceLoader";
 import Navbar from "./navbar";
+import axios from "axios";
+import config from "../config.json";
 
 const socket = getSocket();
 
@@ -23,12 +25,87 @@ const ChatRoom = ({ token, user }) => {
   const [isActive, setActive] = useState(false);
   const [clickedRoomName, setClickedRoomName] = useState("");
   const [clickedRoomMessages, setClickedRoomMessages] = useState([]);
-
+  const [clickedRoomMembers, setClickedRoomMembers] = useState([]);
+  const [clickedMemberIdForDm, setClickedMemberIdForDm] = useState("");
+  const [clickedMemberNameForDm, setClickedMemberNameForDm] = useState("");
+  const [rooms, setRooms] = useState([]);
+  const [clickedRoomId, setClickedRoomId] = useState("");
   const acknowledgement = (ack) => {
     if (ack) {
       alert(ack);
     }
   };
+  const joinRoom = (userId, name, roomId) => {
+    socket.emit("join-room", { userId, name, roomId }, acknowledgement);
+  };
+  const leaveRoom = (userId, name) => {
+    socket.emit("leave-room", { userId, name }, acknowledgement);
+  };
+
+  const getDmRoom = async (clickedMemberIdForDm, clickedMemberNameForDm) => {
+    const joinRoom = (userId, name, roomId) => {
+      socket.emit("join-room", { userId, name, roomId }, acknowledgement);
+    };
+    const leaveRoom = (userId, name) => {
+      socket.emit("leave-room", { userId, name }, acknowledgement);
+    };
+    if (clickedMemberIdForDm) {
+      const res = await axios.get(`${config.server}/checkroom`, {
+        params: {
+          userId: clickedMemberIdForDm,
+          firstUserName: clickedMemberNameForDm,
+          secondUserName: user.fullName,
+        },
+        headers: {
+          Authorization: token ? `Bearer ${token}` : "",
+          "Content-type": "application/json",
+        },
+      });
+      if (res.status === 200) {
+        const dmRoomMembersName = res.data.room.conversationName.split(",");
+        dmRoomMembersName.forEach((name) => {
+          if (name !== user.fullName) {
+            res.data.room.conversationName = name;
+          }
+        });
+        setClickedRoomName(res.data.room.conversationName);
+        setClickedRoomId(res.data.room._id);
+        setClickedRoomMembers([]);
+        const filter = rooms.filter(room => room._id !== res.data.room._id)
+        const _rooms = [...filter, res.data.room];
+        setRooms([...new Set(_rooms)]);
+        leaveRoom(user._id, user.fullName);
+        joinRoom(user._id, user.fullName, res.data.room._id);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (!clickedRoomId) return;
+    getMessages(clickedRoomId);
+  }, [clickedRoomId]);
+
+  const getMessages = async (clickedRoomId) => {
+    const res = await axios.post(
+      `${config.server}/messages/`,
+      {
+        roomId: clickedRoomId,
+      },
+      {
+        headers: {
+          Authorization: token ? `Bearer ${token}` : "",
+          "Content-type": "application/json",
+        },
+      }
+    );
+    if (res.status === 200) {
+      setClickedRoomMessages(res.data.messages);
+    }
+  };
+
+  useEffect(() => {
+    getDmRoom(clickedMemberIdForDm, clickedMemberNameForDm);
+  }, [clickedMemberIdForDm, setClickedMemberNameForDm]);
 
   const sendMessage = () => {
     const content = document.getElementById("box").value;
@@ -85,15 +162,39 @@ const ChatRoom = ({ token, user }) => {
                       setClickedRoomName={setClickedRoomName}
                       setClickedRoomMessages={setClickedRoomMessages}
                       setActive={setActive}
+                      setRooms={setRooms}
+                      rooms={rooms}
+                      setClickedRoomMembers={setClickedRoomMembers}
                       acknowledgement={acknowledgement}
                       socket={socket}
+                      joinRoom={joinRoom}
+                      leaveRoom={leaveRoom}
                     />
-                    {/* <div className="ms-user clearfix">
-                      <div className="sub-heading">Members</div>
-                    </div>
-                    {clickedRoomMembers.map((clickedRoomMember, index) => (
-                      <Member userId={clickedRoomMember.id} key={index} />
-                    ))} */}
+                    {clickedRoomMembers.length > 4 ? (
+                      <div className="ms-user clearfix">
+                        <div className="sub-heading">Members</div>
+                      </div>
+                    ) : (
+                      <span></span>
+                    )}
+                    {console.log(clickedRoomMembers)}
+                    {clickedRoomMembers.length !== 2 &&
+                      clickedRoomMembers.map((clickedRoomMember, index) =>
+                        clickedRoomMember !== user._id &&
+                        clickedRoomMember.info ? (
+                          <Member
+                            userId={clickedRoomMember.info.id}
+                            userName={clickedRoomMember.info.name}
+                            setClickedMemberIdForDm={setClickedMemberIdForDm}
+                            setClickedMemberNameForDm={
+                              setClickedMemberNameForDm
+                            }
+                            key={index}
+                          />
+                        ) : (
+                          <React.Fragment key={index}></React.Fragment>
+                        )
+                      )}
                   </div>
                 </div>
                 {clickedRoomName ? (

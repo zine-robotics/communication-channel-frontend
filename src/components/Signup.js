@@ -47,29 +47,46 @@ const Signup = () => {
       return;
     }
     console.log(result);
-    const res = await axios.post(`${config.server}/signup/`, {
-      fullName,
-      email,
-      password,
-      rollNumber,
-    });
-    if (res.status === 200) {
-      const roomIds = ["5ffc310d5bfdb84beba3ffa9", "5ffc31195bfdb84beba3ffaa"];
-      roomIds.map(async (roomId) => {
-        const _res = await axios.post(`${config.server}/joinroom/`, {
-          roomId,
-          userId: res.data.data._id,
-        });
-        if (_res.status === 200) {
-          console.log(res.data.message, _res.data.message);
-        } else {
-          console.log(res);
-        }
+    try {
+      const res = await axios.post(`${config.server}/signup/`, {
+        fullName,
+        email,
+        password,
+        rollNumber,
       });
-      console.log(res);
-      history.push("/");
-    } else {
-      console.log(res);
+      if (res.status === 200) {
+        // change this to original after testing
+        // const roomIds = [
+        //   "5ffc310d5bfdb84beba3ffa9",
+        //   "5ffc31195bfdb84beba3ffaa",
+        // ];
+        const roomIds = [
+          "601bb51e6e69aa784e27ce6c",
+          "601bb5266e69aa784e27ce6d",
+        ];
+        roomIds.map(async (roomId) => {
+          const _res = await axios.post(`${config.server}/joinroom/`, {
+            roomId,
+            userId: res.data.data._id,
+            userName: res.data.data.fullName,
+          });
+          if (_res.status === 200) {
+            console.log(res.data.message, _res.data.message);
+          } else {
+            console.log(res);
+          }
+        });
+        console.log(res);
+        history.push("/");
+      } else {
+        console.log(res);
+      }
+    } catch (error) {
+      if (error.response.status === 403 || error.response.status === 422) {
+        alert(error.response.data.message);
+      } else {
+        console.log(error.response);
+      }
     }
   };
   return (

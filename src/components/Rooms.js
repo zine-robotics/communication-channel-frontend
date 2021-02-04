@@ -9,18 +9,31 @@ const Rooms = ({
   user,
   setClickedRoomName,
   setClickedRoomMessages,
+  setClickedRoomMembers,
+  setRooms,
+  rooms,
   setActive,
   acknowledgement,
   socket,
+  joinRoom,
+  leaveRoom,
 }) => {
-  const [rooms, setRooms] = useState([]);
   const [clickedRoomId, setClickedRoomId] = useState("");
-  const joinRoom = (userId, name, roomId) => {
-    socket.emit("join-room", { userId, name, roomId }, acknowledgement);
+
+  const modifyRoomNamesForDm = (rooms) => {
+    let newRooms = [];
+    rooms.map((room) => {
+      let splitConversationName = room.conversationName.split(",");
+      splitConversationName.forEach((name) => {
+        if (name !== user.fullName) {
+          room.conversationName = name;
+        }
+      });
+      newRooms.push(room);
+    });
+    return newRooms;
   };
-  const leaveRoom = (userId, name) => {
-    socket.emit("leave-room", { userId, name }, acknowledgement);
-  };
+
   const getRooms = async (userId) => {
     const res = await axios.post(
       `${config.server}/rooms/`,
@@ -35,7 +48,8 @@ const Rooms = ({
       }
     );
     if (res.status === 200) {
-      setRooms(res.data.chats);
+      console.log(res.data);
+      setRooms(modifyRoomNamesForDm(res.data.chats));
     } else {
       console.log(res);
     }
@@ -71,7 +85,6 @@ const Rooms = ({
   }, [clickedRoomId]);
   return (
     <>
-      {/*add pariticent fetching and user info */}
       {rooms.map((room, index) => (
         <button
           className="channelButton"
@@ -79,6 +92,7 @@ const Rooms = ({
           onClick={() => {
             setClickedRoomName(room.conversationName);
             setClickedRoomId(room._id);
+            setClickedRoomMembers([...new Set(room.participants)]);
             setActive(true);
             setInterval(() => {
               setActive(false);

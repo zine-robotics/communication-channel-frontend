@@ -5,7 +5,7 @@ import config from "../config.json";
 import axios from "axios";
 import Icon from "./images/icon.webp";
 
-function Member({ userId }) {
+function Member({ userId,  userName, setClickedMemberIdForDm, setClickedMemberNameForDm }) {
   const token = localStorage.getItem("token");
   const [memberName, setMemberName] = useState("");
   const [role, setRole] = useState("");
@@ -35,18 +35,25 @@ function Member({ userId }) {
     else
       return (
         <strong>
-          <Avatar name={memberName} size="40" round />
+          <Avatar name={userName} size="40" round />
         </strong>
       );
   }
   return (
-    <a className="list-group-item media">
-      <div className="pull-left avatars">{avatar()}</div>
-      <div className="media-body">
-        <div className="list-group-item-heading">{memberName}</div>
-        {/* <small className="list-group-item-text c-gray"></small> */}
-      </div>
-    </a>
+    <button
+      style={{ all: "unset" }}
+      onClick={() => {
+        setClickedMemberIdForDm(userId);
+        setClickedMemberNameForDm(userName);
+      }}
+    >
+      <a className="list-group-item media">
+        <div className="pull-left avatars">{avatar()}</div>
+        <div className="media-body">
+          <div className="list-group-item-heading">{userName}</div>
+        </div>
+      </a>
+    </button>
   );
 }
 export default Member;
