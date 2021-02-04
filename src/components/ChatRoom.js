@@ -35,32 +35,26 @@ const ChatRoom = ({ token, user }) => {
       alert(ack);
     }
   };
-
-  // const getUserInfo = async () => {
-  //   const res = await axios.get(`${config.server}/user/`, {
-  //     params: {
-  //       userId,
-  //     },
-  //     headers: {
-  //       Authorization: token ? `Bearer ${token}` : "",
-  //       "Content-type": "application/json",
-  //     },
-  //   });
-  //   if (res.status === 200) {
-  //     setMemberName(res.data.user.fullName);
-  //     setRole(res.data.user.role);
-  //   } else {
-  //     console.log(res);
-  //   }
-  // };
+  const joinRoom = (userId, name, roomId) => {
+    socket.emit("join-room", { userId, name, roomId }, acknowledgement);
+  };
+  const leaveRoom = (userId, name) => {
+    socket.emit("leave-room", { userId, name }, acknowledgement);
+  };
 
   const getDmRoom = async (clickedMemberIdForDm, clickedMemberNameForDm) => {
-    if (clickedMemberIdForDm){
+    const joinRoom = (userId, name, roomId) => {
+      socket.emit("join-room", { userId, name, roomId }, acknowledgement);
+    };
+    const leaveRoom = (userId, name) => {
+      socket.emit("leave-room", { userId, name }, acknowledgement);
+    };
+    if (clickedMemberIdForDm) {
       const res = await axios.get(`${config.server}/checkroom`, {
         params: {
           userId: clickedMemberIdForDm,
           firstUserName: clickedMemberNameForDm,
-          secondUserName: user.fullName
+          secondUserName: user.fullName,
         },
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
@@ -68,16 +62,19 @@ const ChatRoom = ({ token, user }) => {
         },
       });
       if (res.status === 200) {
-        const dmRoomMembersName = res.data.room.conversationName.split(",")
+        const dmRoomMembersName = res.data.room.conversationName.split(",");
         dmRoomMembersName.forEach((name) => {
-          if(name !== user.fullName) {
+          if (name !== user.fullName) {
             res.data.room.conversationName = name;
           }
-        })
+        });
         setClickedRoomName(res.data.room.conversationName);
         setClickedRoomId(res.data.room._id);
         setClickedRoomMembers([]);
-        setRooms([...rooms, res.data.room])
+        const _rooms = [...rooms, res.data.room]
+        setRooms([...new Set(_rooms)]);
+        leaveRoom(user._id, user.fullName);
+        joinRoom(user._id, user.fullName, res.data.room._id);
       }
     }
   };
@@ -106,8 +103,8 @@ const ChatRoom = ({ token, user }) => {
   };
 
   useEffect(() => {
-    getDmRoom(clickedMemberIdForDm, clickedMemberNameForDm)
-  }, [clickedMemberIdForDm, setClickedMemberNameForDm])
+    getDmRoom(clickedMemberIdForDm, clickedMemberNameForDm);
+  }, [clickedMemberIdForDm, setClickedMemberNameForDm]);
 
   const sendMessage = () => {
     const content = document.getElementById("box").value;
@@ -169,20 +166,33 @@ const ChatRoom = ({ token, user }) => {
                       setClickedRoomMembers={setClickedRoomMembers}
                       acknowledgement={acknowledgement}
                       socket={socket}
+                      joinRoom={joinRoom}
+                      leaveRoom={leaveRoom}
                     />
-                    <div className="ms-user clearfix">
-                      <div className="sub-heading">Members</div>
-                    </div>
+                    {clickedRoomMembers.length > 4 ? (
+                      <div className="ms-user clearfix">
+                        <div className="sub-heading">Members</div>
+                      </div>
+                    ) : (
+                      <span></span>
+                    )}
+                    {console.log(clickedRoomMembers)}
                     {clickedRoomMembers.length !== 2 &&
-                      clickedRoomMembers.map((clickedRoomMember, index) => (
-                       clickedRoomMember !== user._id ? (
-                       <Member
-                        userId={clickedRoomMember.id}
-                        setClickedMemberIdForDm={setClickedMemberIdForDm}
-                        setClickedMemberNameForDm={setClickedMemberNameForDm}
-                        key={index}
-                      />) : ({})
-                      ))}
+                      clickedRoomMembers.map((clickedRoomMember, index) =>
+                        (clickedRoomMember !== user._id && clickedRoomMember.info) ? (
+                          <Member
+                            userId={clickedRoomMember.info.id}
+                            userName={clickedRoomMember.info.name}
+                            setClickedMemberIdForDm={setClickedMemberIdForDm}
+                            setClickedMemberNameForDm={
+                              setClickedMemberNameForDm
+                            }
+                            key={index}
+                          />
+                        ) : (
+                          <React.Fragment key={index}></React.Fragment>
+                        )
+                      )}
                   </div>
                 </div>
                 {clickedRoomName ? (

@@ -19,19 +19,26 @@ const Login = () => {
   }, []);
   const PostData = async (e) => {
     e.preventDefault();
-    // regex for testing email is left
-    const res = await axios.post(`${config.server}/signin/`, {
-      email,
-      password,
-    });
-    if (res.status === 200) {
-      const { token, user } = res.data;
-      console.log("Successfully Signed in");
-      localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(user));
-      history.push("/chat");
-    } else {
-      console.log("Failed to Signin", res);
+    try {
+      const res = await axios.post(`${config.server}/signin/`, {
+        email,
+        password,
+      });
+      if (res.status === 200) {
+        const { token, user } = res.data;
+        console.log("Successfully Signed in");
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
+        history.push("/chat");
+      } else {
+        console.log(res);
+      }
+    } catch (error) {
+      if(error.response.status === 401) {
+        alert("Wrong Password");
+      } else {
+        console.log(error.response);
+      }
     }
   };
   return (

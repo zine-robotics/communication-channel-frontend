@@ -364,6 +364,7 @@ textarea {
 
 .list-group.lg-alt {
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .channel-padding {

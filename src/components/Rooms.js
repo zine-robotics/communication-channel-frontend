@@ -15,14 +15,10 @@ const Rooms = ({
   setActive,
   acknowledgement,
   socket,
+  joinRoom,
+  leaveRoom,
 }) => {
   const [clickedRoomId, setClickedRoomId] = useState("");
-  const joinRoom = (userId, name, roomId) => {
-    socket.emit("join-room", { userId, name, roomId }, acknowledgement);
-  };
-  const leaveRoom = (userId, name) => {
-    socket.emit("leave-room", { userId, name }, acknowledgement);
-  };
 
   const modifyRoomNamesForDm = (rooms) => {
     let newRooms = [];
@@ -52,6 +48,7 @@ const Rooms = ({
       }
     );
     if (res.status === 200) {
+      console.log(res.data);
       setRooms(modifyRoomNamesForDm(res.data.chats));
     } else {
       console.log(res);
@@ -96,7 +93,7 @@ const Rooms = ({
           onClick={() => {
             setClickedRoomName(room.conversationName);
             setClickedRoomId(room._id);
-            setClickedRoomMembers(room.participants);
+            setClickedRoomMembers([...new Set(room.participants)]);
             setActive(true);
             setInterval(() => {
               setActive(false);
