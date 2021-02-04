@@ -5,7 +5,6 @@ import Signup from "./components/Signup";
 import { debounce } from "lodash";
 import $ from "jquery";
 import { Switch, Route, HashRouter } from "react-router-dom";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 function App() {
   useEffect(() => {
@@ -23,6 +22,15 @@ function App() {
   }, []);
   return (
     <div className="App">
+      {/* <Router>
+      <Router basename="/workshop2020">
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/chat" component={Chat} />
+        </Switch>
+      </Router> */}
+
       <HashRouter>
         <Switch>
           <Route exact path="/" component={Login} />
