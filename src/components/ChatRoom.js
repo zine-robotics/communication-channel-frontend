@@ -178,7 +178,7 @@ const ChatRoom = ({ token, user }) => {
                       <span></span>
                     )}
                     {console.log(clickedRoomMembers)}
-                    {clickedRoomMembers.length !== 2 &&
+                    {clickedRoomMembers.length > 4 &&
                       clickedRoomMembers.map((clickedRoomMember, index) =>
                         clickedRoomMember !== user._id &&
                         clickedRoomMember.info ? (
