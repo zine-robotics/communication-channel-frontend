@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./css/ChatRoom.css";
 import $ from "jquery";
 import Message from "./Message";
@@ -12,14 +12,6 @@ import axios from "axios";
 import config from "../config.json";
 
 const socket = getSocket();
-
-// $(function () {
-//   if ($("#ms-menu-trigger")[0]) {
-//     $("body").on("clixck", "#ms-menu-trigger", function () {
-//       $(".ms-menu").toggleClass("toggled");
-//     });
-//   }
-// });
 
 const ChatRoom = ({ token, user }) => {
   const [isActive, setActive] = useState(false);
@@ -80,12 +72,24 @@ const ChatRoom = ({ token, user }) => {
     }
   };
 
+  const messagesEndRef = useRef(null);
+  const scrollToBottom = () => {
+    if(messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ block: 'nearest', inline: 'start' })
+    }
+  };
+  
   useEffect(() => {
+    scrollToBottom()
+  }, [clickedRoomMessages]); 
+
+   useEffect(() => {
     if (!clickedRoomId) return;
     getMessages(clickedRoomId);
   }, [clickedRoomId]);
 
   const getMessages = async (clickedRoomId) => {
+    
     const res = await axios.post(
       `${config.server}/messages/`,
       {
@@ -105,19 +109,39 @@ const ChatRoom = ({ token, user }) => {
 
   useEffect(() => {
     getDmRoom(clickedMemberIdForDm, clickedMemberNameForDm);
+    console.log('Clicked member id for dm');
   }, [clickedMemberIdForDm, setClickedMemberNameForDm]);
+
+  const renderMessages = ({ senderId, content, type, createdAt, senderName}, index ) => {
+    if(type === "file") {
+      const blob = new Blob([content], {type:type});
+
+      return (
+        <h1>Hello</h1>
+      )
+    }
+    return (
+      <Message
+        senderId={senderId}
+        content={content}
+        createdAt={createdAt}
+        user={user}
+        senderName={senderName}
+        key={index}
+      />
+    )
+}
 
   const sendMessage = () => {
     const content = document.getElementById("box").value;
-    if (/\S/.test(content)) {
       socket.emit("message", {
         senderId: user._id,
         content,
+        type: "text",
         createdAt: Date().toLocaleString(),
         senderName: user.fullName,
       });
       document.getElementById("box").value = "";
-    }
   };
 
   useEffect(() => {
@@ -218,24 +242,13 @@ const ChatRoom = ({ token, user }) => {
                     <div className="messages">
                       <div className="reverse" id="messages">
                         {clickedRoomMessages &&
-                          clickedRoomMessages.map(
-                            (
-                              { senderId, content, createdAt, senderName },
-                              index
-                            ) => (
-                              <Message
-                                senderId={senderId}
-                                content={content}
-                                createdAt={createdAt}
-                                user={user}
-                                senderName={senderName}
-                                key={index}
-                              />
-                            )
-                          )}
+                          clickedRoomMessages.map(renderMessages)}
+                          {console.log("messages rendered successfully.")}
+                          <div ref={messagesEndRef} /> 
                       </div>
                     </div>
                     {/* MESSAGES END */}
+
                     <div className="msb-reply">
                       <textarea
                         placeholder="What's on your mind..."
@@ -244,11 +257,9 @@ const ChatRoom = ({ token, user }) => {
                         onKeyDown={(event) => onEnterPress(event)}
                       />
                       <button
-                        onClick={() => {
-                          sendMessage();
-                        }}
+                        onClick={() => sendMessage() }
                       >
-                        <i className="fa fa-paper-plane-o" />
+                        Send
                       </button>
                     </div>
                   </div>
