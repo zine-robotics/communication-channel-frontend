@@ -10,6 +10,7 @@ import BounceLoader from "react-spinners/BounceLoader";
 import Navbar from "./navbar";
 import axios from "axios";
 import config from "../config.json";
+import { flushSync } from "react-dom";
 
 const socket = getSocket();
 
@@ -17,6 +18,7 @@ const ChatRoom = ({ token, user }) => {
   const [isActive, setActive] = useState(false);
   const [clickedRoomName, setClickedRoomName] = useState("");
   const [clickedRoomMessages, setClickedRoomMessages] = useState([]);
+  const [message, setMessage] = useState("");
   const [clickedRoomMembers, setClickedRoomMembers] = useState([]);
   const [clickedMemberIdForDm, setClickedMemberIdForDm] = useState("");
   const [clickedMemberNameForDm, setClickedMemberNameForDm] = useState("");
@@ -113,13 +115,7 @@ const ChatRoom = ({ token, user }) => {
   }, [clickedMemberIdForDm, setClickedMemberNameForDm]);
 
   const renderMessages = ({ senderId, content, type, createdAt, senderName}, index ) => {
-    if(type === "file") {
-      const blob = new Blob([content], {type:type});
 
-      return (
-        <h1>Hello</h1>
-      )
-    }
     return (
       <Message
         senderId={senderId}
@@ -131,18 +127,45 @@ const ChatRoom = ({ token, user }) => {
       />
     )
 }
-
+  
+  
+  // Socket io implementation.
   const sendMessage = () => {
-    const content = document.getElementById("box").value;
-      socket.emit("message", {
-        senderId: user._id,
-        content,
-        type: "text",
-        createdAt: Date().toLocaleString(),
-        senderName: user.fullName,
-      });
-      document.getElementById("box").value = "";
+    var content = document.getElementById("box").value;
+
+    socket.emit("message", {
+      senderId: user._id,
+      content,
+      type: "text",
+      createdAt: Date().toLocaleString(),
+      senderName: user.fullName,
+    });
+    document.getElementById("box").value = "";
+    setMessage("");
+    document.getElementById("file-image").value = '';
+    content=""
   };
+
+  const selectFile = e => {
+    const files = Array.from(e.target.files)
+    setMessage(files[0].name)
+    readThenSendFile(files[0])
+    e.target.value = null;
+}
+
+const readThenSendFile = (data) => {
+  var reader = new FileReader()
+  reader.readAsDataURL(data)
+  reader.onload = function() {
+    socket.emit("message", {
+      senderId: user._id,
+      content: reader.result,
+      type: "file",
+      createdAt: Date().toLocaleString(),
+      senderName: user.fullName,
+    });
+  }
+}
 
   useEffect(() => {
     socket.on("message", (data) => {
@@ -256,10 +279,11 @@ const ChatRoom = ({ token, user }) => {
                         id="box"
                         onKeyDown={(event) => onEnterPress(event)}
                       />
+                      <input id="file-image" onChange={selectFile} type="file" name="avatar"></input>
                       <button
                         onClick={() => sendMessage() }
                       >
-                        Send
+                        <i className="fa fa-paper-plane-o" />
                       </button>
                     </div>
                   </div>
