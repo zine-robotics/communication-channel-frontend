@@ -29,7 +29,11 @@ const Login = () => {
         console.log("Successfully Signed in");
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify(user));
-        history.push("/chat");
+        if(res.data.user.role === "admin") {
+          history.push("/admin")
+        } else {
+          history.push("/chat")
+        }
       } else {
         console.log(res);
       }
