@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import FormData from "form-data";
+import { ProgressBar } from "react-bootstrap";
 import "./css/ChatRoom.css";
 import $ from "jquery";
 import Message from "./Message";
@@ -10,26 +12,21 @@ import BounceLoader from "react-spinners/BounceLoader";
 import Navbar from "./navbar";
 import axios from "axios";
 import config from "../config.json";
+import { flushSync } from "react-dom";
 
 const socket = getSocket();
-
-// $(function () {
-//   if ($("#ms-menu-trigger")[0]) {
-//     $("body").on("clixck", "#ms-menu-trigger", function () {
-//       $(".ms-menu").toggleClass("toggled");
-//     });
-//   }
-// });
 
 const ChatRoom = ({ token, user }) => {
   const [isActive, setActive] = useState(false);
   const [clickedRoomName, setClickedRoomName] = useState("");
   const [clickedRoomMessages, setClickedRoomMessages] = useState([]);
+  const [message, setMessage] = useState("");
   const [clickedRoomMembers, setClickedRoomMembers] = useState([]);
   const [clickedMemberIdForDm, setClickedMemberIdForDm] = useState("");
   const [clickedMemberNameForDm, setClickedMemberNameForDm] = useState("");
   const [rooms, setRooms] = useState([]);
   const [clickedRoomId, setClickedRoomId] = useState("");
+  const [percentage, setPercentage] = useState(0);
   const acknowledgement = (ack) => {
     if (ack) {
       alert(ack);
@@ -80,12 +77,24 @@ const ChatRoom = ({ token, user }) => {
     }
   };
 
+  const messagesEndRef = useRef(null);
+  const scrollToBottom = () => {
+    if(messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ block: 'nearest', inline: 'start' })
+    }
+  };
+  
   useEffect(() => {
+    scrollToBottom()
+  }, [clickedRoomMessages]); 
+
+   useEffect(() => {
     if (!clickedRoomId) return;
     getMessages(clickedRoomId);
   }, [clickedRoomId]);
 
   const getMessages = async (clickedRoomId) => {
+    
     const res = await axios.post(
       `${config.server}/messages/`,
       {
@@ -105,20 +114,85 @@ const ChatRoom = ({ token, user }) => {
 
   useEffect(() => {
     getDmRoom(clickedMemberIdForDm, clickedMemberNameForDm);
+    console.log('Clicked member id for dm');
   }, [clickedMemberIdForDm, setClickedMemberNameForDm]);
 
+  const renderMessages = ({ senderId, content, type, createdAt, senderName}, index ) => {
+
+    return (
+      <Message
+        senderId={senderId}
+        content={content}
+        createdAt={createdAt}
+        user={user}
+        senderName={senderName}
+        key={index}
+      />
+    )
+}
+  
+  
+  // Socket io implementation.
   const sendMessage = () => {
-    const content = document.getElementById("box").value;
-    if (/\S/.test(content)) {
-      socket.emit("message", {
-        senderId: user._id,
-        content,
-        createdAt: Date().toLocaleString(),
-        senderName: user.fullName,
-      });
-      document.getElementById("box").value = "";
-    }
+    var content = document.getElementById("box").value;
+
+    socket.emit("message", {
+      senderId: user._id,
+      content,
+      type: "text",
+      createdAt: Date().toLocaleString(),
+      senderName: user.fullName,
+    });
+    document.getElementById("box").value = "";
+    setMessage("");
+    document.getElementById("file-image").value = '';
+    content=""
   };
+
+  const selectFile = async (e) => {
+    const files = Array.from(e.target.files)
+    setMessage(files[0].name)
+    const file = files[0]
+
+    var bodyFormData = new FormData()
+
+    bodyFormData.append('photo', file)
+
+    const options = {
+      headers: {
+        Authorization: token ? `Bearer ${token}` : "",
+        "Content-type": "multipart/form-data",
+      },
+      onUploadProgress: (progressEvent) => {
+        const { loaded, total } = progressEvent
+        let percent = Math.floor(loaded * 100 / total)
+        console.log(`${percent} %`)
+
+        if(percent < 100) {
+          setPercentage(percent)
+        }
+      }
+    }
+
+    const res = await axios.post(
+      `${config.server}/sendPhoto/`,
+      bodyFormData,
+      options
+    );
+    var content = res.data.url;
+    socket.emit("message", {
+      senderId: user._id,
+      content,
+      type: "file",
+      createdAt: Date().toLocaleString(),
+      senderName: user.fullName,
+    })
+    setPercentage(0)
+    document.getElementById("box").value = "";
+    setMessage("");
+    document.getElementById("file-image").value = '';
+    content=""
+}
 
   useEffect(() => {
     socket.on("message", (data) => {
@@ -177,7 +251,6 @@ const ChatRoom = ({ token, user }) => {
                     ) : (
                       <span></span>
                     )}
-                    {console.log(clickedRoomMembers)}
                     {clickedRoomMembers.length > 4 &&
                       clickedRoomMembers.map((clickedRoomMember, index) =>
                         clickedRoomMember !== user._id &&
@@ -218,24 +291,16 @@ const ChatRoom = ({ token, user }) => {
                     <div className="messages">
                       <div className="reverse" id="messages">
                         {clickedRoomMessages &&
-                          clickedRoomMessages.map(
-                            (
-                              { senderId, content, createdAt, senderName },
-                              index
-                            ) => (
-                              <Message
-                                senderId={senderId}
-                                content={content}
-                                createdAt={createdAt}
-                                user={user}
-                                senderName={senderName}
-                                key={index}
-                              />
-                            )
-                          )}
+                          clickedRoomMessages.map(renderMessages)}
+                          <div ref={messagesEndRef} /> 
+                          {/* The above line for reference has been added for messagesEnd. */}
                       </div>
                     </div>
                     {/* MESSAGES END */}
+                    <div>
+                      {percentage > 0 && <ProgressBar animated now={percentage} label={`${percentage}%`} />}
+                    </div>
+
                     <div className="msb-reply">
                       <textarea
                         placeholder="What's on your mind..."
@@ -243,10 +308,9 @@ const ChatRoom = ({ token, user }) => {
                         id="box"
                         onKeyDown={(event) => onEnterPress(event)}
                       />
+                      <input id="file-image" onChange={selectFile} type="file" name="avatar"></input>
                       <button
-                        onClick={() => {
-                          sendMessage();
-                        }}
+                        onClick={() => sendMessage() }
                       >
                         <i className="fa fa-paper-plane-o" />
                       </button>

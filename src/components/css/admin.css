@@ -1,0 +1,49 @@
+.admin{
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    height:70vh;
+    width:100%;
+  }
+  
+  .admin-left{
+    background-color: black;
+    height:100%;
+    width:20%;
+  }
+  .admin-right{
+    background-color: black;
+    height:100%;
+    width:80%;
+  }
+
+  .button-arrange{
+    background-color:black;
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .backdrop{
+    background-color: black;
+  }
+
+  .reader{
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .label{
+    width: 30%;
+  }
+
+  .input{
+    width: 70%;
+  }
+
+  .custom {
+    width: 100px;
+    margin: 20px 20px 20px 20px;
+  }
