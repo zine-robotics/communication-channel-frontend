@@ -1,5 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import { Link } from "react-router-dom";
 import "./css/ChatRoom.css";
 import gfm from "remark-gfm";
 
@@ -35,32 +36,66 @@ function Message({ senderId, content, createdAt, user, senderName }) {
   // useEffect(() => {
   //   getUserInfo();
   // });
-  if (user._id === senderId) {
-    return (
-      <div className="message-feed right">
-        <div className="pull-right" />
-        <div className="media-body">
-          <h5>{senderName}</h5>
-          <div className="mf-content">
-            <ReactMarkdown plugins={[gfm]} children={content} />
+
+
+
+
+  if (content.startsWith("http://res.cloudinary.com/df0ldmkyd/image/upload")) {
+    if (user._id === senderId) {
+      return (
+        <div className="message-feed right">
+          <div className="pull-right" />
+          <div className="media-body">
+            <h5 className="text-black">{senderName}</h5>
+            <div className="image-file">
+              <a href={content} target="_blank"><img src={content} alt="image file" width={50}></img></a>
+            </div>
+            <small className="mf-date">{formatAMPM(new Date(createdAt))}</small>
           </div>
-          <small className="mf-date">{formatAMPM(new Date(createdAt))}</small>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="message-feed media">
+          <div className="pull-left" />
+          <div className="media-body">
+            <h5 className="text-black">{senderName}</h5>
+            <div className="image-file">
+              <a href={content} target="_blank"><img src={content} alt="image file" height={200} width={200}></img></a>
+            </div>
+            <small className="mf-date">{formatAMPM(new Date(createdAt))}</small>
+          </div>
+        </div>
+      );
+    }
   } else {
-    return (
-      <div className="message-feed media">
-        <div className="pull-left" />
-        <div className="media-body">
-          <h5>{senderName}</h5>
-          <div className="mf-content">
-            <ReactMarkdown plugins={[gfm]} children={content} />
+    if (user._id === senderId) {
+      return (
+        <div className="message-feed right">
+          <div className="pull-right" />
+          <div className="media-body">
+            <h5>{senderName}</h5>
+            <div className="mf-content">
+              <ReactMarkdown plugins={[gfm]} children={content} />
+            </div>
+            <small className="mf-date">{formatAMPM(new Date(createdAt))}</small>
           </div>
-          <small className="mf-date">{formatAMPM(new Date(createdAt))}</small>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="message-feed media">
+          <div className="pull-left" />
+          <div className="media-body">
+            <h5>{senderName}</h5>
+            <div className="mf-content">
+              <ReactMarkdown plugins={[gfm]} children={content} />
+            </div>
+            <small className="mf-date">{formatAMPM(new Date(createdAt))}</small>
+          </div>
+        </div>
+      );
+    }
   }
 }
 export default Message;

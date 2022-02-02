@@ -46,7 +46,7 @@
   height: 100%;
 }
 .App {
-  background-image: url(./images/img4.webp);
+  background-color: black;
   background-repeat: repeat;
   background-attachment: fixed;
   background-size: 50% 100%;
@@ -106,7 +106,6 @@
 
 img {
   position: relative;
-  border-radius: 50px;
   /* margin-top: 22%;
     margin-left: 20%; */
   height: 100%;
@@ -293,6 +292,46 @@ img {
 .mf-content > p > a:active {
   color: #fff;
 }
+.message-feed:not(.right) .file-image {
+  background: #2196f3; /*#14213d;*/
+  font-size: 15px !important;
+  color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.message-feed.right .file-image {
+  background: #2196f3;
+  color: #fff;
+}
+.file-image {
+  padding: 12px 17px 13px !important;
+  border-radius: 5px !important;
+  display: inline-block !important;
+  max-width: 80% !important;
+  text-align: left !important;
+}
+
+.file-image > p {
+  margin-left: 0px;
+  margin-bottom: 0px;
+  color: #fff;
+}
+
+.file-image > p > a:link {
+  color: #fff;
+}
+
+.file-image > p > a:visited {
+  color: #fff;
+}
+
+.file-image > p > a:hover {
+  color: #fff;
+}
+
+.file-image > p > a:active {
+  color: #fff;
+}
 .mf-date {
   display: block;
   color: #586f7c;
@@ -332,7 +371,20 @@ textarea {
   height: 60px;
   background: 0 0;
 }
-.msb-reply button {
+.msb-reply  div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  border-radius: 10px;
+  height: 100%;
+  width: 60px;
+  font-size: 25px;
+  color: #2196f3;
+  background: 0 0;
+}
+
+.msb-reply  button {
   position: absolute;
   top: 0;
   right: 0;
@@ -347,6 +399,18 @@ textarea {
 .msb-reply button:hover {
   background: #2196f3;
   color: white;
+}
+
+.msb-reply input {
+  position: absolute;
+  top: 15px;
+  right: 60px;
+  border: 0;
+  height: 100%;
+  width: 90px;
+  font-size: 15px;
+  color: #2196f3;
+  background: 0 0;
 }
 .img-avatar {
   height: 37px;
@@ -464,4 +528,12 @@ textarea {
 
 ._loading_overlay_wrapper {
   height: 100%;
+}
+
+input[type=file]::file-selector-button {
+  background-color: #a29bfe;
+  transition: 1s;
+}
+input[type=file]::file-selector-button:hover {
+  background-color: #81ecec;
 }

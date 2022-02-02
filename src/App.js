@@ -5,6 +5,7 @@ import Signup from "./components/Signup";
 import { debounce } from "lodash";
 import $ from "jquery";
 import { Switch, Route, HashRouter } from "react-router-dom";
+import Admin from "./components/adminPages/admin";
 
 function App() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/chat" component={Chat} />
+          <Route path="/admin" component={Admin} />
         </Switch>
       </HashRouter>
     </div>
